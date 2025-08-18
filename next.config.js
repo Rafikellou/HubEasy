@@ -2,9 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ['images.unsplash.com', 'source.unsplash.com'],
-  },
   // Configuration pour le support des images optimisées
   images: {
     remotePatterns: [
