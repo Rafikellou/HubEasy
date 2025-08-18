@@ -1,40 +1,18 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import Header from '@/components/navigation/Header';
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap'
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Hub Easy - Intégration HubSpot pour PME/ETI B2B',
-  description: 'Implémentations et migrations HubSpot rapides, propres et mesurables pour votre entreprise.',
-  keywords: 'HubSpot, intégration, migration, CRM, marketing automation, PME, ETI, B2B',
+  title: 'Debug Hub Easy',
+  description: 'Debug session.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="pt-16">
-            {children}
-          </main>
-        </ThemeProvider>
+        <main>{children}</main>
       </body>
     </html>
   );
