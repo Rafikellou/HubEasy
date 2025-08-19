@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket, Calendar } from 'lucide-react';
 import { ArrowPathIcon, CurrencyDollarIcon, ServerStackIcon, UserIcon, BanknotesIcon, PresentationChartLineIcon, LockOpenIcon } from '@heroicons/react/24/outline';
+import HubspotContactForm from '@/components/contact/HubspotContactForm';
 import AnimatedSection from '@/components/animated-section';
 
 export default function Home() {
@@ -32,20 +33,24 @@ export default function Home() {
             Nous intégrons HubSpot pour vous facilter la vie.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full border-0 shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-105 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Contacter</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-700 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </Button>
-            <Button 
-              size="lg" 
-              className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              Voir la vidéo
-            </Button>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full border-0 shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-105 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Contacter</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-700 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button 
+                size="lg" 
+                className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Planifier RDV
+              </Button>
+            </Link>
           </div>
         </div>
         
@@ -133,10 +138,12 @@ export default function Home() {
               <p className="text-xl font-light text-gray-600 mb-8 leading-relaxed">
                 Nous transformons votre migration en opportunité d'optimisation.
               </p>
-              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                <span className="relative z-10">Planifier ma migration</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
+                  <span className="relative z-10">Planifier ma migration</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </Button>
+              </Link>
             </AnimatedSection>
             <AnimatedSection animation="slide-left" delay={200}>
               <div className="relative group">
@@ -206,9 +213,11 @@ export default function Home() {
                 ))}
               </div>
               <AnimatedSection animation="fade-up" delay={700}>
-                <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:via-red-600 hover:to-pink-500 hover:text-white hover:border-transparent font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 relative overflow-hidden group">
-                  <span className="relative z-10">Découvrir notre expertise</span>
-                </Button>
+                <Link href="/contact">
+                  <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:via-red-600 hover:to-pink-500 hover:text-white hover:border-transparent font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 relative overflow-hidden group">
+                    <span className="relative z-10">Découvrir notre expertise</span>
+                  </Button>
+                </Link>
               </AnimatedSection>
             </AnimatedSection>
           </div>
@@ -297,16 +306,20 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={300}>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                <span className="relative z-10">Commencer maintenant</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-black font-light px-12 py-6 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/10"
-              >
-                Planifier un appel
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
+                  <span className="relative z-10">Commencer maintenant</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-black font-light px-12 py-6 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/10"
+                >
+                  Planifier un appel
+                </Button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
@@ -325,43 +338,8 @@ export default function Home() {
           </AnimatedSection>
           
           <AnimatedSection animation="scale-up" delay={200}>
-            <div className="bg-gray-50 rounded-3xl p-12 shadow-lg hover:shadow-2xl transition-all duration-500">
-              <form className="space-y-8">
-                <AnimatedSection animation="fade-up" delay={400}>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <input 
-                      type="text" 
-                      placeholder="Votre nom"
-                      className="w-full px-6 py-4 rounded-full border border-gray-200 focus:border-red-500 focus:outline-none transition-colors duration-300 font-light"
-                    />
-                    <input 
-                      type="email" 
-                      placeholder="Votre email"
-                      className="w-full px-6 py-4 rounded-full border border-gray-200 focus:border-red-500 focus:outline-none transition-colors duration-300 font-light"
-                    />
-                  </div>
-                </AnimatedSection>
-                <AnimatedSection animation="fade-up" delay={500}>
-                  <input 
-                    type="text" 
-                    placeholder="Nom de votre entreprise"
-                    className="w-full px-6 py-4 rounded-full border border-gray-200 focus:border-red-500 focus:outline-none transition-colors duration-300 font-light"
-                  />
-                </AnimatedSection>
-                <AnimatedSection animation="fade-up" delay={600}>
-                  <textarea 
-                    placeholder="Décrivez votre projet..."
-                    rows={6}
-                    className="w-full px-6 py-4 rounded-3xl border border-gray-200 focus:border-red-500 focus:outline-none transition-colors duration-300 font-light resize-none"
-                  ></textarea>
-                </AnimatedSection>
-                <AnimatedSection animation="fade-up" delay={700}>
-                  <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                    <span className="relative z-10">Envoyer le message</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </Button>
-                </AnimatedSection>
-              </form>
+            <div className="mt-12">
+              <HubspotContactForm />
             </div>
           </AnimatedSection>
         </div>

@@ -52,9 +52,11 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-6 py-2 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25">
-              Commencer
-            </Button>
+            <Link href="/contact">
+              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-6 py-2 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25">
+                Contacter
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -92,12 +94,13 @@ export default function Header() {
               </Link>
             ))}
             <div className="pt-4 pb-2">
-              <Button 
-                className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light py-3 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Commencer
-              </Button>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button 
+                  className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light py-3 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+                >
+                  Commencer
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
