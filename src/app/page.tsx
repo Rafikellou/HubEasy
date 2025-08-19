@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket } from 'lucide-react';
+import { ArrowPathIcon, CurrencyDollarIcon, ServerStackIcon, UserIcon, BanknotesIcon, PresentationChartLineIcon, LockOpenIcon } from '@heroicons/react/24/outline';
 import AnimatedSection from '@/components/animated-section';
 
 export default function Home() {
@@ -28,14 +29,14 @@ export default function Home() {
             <span className="text-red-500 font-extralight">Simplifié.</span>
           </h1>
           <p className="text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-            L'intégration HubSpot réinventée pour les entreprises modernes.
+            Nous intégrons HubSpot pour vous facilter la vie.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full border-0 shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-105 relative overflow-hidden group"
             >
-              <span className="relative z-10">Commencer</span>
+              <span className="relative z-10">Contacter</span>
               <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-700 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Button>
             <Button 
@@ -43,7 +44,7 @@ export default function Home() {
               className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
             >
               <Play className="w-5 h-5 mr-2" />
-              Voir la démo
+              Voir la vidéo
             </Button>
           </div>
         </div>
@@ -66,10 +67,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <AnimatedSection animation="fade-up" className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl font-thin text-gray-900 mb-6 tracking-tight">
-              Connecté.
+              Unifié.
             </h2>
             <p className="text-2xl font-light text-gray-600 max-w-3xl mx-auto">
-              Vos outils favoris. Une seule plateforme.
+              Toutes vos données. Une seule plateforme.
             </p>
           </AnimatedSection>
           
@@ -78,8 +79,8 @@ export default function Home() {
             <div className="relative group cursor-pointer">
               <div className="relative h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-                  alt="Dashboard connecté"
+                  src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+                  alt="Homme regardant un ordinateur portable avec des icônes numériques flottantes"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -95,10 +96,10 @@ export default function Home() {
           {/* Integration Cards */}
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { name: 'Salesforce', icon: '🔗' },
-              { name: 'Zapier', icon: '⚡' },
-              { name: 'Slack', icon: '💬' },
-              { name: 'Microsoft', icon: '📊' }
+              { name: 'Salesforce', icon: <ArrowPathIcon className="w-10 h-10" /> },
+              { name: 'Sage', icon: <CurrencyDollarIcon className="w-10 h-10" /> },
+              { name: 'Microsoft Dynamics', icon: <ServerStackIcon className="w-10 h-10" /> },
+              { name: 'ZoomInfo', icon: <UserIcon className="w-10 h-10" /> }
             ].map((app, index) => (
               <AnimatedSection 
                 key={app.name} 
@@ -108,10 +109,10 @@ export default function Home() {
                 className="group"
               >
                 <div className="bg-white rounded-3xl p-8 h-48 flex flex-col justify-center items-center transition-all duration-500 hover:bg-red-500 hover:text-white hover:scale-105 hover:shadow-2xl cursor-pointer border border-gray-200 shadow-lg">
-                  <div className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
+                  <div className="mb-4 text-gray-800 group-hover:text-white transition-all duration-300 group-hover:scale-110">
                     {app.icon}
                   </div>
-                  <h3 className="text-xl font-light text-gray-900 group-hover:text-white transition-colors duration-300">{app.name}</h3>
+                  <h3 className="text-xl font-light text-center text-gray-900 group-hover:text-white transition-colors duration-300">{app.name}</h3>
                 </div>
               </AnimatedSection>
             ))}
@@ -141,8 +142,8 @@ export default function Home() {
               <div className="relative group">
                 <div className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-                    alt="Dashboard de migration de données HubSpot"
+                    src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+                    alt="Visualisation abstraite de la synchronisation de données"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -192,9 +193,9 @@ export default function Home() {
               </p>
               <div className="space-y-4 mb-8">
                 {[
-                  '150+ projets réussis',
-                  '98% de satisfaction client',
-                  'Support 24/7'
+                  '+25 ans d\'expérience cumulés',
+                  '100% de satisfaction client à ce jour',
+                  'Disponible pour vous 24/7'
                 ].map((stat, index) => (
                   <AnimatedSection key={index} animation="fade-up" delay={400 + index * 100}>
                     <div className="flex items-center">
@@ -222,34 +223,34 @@ export default function Home() {
               Transparent.
             </h2>
             <p className="text-2xl font-light text-gray-600 mb-20 max-w-3xl mx-auto">
-              Pas de surprises. Que de la valeur.
+              Devis sans surprise. Délais maitrisés
             </p>
           </AnimatedSection>
           
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               { 
-                title: 'Forfait', 
-                desc: 'Prix fixes et transparents',
-                icon: '💰',
+                title: 'Budget', 
+                desc: 'Prix clairs et transparents',
+                icon: <BanknotesIcon className="w-12 h-12 text-red-500" />,
                 highlight: '0€ de surprise'
               },
               { 
-                title: 'Facturation', 
-                desc: 'Payez ce que vous consommez',
-                icon: '📊',
-                highlight: 'Temps réel'
+                title: 'Impact', 
+                desc: 'Résultats attendus',
+                icon: <PresentationChartLineIcon className="w-12 h-12 text-red-500" />,
+                highlight: 'ROI garanti'
               },
               { 
                 title: 'Engagement', 
                 desc: 'Flexibilité totale',
-                icon: '🔓',
+                icon: <LockOpenIcon className="w-12 h-12 text-red-500" />,
                 highlight: 'Sans contrainte'
               },
             ].map((item, index) => (
               <AnimatedSection key={index} animation="bounce-in" delay={index * 200 + 300} duration={1200} className="group">
                 <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
-                  <div className="text-5xl mb-6 transition-transform duration-300 group-hover:scale-110">
+                  <div className="mb-6 flex justify-center transition-transform duration-300 group-hover:scale-110">
                     {item.icon}
                   </div>
                   <h3 className="text-2xl font-light text-gray-900 mb-4">{item.title}</h3>
