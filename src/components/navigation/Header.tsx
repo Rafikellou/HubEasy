@@ -1,9 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Popover, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { UsersIcon, CloudIcon, NewspaperIcon } from '@heroicons/react/24/outline';
+
+const resources = [
+  { name: 'Cas client', href: '/cas-clients', icon: UsersIcon },
+  { name: 'Focus Salesforce', href: '/salesforce', icon: CloudIcon },
+  { name: 'Articles', href: '/articles', icon: NewspaperIcon },
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,15 +22,6 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navigation = [
-    { name: 'Accueil', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Salesforce', href: '/salesforce' },
-    { name: 'Cas clients', href: '/cas-clients' },
-    { name: 'Ressources', href: '/ressources' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,26 +29,60 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-thin text-gray-900">
-                Hub<span className="text-red-500 font-light">Easy</span>
-              </span>
+              <Image
+                src="/images/logo-hubeasy.png"
+                alt="HubEasy Logo"
+                width={120}
+                height={32}
+                priority
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-red-500 px-3 py-2 text-sm font-light transition-colors duration-300 relative group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center space-x-10">
+            <Link href="/" className="text-gray-600 hover:text-red-500 transition-colors duration-300 font-light">Accueil</Link>
+            <Link href="/services" className="text-gray-600 hover:text-red-500 transition-colors duration-300 font-light">Services</Link>
+
+            <Popover className="relative">
+              {({ open }: { open: boolean }) => (
+                <>
+                  <Popover.Button className="flex items-center gap-x-1 text-gray-600 hover:text-red-500 transition-colors duration-300 font-light focus:outline-none">
+                    <span>Ressources</span>
+                    <ChevronDownIcon className={`h-5 w-5 transition-transform duration-200 ${open ? 'transform rotate-180' : ''}`} aria-hidden="true" />
+                  </Popover.Button>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-200"
+                    enterFrom="opacity-0 translate-y-1"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition ease-in duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 translate-y-1"
+                  >
+                    <Popover.Panel className="absolute -left-8 top-full z-10 mt-5 w-64 rounded-xl bg-white p-2 shadow-lg ring-1 ring-gray-900/5">
+                      {
+                        resources.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
+                          >
+                            <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
+                              <item.icon className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
+                            </div>
+                            {item.name}
+                          </Link>
+                        ))
+                      }
+                    </Popover.Panel>
+                  </Transition>
+                </>
+              )}
+            </Popover>
+
+            <Link href="/contact" className="text-gray-600 hover:text-red-500 transition-colors duration-300 font-medium">Contact</Link>
           </div>
 
           {/* Desktop CTA Button */}
@@ -83,25 +118,31 @@ export default function Header() {
             : 'max-h-0 opacity-0 invisible overflow-hidden'
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 border border-gray-200/50 shadow-lg">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-red-500 hover:bg-red-50 block px-3 py-2 rounded-md text-base font-light transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="pt-4 pb-2">
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                <Button 
-                  className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light py-3 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+            <Link href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Accueil</Link>
+            <Link href="/services" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Services</Link>
+            <div className="px-3 py-2 font-medium text-gray-700">Ressources</div>
+            <div className="pl-4">
+              {resources.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  Commencer
-                </Button>
-              </Link>
+                  {item.name}
+                </Link>
+              ))}
             </div>
+            <Link href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          </div>
+          <div className="pt-4 pb-2">
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+              <Button 
+                className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light py-3 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+              >
+                Commencer
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>

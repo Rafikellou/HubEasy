@@ -8,12 +8,12 @@ export default function CasClients() {
   const caseStudies = [
     {
       id: 'techcorp-migration',
-      company: 'TechCorp Solutions',
+      company: 'Start-up en croissance',
       sector: 'SaaS B2B',
       challenge: 'Migration CRM complexe',
       title: 'Migration de 50 000 contacts depuis Salesforce vers HubSpot',
       description: 'Une entreprise SaaS de 200 employés devait migrer son écosystème CRM complet tout en maintenant ses opérations commerciales.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
+      image: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
       results: [
         { metric: '50 000+', label: 'Contacts migrés', icon: <Users className="w-5 h-5" /> },
         { metric: '0%', label: 'Perte de données', icon: <Database className="w-5 h-5" /> },
@@ -29,14 +29,14 @@ export default function CasClients() {
       ],
       testimonial: {
         quote: "HubEasy a transformé notre migration en opportunité d'optimisation. Nos équipes sont plus productives que jamais.",
-        author: "Marie Dubois",
+        author: "Marie D.",
         role: "Directrice des Opérations"
       },
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
       id: 'retailplus-automation',
-      company: 'RetailPlus',
+      company: 'Boutique en ligne spécialisée',
       sector: 'E-commerce',
       challenge: 'Automatisation marketing',
       title: 'Automatisation complète du parcours client e-commerce',
@@ -57,14 +57,14 @@ export default function CasClients() {
       ],
       testimonial: {
         quote: "Nos campagnes marketing sont maintenant 100% automatisées. Le ROI a explosé !",
-        author: "Thomas Martin",
+        author: "Thomas M.",
         role: "Directeur Marketing"
       },
       gradient: 'from-green-500 to-emerald-500'
     },
     {
       id: 'manufact-revops',
-      company: 'ManufactPro',
+      company: 'PME industrielle',
       sector: 'Industrie',
       challenge: 'Optimisation RevOps',
       title: 'Alignement Sales-Marketing pour un industriel de 500M€',
@@ -85,19 +85,19 @@ export default function CasClients() {
       ],
       testimonial: {
         quote: "Enfin une vision unifiée entre nos équipes ! Le processus est fluide et les résultats parlent d'eux-mêmes.",
-        author: "Pierre Leroy",
+        author: "Pierre L.",
         role: "VP Sales & Marketing"
       },
       gradient: 'from-orange-500 to-red-500'
     },
     {
       id: 'fintech-integration',
-      company: 'FinTech Innovations',
+      company: 'Société de services financiers',
       sector: 'Services financiers',
       challenge: 'Intégrations ERP complexes',
       title: 'Intégration HubSpot avec SAP pour une fintech en croissance',
       description: 'Une fintech en hypercroissance devait connecter HubSpot à son ERP SAP pour une vue client 360°.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
+      image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
       results: [
         { metric: '100%', label: 'Sync temps réel', icon: <Zap className="w-5 h-5" /> },
         { metric: '360°', label: 'Vue client unifiée', icon: <Target className="w-5 h-5" /> },
@@ -113,14 +113,14 @@ export default function CasClients() {
       ],
       testimonial: {
         quote: "L'intégration SAP-HubSpot nous a donné une vision client complète. Un game-changer pour notre croissance.",
-        author: "Sophie Chen",
+        author: "Sophie C.",
         role: "COO"
       },
       gradient: 'from-purple-500 to-pink-500'
     },
     {
       id: 'agency-cms',
-      company: 'Creative Agency Pro',
+      company: 'Agence de marketing',
       sector: 'Agence marketing',
       challenge: 'Refonte site web',
       title: 'Site web haute performance sur HubSpot CMS Hub',
@@ -141,7 +141,7 @@ export default function CasClients() {
       ],
       testimonial: {
         quote: "Notre nouveau site génère 3x plus de leads qualifiés. HubSpot CMS est parfait pour notre stratégie inbound.",
-        author: "Alex Moreau",
+        author: "Alex M.",
         role: "Directeur Général"
       },
       gradient: 'from-indigo-500 to-purple-500'
@@ -149,32 +149,37 @@ export default function CasClients() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-          }}></div>
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-client-success.jpg"
+            alt="Poignée de main dans un bureau moderne"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
         </div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <AnimatedSection animation="fade-up" className="text-center">
-            <h1 className="text-5xl md:text-7xl font-thin text-gray-900 mb-6 tracking-tight">
-              Cas <span className="text-red-500">Clients</span>
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-5xl md:text-7xl font-thin tracking-tight">
+             Cas Clients
             </h1>
-            <p className="text-2xl font-light text-gray-600 max-w-3xl mx-auto mb-12">
-              Découvrez comment nous avons transformé l'écosystème HubSpot de nos clients
+            <p className="mt-6 text-xl md:text-2xl max-w-3xl mx-auto font-light opacity-90">
+              Découvrez comment nous transformons les défis de nos clients en succès.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-32 bg-white">
+      {/* Case Studies Grid */}
+      <main className="py-20 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="space-y-32">
             {caseStudies.map((caseStudy, index) => (
-              <div key={caseStudy.id} className="bg-gray-50 rounded-3xl p-8 md:p-16 overflow-hidden">
+              <div key={caseStudy.id} className="bg-white rounded-3xl p-8 md:p-12 shadow-lg overflow-hidden">
                 <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   <AnimatedSection 
                     animation={index % 2 === 0 ? "slide-right" : "slide-left"}
@@ -208,7 +213,7 @@ export default function CasClients() {
                             animation="fade-up" 
                             delay={200 + resultIndex * 100}
                           >
-                            <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
+                            <div className="bg-gray-100/50 rounded-2xl p-4 text-center">
                               <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-r ${caseStudy.gradient} text-white mb-2`}>
                                 {result.icon}
                               </div>
@@ -221,7 +226,7 @@ export default function CasClients() {
                       
                       {/* Testimonial */}
                       <AnimatedSection animation="fade-up" delay={600}>
-                        <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-red-500">
+                        <div className="bg-gray-100/50 rounded-2xl p-6 border-l-4 border-red-500">
                           <p className="text-gray-700 font-light italic mb-4">
                             "{caseStudy.testimonial.quote}"
                           </p>
@@ -255,7 +260,7 @@ export default function CasClients() {
                       </div>
                       
                       {/* Solutions */}
-                      <div className="bg-white rounded-2xl p-6 shadow-sm">
+                      <div className="bg-gray-100/50 rounded-2xl p-6">
                         <h4 className="text-lg font-medium text-gray-900 mb-4">Solutions mises en place</h4>
                         <div className="space-y-3">
                           {caseStudy.solutions.map((solution, solutionIndex) => (
@@ -279,36 +284,48 @@ export default function CasClients() {
             ))}
           </div>
         </div>
-      </section>
+      </main>
 
       {/* CTA Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="py-32 bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <Image
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+            alt="Réunion d'affaires moderne"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-5xl md:text-6xl font-thin text-gray-900 mb-8 tracking-tight">
-              Votre projet <span className="text-red-500">HubSpot</span> ?
+            <h2 className="text-5xl md:text-6xl font-thin mb-8 tracking-tight">
+              Prêt à discuter de votre projet ?
             </h2>
-            <p className="text-xl font-light text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl font-light mb-12 max-w-2xl mx-auto opacity-90">
               Rejoignez nos clients satisfaits et transformez votre écosystème HubSpot dès aujourd'hui.
             </p>
           </AnimatedSection>
           
           <AnimatedSection animation="fade-up" delay={300}>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                <span className="relative z-10">Discuter de mon projet</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-2 border-red-500 text-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:via-red-600 hover:to-pink-500 hover:text-white hover:border-transparent font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105"
-              >
-                Télécharger les études complètes
-              </Button>
+              <Link href="/contact">
+                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
+                  <span className="relative z-10">Discuter de mon projet</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button 
+                  variant="outline" 
+                  className="border-white text-white hover:bg-white hover:text-black font-light px-12 py-6 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/10"
+                >
+                  Planifier RDV
+                </Button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

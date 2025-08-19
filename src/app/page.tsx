@@ -14,7 +14,7 @@ export default function Home() {
         {/* Background Image - Modern Office */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Hero Photo Hub Easy.jpg"
+            src="/images/hero-photo-hubeasy.jpg"
             alt="Équipe professionnelle en réunion dans un bureau moderne avec espaces vitrés"
             fill
             className="object-cover"

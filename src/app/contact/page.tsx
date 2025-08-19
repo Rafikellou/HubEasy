@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-32 bg-white">
+      <section className="relative pt-24 pb-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <AnimatedSection animation="fade-up" className="text-center">
             <h1 className="text-5xl md:text-7xl font-thin text-gray-900 mb-6 tracking-tight">
@@ -19,32 +19,36 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Sections */}
-      <section className="py-16 space-y-16">
-        {/* Meeting Scheduler */}
-        <div className="max-w-4xl mx-auto px-4">
-          <AnimatedSection animation="fade-up">
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200/50 text-center">
-              <h2 className="text-3xl font-thin text-gray-900 mb-2">Bookez une visio avec Rafik</h2>
-              <p className="text-gray-600 font-light mb-6 max-w-2xl mx-auto">L'un des co-fondateurs de HubEasy. Vous serez surpris par son niveau d'analyse ;)</p>
-              <div className="overflow-hidden rounded-2xl">
-                <HubspotMeeting />
+      {/* Contact Sections Wrapper */}
+      <div className="space-y-12 py-12">
+        {/* Meeting Scheduler Section */}
+        <section>
+          <div className="max-w-4xl mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200/80 text-center">
+                <h2 className="text-3xl font-thin text-gray-900 mb-2">Bookez une visio avec Rafik</h2>
+                <p className="text-gray-600 font-light mb-6 max-w-2xl mx-auto">L'un des co-fondateurs de HubEasy. Vous serez surpris par son niveau d'analyse ;)</p>
+                <div className="overflow-hidden rounded-2xl">
+                  <HubspotMeeting />
+                </div>
               </div>
-            </div>
-          </AnimatedSection>
-        </div>
+            </AnimatedSection>
+          </div>
+        </section>
 
-        {/* Contact Form */}
-        <div className="max-w-4xl mx-auto px-4">
-          <AnimatedSection animation="fade-up" delay={200}>
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200/50 text-center">
-              <h2 className="text-3xl font-thin text-gray-900 mb-2">Ou laissez-nous un message</h2>
-              <p className="text-gray-600 font-light mb-6">Laissez-nous votre mail (au moins). Si vous rajoutez votre 06, c'est encore mieux ;)</p>
-              <HubspotContactForm />
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+        {/* Contact Form Section */}
+        <section>
+          <div className="max-w-4xl mx-auto px-4">
+            <AnimatedSection animation="fade-up" delay={200}>
+              <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200/80 text-center">
+                <h2 className="text-3xl font-thin text-gray-900 mb-2">Ou laissez-nous un message</h2>
+                <p className="text-gray-600 font-light mb-6">Laissez-nous votre mail (au moins). Si vous rajoutez votre 06, c'est encore mieux ;)</p>
+                <HubspotContactForm />
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
