@@ -62,100 +62,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intégrations Section - Clean Design */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 to-white relative">
-        {/* Subtle geometric pattern overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-          }}></div>
+      {/* Unify Data Section */}
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-base font-semibold leading-7 text-red-600">Unifiez vos données</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Une seule plateforme.</p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">Ventes, marketing, support : tout en un. Tout fluide.</p>
+          </AnimatedSection>
         </div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <AnimatedSection animation="fade-up" className="text-center mb-20">
-            <h2 className="text-5xl md:text-7xl font-thin text-gray-900 mb-6 tracking-tight">
-              Unifié.
-            </h2>
-            <p className="text-2xl font-light text-gray-600 max-w-3xl mx-auto">
-              Toutes vos données. Une seule plateforme.
-            </p>
+      </section>
+
+      {/* Integrations Section */}
+      <section className="py-24 sm:py-32 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Ce que nous intégrons</h2>
           </AnimatedSection>
-          
-          {/* Large Feature Image */}
-          <AnimatedSection animation="rotate-in" delay={300} duration={1200} className="mb-20">
-            <div className="relative group cursor-pointer">
-              <div className="relative h-96 md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-                  alt="Homme regardant un ordinateur portable avec des icônes numériques flottantes"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                <div className="absolute bottom-8 left-8 text-white">
-                  <h3 className="text-3xl font-light mb-2">Tableau de bord unifié</h3>
-                  <p className="text-lg font-light opacity-90">Toutes vos données en un coup d'œil</p>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-          
-          {/* Integration Cards */}
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { name: 'Salesforce', icon: <ArrowPathIcon className="w-10 h-10" /> },
-              { name: 'Sage', icon: <CurrencyDollarIcon className="w-10 h-10" /> },
-              { name: 'Microsoft Dynamics', icon: <ServerStackIcon className="w-10 h-10" /> },
-              { name: 'ZoomInfo', icon: <UserIcon className="w-10 h-10" /> }
-            ].map((app, index) => (
-              <AnimatedSection 
-                key={app.name} 
-                animation="bounce-in" 
-                delay={index * 150 + 600}
-                duration={1000}
-                className="group"
-              >
-                <div className="bg-white rounded-3xl p-8 h-48 flex flex-col justify-center items-center transition-all duration-500 hover:bg-red-500 hover:text-white hover:scale-105 hover:shadow-2xl cursor-pointer border border-gray-200 shadow-lg">
-                  <div className="mb-4 text-gray-800 group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                    {app.icon}
-                  </div>
-                  <h3 className="text-xl font-light text-center text-gray-900 group-hover:text-white transition-colors duration-300">{app.name}</h3>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[ 
+              { title: 'ERP', items: ['Odoo', 'Dolibarr', 'Sage'] },
+              { title: 'E-commerce', items: ['Shopify', 'WooCommerce', 'PrestaShop'] },
+              { title: 'Support', items: ['Zendesk', 'Freshdesk', 'Slack'] },
+              { title: 'Communication', items: ['Outlook', 'Gmail', 'Zoom'] },
+              { title: 'Marketing & Events', items: ['Typeform', 'Eventbrite', 'WebinarJam'] },
+              { title: 'Finance', items: ['QuickBooks', 'Cegid', 'Sage 100'] },
+            ].map((category, index) => (
+              <AnimatedSection key={category.title} animation="fade-up" delay={index * 100}>
+                <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
+                  <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    {category.items.map(item => (
+                      <li key={item} className="flex items-center">
+                        <CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </AnimatedSection>
             ))}
           </div>
+          <AnimatedSection animation="fade-up" delay={600} className="text-center mt-16">
+            <p className="text-2xl font-light text-gray-800 mb-8">👉 Vos outils parlent enfin entre eux.</p>
+            <Link href="/integrations">
+              <Button 
+                variant="outline" 
+                className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
+              >
+                Voir toutes nos intégrations
+              </Button>
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Migration Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Stress-free Migration Section */}
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection animation="slide-right">
-              <h2 className="text-5xl md:text-6xl font-thin text-gray-900 mb-8 tracking-tight">
-                Migration.
-                <br />
-                <span className="text-red-500">Sans stress.</span>
-              </h2>
-              <p className="text-xl font-light text-gray-600 mb-8 leading-relaxed">
-                Nous transformons votre migration en opportunité d'optimisation.
-              </p>
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                  <span className="relative z-10">Planifier ma migration</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </Button>
-              </Link>
+              <h2 className="text-base font-semibold leading-7 text-red-600">Migration sans stress</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Pas besoin d’être expert technique.</p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">Nous gérons la complexité pour vous. Vous démarrez HubSpot sans douleur.</p>
             </AnimatedSection>
             <AnimatedSection animation="slide-left" delay={200}>
               <div className="relative group">
                 <div className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-                    alt="Visualisation abstraite de la synchronisation de données"
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
+                    alt="Femme souriante dans un bureau moderne"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  {/* Migration progress overlay */}
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4">
                       <div className="flex items-center justify-between mb-2">
@@ -174,148 +154,120 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Expertise Section */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection animation="scale-up" className="relative group order-2 lg:order-1">
-              <div className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-                  alt="Équipe d'experts"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection animation="slide-left" delay={200} className="order-1 lg:order-2">
-              <h2 className="text-5xl md:text-6xl font-thin text-gray-900 mb-8 tracking-tight">
-                Expertise.
-                <br />
-                <span className="text-red-500">Prouvée.</span>
-              </h2>
-              <p className="text-xl font-light text-gray-600 mb-8 leading-relaxed">
-                Des processus RevOps optimisés par des années d'expérience.
-              </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  '+25 ans d\'expérience cumulés',
-                  '100% de satisfaction client à ce jour',
-                  'Disponible pour vous 24/7'
-                ].map((stat, index) => (
-                  <AnimatedSection key={index} animation="fade-up" delay={400 + index * 100}>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-4"></div>
-                      <span className="text-lg font-light text-gray-700">{stat}</span>
-                    </div>
-                  </AnimatedSection>
-                ))}
-              </div>
-              <AnimatedSection animation="fade-up" delay={700}>
-                <Link href="/contact">
-                  <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-gradient-to-r hover:from-red-500 hover:via-red-600 hover:to-pink-500 hover:text-white hover:border-transparent font-light px-8 py-4 rounded-full transition-all duration-500 hover:scale-105 relative overflow-hidden group">
-                    <span className="relative z-10">Découvrir notre expertise</span>
-                  </Button>
-                </Link>
-              </AnimatedSection>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Transparence Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <AnimatedSection animation="fade-up">
-            <h2 className="text-5xl md:text-7xl font-thin text-gray-900 mb-6 tracking-tight">
-              Transparent.
-            </h2>
-            <p className="text-2xl font-light text-gray-600 mb-20 max-w-3xl mx-auto">
-              Devis sans surprise. Délais maitrisés
-            </p>
+      {/* Client Cases Section */}
+      <section className="py-24 sm:py-32 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Cas clients</h2>
           </AnimatedSection>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {[
-              { 
-                title: 'Budget', 
-                desc: 'Prix clairs et transparents',
-                icon: <BanknotesIcon className="w-12 h-12 text-red-500" />,
-                highlight: '0€ de surprise'
-              },
-              { 
-                title: 'Impact', 
-                desc: 'Résultats attendus',
-                icon: <PresentationChartLineIcon className="w-12 h-12 text-red-500" />,
-                highlight: 'ROI garanti'
-              },
-              { 
-                title: 'Engagement', 
-                desc: 'Flexibilité totale',
-                icon: <LockOpenIcon className="w-12 h-12 text-red-500" />,
-                highlight: 'Sans contrainte'
-              },
-            ].map((item, index) => (
-              <AnimatedSection key={index} animation="bounce-in" delay={index * 200 + 300} duration={1200} className="group">
-                <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
-                  <div className="mb-6 flex justify-center transition-transform duration-300 group-hover:scale-110">
-                    {item.icon}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[ 
+              { title: 'Industrie', description: 'Intégration Odoo : 70% de saisie manuelle en moins.', icon: <TrendingUp size={32}/> },
+              { title: 'Conseil', description: 'Intégration Dolibarr : Facturation automatisée et sans erreur.', icon: <Database size={32}/> },
+              { title: 'SaaS', description: 'Intégration Dynamics : 25% d\'upsell additionnel en 9 mois.', icon: <Rocket size={32}/> },
+            ].map((clientCase, index) => (
+              <AnimatedSection key={clientCase.title} animation="fade-up" delay={index * 100}>
+                <div className="bg-white p-8 rounded-3xl shadow-xl h-full text-center group hover:bg-red-500 transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="text-red-500 group-hover:text-white transition-colors duration-300 mb-4">
+                    {clientCase.icon}
                   </div>
-                  <h3 className="text-2xl font-light text-gray-900 mb-4">{item.title}</h3>
-                  <p className="text-gray-600 font-light mb-4">{item.desc}</p>
-                  <div className="text-red-500 font-medium">{item.highlight}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">{clientCase.title}</h3>
+                  <p className="mt-4 text-gray-600 group-hover:text-red-100 transition-colors duration-300">{clientCase.description}</p>
                 </div>
               </AnimatedSection>
             ))}
           </div>
-          
-          {/* Pricing showcase */}
-          <AnimatedSection animation="scale-up" delay={600}>
-            <div className="relative">
-              <div className="bg-white rounded-3xl p-12 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 cursor-pointer">
-                <h3 className="text-3xl font-light text-gray-900 mb-8">Tarification simple</h3>
-                <div className="text-6xl font-thin text-red-500 mb-4">450€</div>
-                <p className="text-xl font-light text-gray-600">par jour d'intervention</p>
-              </div>
+          <AnimatedSection animation="fade-up" delay={300} className="text-center mt-16">
+            <Link href="/cas-clients">
+              <Button 
+                variant="outline" 
+                className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
+              >
+                Voir plus de cas clients
+              </Button>
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Strengths Section */}
+      <section className="py-24 sm:py-32 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Nos points forts</h2>
+          </AnimatedSection>
+          <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
+            {[
+              { title: "Aller jusqu'au bout du bout", description: "Pour que les users HubSpot trouvent l'outil simple et vraiment utile." },
+              { title: "Notre compréhension business", description: "En Marketing & Sales, couplée à notre savoir-faire technique." },
+              { title: "Notre agilité", description: "Pour livrer des projets ultra fluides." },
+            ].map((strength, index) => (
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <div className="bg-gray-800 p-8 rounded-2xl shadow-lg h-full">
+                  <div className="flex justify-center mb-4">
+                    <div className="bg-red-100 p-3 rounded-full">
+                      <CheckCircle className="w-7 h-7 text-red-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{strength.title}</h3>
+                  <p className="text-gray-400">{strength.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection animation="fade-up" delay={400} className="mt-16 text-center">
+            <Link href="/services">
+              <Button 
+                variant="outline" 
+                className="border-2 border-red-500 text-red-500 bg-white hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
+              >
+                En savoir plus sur nos services
+              </Button>
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-24 sm:py-32 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Nos tarifs</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">Des packs simples, sans surprise. Pas d’heures facturées, pas de coûts cachés. Toujours basés sur le résultat.</p>
+            <div className="mt-10">
+              <Link href="/tarifs">
+                <Button 
+                  className="bg-red-600 text-white hover:bg-red-700 font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
+                >
+                  Voir nos offres
+                </Button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-black text-white relative overflow-hidden">
-        {/* Background Image - Business Meeting */}
-        <div className="absolute inset-0 opacity-30">
+      {/* Final CTA Section */}
+      <section className="relative py-32 sm:py-48 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-            alt="Réunion d'affaires moderne"
+            src="https://images.unsplash.com/photo-1554672408-730436b60dde?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
+            alt="Bureau moderne en arrière-plan"
             fill
             className="object-cover"
           />
+          <div className="absolute inset-0 bg-black/80"></div>
         </div>
-        
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-5xl md:text-7xl font-thin mb-8 tracking-tight">
-              Prêt à <span className="text-red-500">décoller</span> ?
-            </h2>
-            <p className="text-2xl font-light mb-12 max-w-2xl mx-auto opacity-90">
-              Transformons votre vision en réalité HubSpot.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection animation="fade-up" delay={300}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                  <span className="relative z-10">Commencer maintenant</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </Button>
-              </Link>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Prêt à simplifier HubSpot ?</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">Vous venez d’acheter HubSpot ? Assurez-vous qu’il fonctionne simplement.</p>
+            <div className="mt-10">
               <Link href="/contact">
                 <Button 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-black font-light px-12 py-6 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/10"
+                  size="lg" 
+                  className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
                 >
                   Planifier un appel
                 </Button>
@@ -326,19 +278,14 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-5xl md:text-6xl font-thin text-gray-900 mb-8 tracking-tight">
-              Parlons-en.
-            </h2>
-            <p className="text-xl font-light text-gray-600 mb-12 max-w-2xl mx-auto">
-              Un email suffit. Nous nous occupons du reste.
-            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Contact</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">Parlez-nous de votre projet. Nous revenons vers vous sous 24h.</p>
           </AnimatedSection>
-          
-          <AnimatedSection animation="scale-up" delay={200}>
-            <div className="mt-12">
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="mt-10">
               <HubspotContactForm />
             </div>
           </AnimatedSection>

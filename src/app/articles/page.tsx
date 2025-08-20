@@ -14,7 +14,7 @@ const featuredArticle = {
   date: "2024-08-15",
   readTime: "7 min",
   category: "Intégrations",
-  image: "/images/hero-photo-hubeasy.jpg",
+  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
   featured: true
 };
 
@@ -27,7 +27,7 @@ const articles = [
     date: "2024-08-10",
     readTime: "5 min",
     category: "Intégrations",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60"
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const articles = [
     date: "2024-08-05",
     readTime: "6 min",
     category: "E-commerce",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60"
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const articles = [
     date: "2024-07-30",
     readTime: "8 min",
     category: "CRM",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60"
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const articles = [
     date: "2024-07-25",
     readTime: "5 min",
     category: "Support",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60"
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const articles = [
     date: "2024-07-20",
     readTime: "6 min",
     category: "Sport",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&auto=format&fit=crop&q=60"
   }
 ];
 
