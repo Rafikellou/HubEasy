@@ -2,13 +2,37 @@ import AnimatedSection from '@/components/AnimatedSection';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle, Compass, Zap, BarChart, LifeBuoy, ArrowRight } from 'lucide-react';
+import { CheckCircle, Compass, Zap, BarChart, LifeBuoy, ArrowRight, Search, Share2, Mail, Bot, Users, Settings } from 'lucide-react';
 import { Fragment } from 'react';
+
+const processSteps = [
+  {
+    step: '1',
+    title: 'Audit',
+    price: '1 500 euros HT',
+    description: 'On clarifie besoins, données et priorités.',
+    icon: Compass,
+  },
+  {
+    step: '2',
+    title: 'Intégration',
+    price: 'à partir de 3 900 euros HT',
+    description: 'On met en place selon votre niveau (standard, intermédiaire, avancée).',
+    icon: Zap,
+  },
+  {
+    step: '3',
+    title: 'Support & optimisation',
+    price: 'à partir de 490 euros par mois',
+    description: 'On fait durer la valeur et on améliore en continu.',
+    icon: LifeBuoy,
+  },
+];
 
 const integrationTiers = [
   {
-    name: 'Intégration simple',
-    price: 'À partir de 3 900 € HT',
+    name: 'Intégration standard',
+    price: '3 900 € HT',
     features: [
       'Mise en place essentielle (pipelines, propriétés, imports)',
       'Automatisations clés (assignation, notifications)',
@@ -16,13 +40,13 @@ const integrationTiers = [
     ],
     idealFor: 'Faible complexité, mise en route rapide et efficace.',
     icon: Zap,
-    cta: { label: 'Lancer une intégration simple', href: '/contact' },
+    cta: { label: 'Lancer une intégration standard', href: '/contact' },
   },
   {
     name: 'Intégration intermédiaire',
-    price: 'À partir de 6 500 € HT',
+    price: '6 500 € HT',
     features: [
-      'Plus d’automatisations et de propriétés personnalisées',
+      'Plus d\'automatisations et de propriétés personnalisées',
       'Rapports avancés & dashboards adaptés',
       'Intégrations légères avec outils tiers',
     ],
@@ -31,8 +55,8 @@ const integrationTiers = [
     cta: { label: 'Parler de mon intégration', href: '/contact' },
   },
   {
-    name: 'Intégration évoluée',
-    price: 'Sur devis',
+    name: 'Intégration avancée',
+    price: 'Sur Devis',
     features: [
       'Connexions poussées (ERP, facturation…) via Make/Zapier',
       'Automatisations sur‑mesure & dataflows complexes',
@@ -40,8 +64,44 @@ const integrationTiers = [
     ],
     idealFor: 'Écosystème outillé, process complexes, scalabilité.',
     icon: BarChart,
-    cta: { label: 'Discuter d’un besoin complexe', href: '/contact' },
+    cta: { label: 'Discuter d\'un besoin complexe', href: '/contact' },
   },
+];
+
+const supportFeatures = [
+  'Créer de nouveaux WF, vues, listes, séquences',
+  'Correction d\'\u00e9ventuels bugs',
+  'Optimiser l\'affichage',
+];
+
+const aiAgents = [
+  {
+    name: 'Lucie',
+    role: 'Business développeur',
+    description: 'Scrape internet et vient enrichir tous les matins votre HubSpot avec des leads qualifiés',
+    icon: Search,
+    photo: '/lucie-photo.png',
+  },
+  {
+    name: 'Théo',
+    role: 'Community Manager',
+    description: 'Vient publier à fréquence optimisée des contenus sur vos réseaux pour remonter dans les recherches Google',
+    icon: Share2,
+    photo: '/theo-photo.png',
+  },
+  {
+    name: 'Anna',
+    role: 'Secrétaire intelligente',
+    description: 'Vient filtrer analyser vos mails. Peut-même répondre à votre place dans certains cas bien définis',
+    icon: Mail,
+    photo: '/anna-photo.png',
+  },
+];
+
+const aiPricing = [
+  { agents: '1 agent', price: '390 euros par mois' },
+  { agents: '2 agents', price: '590 euros par mois' },
+  { agents: '3 agents', price: '690 euros par mois' },
 ];
 
 export default function TarifsPage() {
@@ -71,67 +131,51 @@ export default function TarifsPage() {
         </div>
       </section>
 
-
-      {/* Flow: how projects run */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <AnimatedSection animation="fade-up" className="text-center">
+      {/* Process Timeline */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-thin text-gray-900">Comment ça se passe ?</h2>
-            <p className="mt-2 text-base md:text-lg font-normal text-gray-500">3 temps simples</p>
+            <p className="mt-2 text-base md:text-lg font-normal text-gray-500">3 étapes simples</p>
           </AnimatedSection>
-          <div className="mt-12">
-            <div className="flex flex-col md:flex-row md:items-stretch md:justify-center md:gap-4">
-              {[
-                { title: 'Audit', icon: Compass, desc: 'On clarifie besoins, données et priorités.' },
-                { title: 'Intégration', icon: Zap, desc: 'On met en place selon votre niveau (simple, intermédiaire, évoluée).' },
-                { title: 'Support & optimisation', icon: LifeBuoy, desc: 'On fait durer la valeur et on améliore en continu.' },
-              ].map((step, i, arr) => (
-                <Fragment key={step.title}>
-                  <AnimatedSection animation="fade-up" delay={i * 100}>
-                    <div className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full text-center mb-4 md:mb-0 md:min-w-[260px]">
-                      <step.icon className="w-8 h-8 text-red-500 mx-auto" />
-                      <h3 className="mt-3 text-lg font-medium text-gray-900">{step.title}</h3>
-                      <p className="mt-2 text-sm text-gray-600">{step.desc}</p>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden lg:block absolute top-32 left-16 right-16 h-0.5 bg-gray-200"></div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {processSteps.map((step, index) => (
+                <AnimatedSection key={step.step} animation="fade-up" delay={index * 150}>
+                  <div className="relative">
+                    <div className="bg-white border-2 border-gray-100 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-red-50 rounded-full mb-6">
+                        <step.icon className="w-8 h-8 text-red-500" />
+                      </div>
+                      <div className="mb-4">
+                        <span className="inline-block px-3 py-1 bg-red-100 text-red-600 text-sm font-medium rounded-full mb-2">
+                          Étape {step.step}
+                        </span>
+                        <h3 className="text-xl font-semibold text-gray-900">{step.title}</h3>
+                      </div>
+                      <p className="text-lg font-semibold text-red-600 mb-3">{step.price}</p>
+                      <p className="text-gray-600">{step.description}</p>
                     </div>
-                  </AnimatedSection>
-                  {i < arr.length - 1 && (
-                    <div className="hidden md:flex items-center mx-2">
-                      <ArrowRight className="w-6 h-6 text-gray-400" />
-                    </div>
-                  )}
-                </Fragment>
+                  </div>
+                </AnimatedSection>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Audit card */}
-      <section className="py-8 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <AnimatedSection animation="fade-up">
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex items-center justify-between">
-              <div className="flex items-center">
-                <Compass className="w-8 h-8 text-red-500 mr-3" />
-                <div>
-                  <h3 className="text-xl font-medium text-gray-900">Audit de départ</h3>
-                  <p className="text-sm text-gray-600">2 ateliers • cartographie • plan d’intégration</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-red-600 font-semibold">Dès 1 500 € HT</span>
-                <Link href="/contact">
-                  <Button className="rounded-full bg-red-600 hover:bg-red-700 text-white">Démarrer l’audit</Button>
-                </Link>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Simplified Packs */}
+      {/* Integration Levels */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-thin text-gray-900">Nos 3 niveaux d'intégrations</h2>
+            <p className="mt-2 text-base md:text-lg font-normal text-gray-500">Votre besoin rentre forcément dans une des 3 cases</p>
+          </AnimatedSection>
+          
           <div className="grid md:grid-cols-3 gap-8">
             {integrationTiers.map((tier, index) => (
               <AnimatedSection key={tier.name} animation="fade-up" delay={index * 120}>
@@ -143,7 +187,7 @@ export default function TarifsPage() {
                       <p className="text-base font-semibold text-red-500">{tier.price}</p>
                     </div>
                   </div>
-                  <ul className="space-y-2 mb-5 text-gray-700">
+                  <ul className="space-y-2 mb-5 text-gray-700 flex-grow">
                     {tier.features.map((feature) => (
                       <li key={feature} className="flex items-start">
                         <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
@@ -151,9 +195,9 @@ export default function TarifsPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-gray-600 text-sm italic">{tier.idealFor}</p>
+                  <p className="text-gray-600 text-sm italic mb-6">{tier.idealFor}</p>
                   {tier.cta && (
-                    <div className="mt-6">
+                    <div className="mt-auto">
                       <Link href={tier.cta.href}>
                         <Button className="w-full rounded-full bg-red-600 hover:bg-red-700 text-white">
                           {tier.cta.label}
@@ -165,21 +209,100 @@ export default function TarifsPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Support banner */}
-          <AnimatedSection animation="fade-up" delay={380} className="mt-10">
-            <div className="flex flex-col md:flex-row items-center justify-between bg-white border border-gray-200 rounded-2xl p-6 gap-4">
-              <div className="flex items-center">
-                <LifeBuoy className="w-7 h-7 text-red-500 mr-3" />
+      {/* Support Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-6">
+              Pourquoi avoir inclus du support ?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Comme nous voulons vous rendre la vie facile, nous allons au bout du bout des paramétrages et évolutions
+            </p>
+          </AnimatedSection>
+          
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="flex items-center mb-6">
+                <LifeBuoy className="w-10 h-10 text-red-500 mr-4" />
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900">Support & Optimisation Continue</h3>
-                  <p className="text-sm text-gray-600">À partir de 490 € HT / mois • Points mensuels, corrections bugs, évolutions de Hubspot, nouveaux rapports & workflows.</p>
+                  <h3 className="text-xl font-semibold text-gray-900">Support & Optimisation Continue</h3>
+                  <p className="text-lg font-semibold text-red-600">À partir de 490 euros par mois</p>
                 </div>
               </div>
-              <Link href="/contact">
-                <Button variant="outline" className="rounded-full border-2 border-red-500 text-red-600 hover:bg-red-500 hover:text-white">Parler support</Button>
-              </Link>
+              
+              <ul className="space-y-4">
+                {supportFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="mt-8 text-center">
+                <Link href="/contact">
+                  <Button className="rounded-full bg-red-600 hover:bg-red-700 text-white px-8 py-3">
+                    En savoir plus sur le support
+                  </Button>
+                </Link>
+              </div>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* AI Agents Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-6">
+              Option Agent IA
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              Nous proposons actuellement 3 agents IA qui fonctionnent vraiment et qui boostent votre business
+            </p>
+            
+            {/* AI Pricing */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {aiPricing.map((pricing, index) => (
+                <div key={index} className="bg-white rounded-full px-6 py-3 shadow-md">
+                  <span className="font-medium text-gray-900">{pricing.agents}</span>
+                  <span className="text-red-600 font-semibold ml-2">{pricing.price}</span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {aiAgents.map((agent, index) => (
+              <AnimatedSection key={agent.name} animation="fade-up" delay={index * 150}>
+                <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    <Image
+                      src={agent.photo}
+                      alt={`${agent.name} - ${agent.role}`}
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{agent.name}</h3>
+                  <p className="text-sm font-medium text-blue-600 mb-4">{agent.role}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{agent.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+          
+          <AnimatedSection animation="fade-up" delay={500} className="text-center mt-12">
+            <Link href="/contact">
+              <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 text-lg">
+                Découvrir nos agents IA
+              </Button>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
@@ -189,9 +312,9 @@ export default function TarifsPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-6">
-              Vous venez d’investir dans HubSpot.
+              Vous venez d'investir dans HubSpot.
               <br />
-              Assurez-vous qu’il devienne le cockpit simple et fluide de vos ventes.
+              Assurez-vous qu'il devienne le cockpit simple et fluide de vos ventes.
             </h2>
             <Link href="/contact">
               <Button 

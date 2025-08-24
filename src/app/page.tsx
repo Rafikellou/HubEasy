@@ -45,7 +45,7 @@ export default function Home() {
             <Link href="/contact">
               <Button 
                 size="lg" 
-                className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
+                className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-6 sm:px-8 md:px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Planifier RDV
@@ -63,56 +63,136 @@ export default function Home() {
       </section>
 
       {/* Unify Data Section */}
-      <section className="py-24 sm:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <section className="py-16 sm:py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-base font-semibold leading-7 text-red-600">Unifiez vos données</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Une seule plateforme.</p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">Ventes, marketing, support : tout en un. Tout fluide.</p>
+            <p className="mt-2 text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-gray-900">Une seule plateforme.</p>
+            <p className="mt-6 text-base sm:text-lg leading-8 text-gray-600">Ventes, marketing, support : tout en un. Tout fluide.</p>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Integrations Section */}
-      <section className="py-24 sm:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-24 sm:py-32 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-up" className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Ce que nous intégrons</h2>
+            <p className="mt-4 text-lg text-gray-600">Des intégrations fluides avec tous vos outils préférés</p>
           </AnimatedSection>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[ 
-              { title: 'ERP', items: ['Odoo', 'Dolibarr', 'Sage'] },
-              { title: 'E-commerce', items: ['Shopify', 'WooCommerce', 'PrestaShop'] },
-              { title: 'Support', items: ['Zendesk', 'Freshdesk', 'Slack'] },
-              { title: 'Communication', items: ['Outlook', 'Gmail', 'Zoom'] },
-              { title: 'Marketing & Events', items: ['Typeform', 'Eventbrite', 'WebinarJam'] },
-              { title: 'Finance', items: ['QuickBooks', 'Cegid', 'Sage 100'] },
+              { 
+                title: 'ERP', 
+                gradient: 'from-blue-500 to-cyan-500',
+                iconBg: 'bg-blue-100',
+                iconColor: 'text-blue-600',
+                systems: [
+                  { name: '', logo: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/odoo.svg' },
+                  { name: 'Microsoft Dynamics', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/dynamics365.svg' },
+                  { name: '', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/sage.svg' }
+                ]
+              },
+              { 
+                title: 'E-commerce', 
+                gradient: 'from-green-500 to-emerald-500',
+                iconBg: 'bg-green-100',
+                iconColor: 'text-green-600',
+                systems: [
+                  { name: 'Shopify', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/shopify.svg' },
+                  { name: 'WooCommerce', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/woocommerce.svg' },
+                  { name: 'PrestaShop', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/prestashop.svg' }
+                ]
+              },
+              { 
+                title: 'Support', 
+                gradient: 'from-purple-500 to-pink-500',
+                iconBg: 'bg-purple-100',
+                iconColor: 'text-purple-600',
+                systems: [
+                  { name: 'Zendesk', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/zendesk.svg' },
+                  { name: 'Freshdesk', logo: '/freshdesk-logo.png' },
+                  { name: 'Slack', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/slack.svg' }
+                ]
+              },
+              { 
+                title: 'Communication', 
+                gradient: 'from-orange-500 to-red-500',
+                iconBg: 'bg-orange-100',
+                iconColor: 'text-orange-600',
+                systems: [
+                  { name: 'Outlook', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/microsoftoutlook.svg' },
+                  { name: 'Gmail', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/gmail.svg' },
+                  { name: '', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/zoom.svg' }
+                ]
+              },
+              { 
+                title: 'Marketing & Events', 
+                gradient: 'from-indigo-500 to-purple-500',
+                iconBg: 'bg-indigo-100',
+                iconColor: 'text-indigo-600',
+                systems: [
+                  { name: '', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/typeform.svg' },
+                  { name: 'Eventbrite', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/eventbrite.svg' },
+                  { name: 'WebinarJam', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/github.svg' }
+                ]
+              },
+              { 
+                title: 'Finance', 
+                gradient: 'from-yellow-500 to-orange-500',
+                iconBg: 'bg-yellow-100',
+                iconColor: 'text-yellow-600',
+                systems: [
+                  { name: 'QuickBooks', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/quickbooks.svg' },
+                  { name: 'Cegid', logo: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tidal.svg' },
+                  { name: '', logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@v9/icons/sage.svg' }
+                ]
+              },
             ].map((category, index) => (
               <AnimatedSection key={category.title} animation="fade-up" delay={index * 100}>
-                <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
-                  <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
-                  <ul className="mt-4 space-y-2 text-gray-600">
-                    {category.items.map(item => (
-                      <li key={item} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
+                <div className="bg-white p-6 lg:p-8 rounded-2xl shadow-lg h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                  <div className="text-center mb-6">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 ${category.iconBg} rounded-xl mb-3`}>
+                      <div className={`w-6 h-6 bg-gradient-to-r ${category.gradient} rounded`}></div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3 lg:gap-4">
+                    {category.systems.map((system, systemIndex) => (
+                      <div key={system.name || systemIndex} className="flex items-center justify-center p-3 lg:p-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl hover:from-gray-100 hover:to-gray-200 transition-all duration-300 group">
+                        <div className={`flex items-center ${system.name ? 'space-x-3' : 'justify-center'}`}>
+                          <div className="w-8 h-8 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <Image
+                              src={system.logo}
+                              alt={`${system.name || 'Integration'} logo`}
+                              width={32}
+                              height={32}
+                              className="object-contain"
+                            />
+                          </div>
+                          {system.name && (
+                            <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors duration-300">{system.name}</span>
+                          )}
+                        </div>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
           <AnimatedSection animation="fade-up" delay={600} className="text-center mt-16">
-            <p className="text-2xl font-light text-gray-800 mb-8">👉 Vos outils parlent enfin entre eux.</p>
-            <Link href="/integrations">
-              <Button 
-                variant="outline" 
-                className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
-              >
-                Voir toutes nos intégrations
-              </Button>
-            </Link>
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+              <p className="text-2xl font-light text-gray-800 mb-8">👉 Vos outils parlent enfin entre eux.</p>
+              <Link href="/integrations">
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  Voir toutes nos intégrations
+                </Button>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -163,7 +243,7 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[ 
               { title: 'Industrie', description: 'Intégration Odoo : 70% de saisie manuelle en moins.', icon: <TrendingUp size={32}/> },
-              { title: 'Conseil', description: 'Intégration Dolibarr : Facturation automatisée et sans erreur.', icon: <Database size={32}/> },
+              { title: 'Conseil', description: 'Intégration Microsoft Dynamics : Facturation automatisée et sans erreur.', icon: <Database size={32}/> },
               { title: 'SaaS', description: 'Intégration Dynamics : 25% d\'upsell additionnel en 9 mois.', icon: <Rocket size={32}/> },
             ].map((clientCase, index) => (
               <AnimatedSection key={clientCase.title} animation="fade-up" delay={index * 100}>
