@@ -7,46 +7,14 @@ import HubspotContactForm from '@/components/contact/HubspotContactForm';
 import { CheckCircle, Rocket, BarChart2, Zap, Users, Shield, Award, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Agence HubSpot | Implémentation, Migration & Intégrations | HubEasy',
-  description:
-    "Agence HubSpot pour PME/ETI B2B. Implémentation, migration, intégrations (ERP, e‑commerce), automatisations et formation. Résultats mesurables, sans complexité.",
-  keywords: [
-    'agence hubspot',
-    'implémentation hubspot',
-    'migration hubspot',
-    'intégrateur hubspot',
-    'partner hubspot',
-    'consultant hubspot',
-    'crm hubspot',
-    'marketing automation hubspot',
-  ],
+  title: 'Notre Méthode | HubEasy',
+  description: 'Découvrez comment HubEasy accompagne les PME/ETI B2B dans leurs projets d\'intégration HubSpot.',
   alternates: {
     canonical: '/agence-hubspot',
   },
-  openGraph: {
-    title: 'Agence HubSpot | Implémentation, Migration & Intégrations | HubEasy',
-    description:
-      "Agence HubSpot pour PME/ETI B2B. Implémentation, migration, intégrations, automatisations et formation.",
-    type: 'article',
-    images: [
-      {
-        url: '/images/hero-photo-hubeasy.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Agence HubSpot – HubEasy',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Agence HubSpot | Implémentation, Migration & Intégrations | HubEasy',
-    description:
-      "Agence HubSpot pour PME/ETI B2B. Implémentation, migration, intégrations, automatisations et formation.",
-    images: ['/images/hero-photo-hubeasy.jpg'],
-  },
 };
 
-export default function AgenceHubspotPage() {
+export default function NotreMethodePage() {
   const faqs = [
     {
       q: "Qu'est-ce qu'une agence HubSpot ?",
@@ -112,7 +80,7 @@ export default function AgenceHubspotPage() {
                 </Button>
               </Link>
               <Link href="/tarifs">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black font-light px-10 py-5 rounded-full text-lg transition-all">
+                <Button variant="outline" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-gray-900 font-light px-10 py-5 rounded-full text-lg transition-all duration-300">
                   Voir les offres
                 </Button>
               </Link>
@@ -207,7 +175,7 @@ export default function AgenceHubspotPage() {
 
           <AnimatedSection animation="fade-up" delay={400} className="text-center mt-14">
             <Link href="/integrations">
-              <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all">
+              <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
                 Voir nos intégrations
               </Button>
             </Link>
@@ -283,7 +251,7 @@ export default function AgenceHubspotPage() {
 
           <AnimatedSection animation="fade-up" delay={400} className="text-center mt-12">
             <Link href="/cas-clients">
-              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-10 py-5 rounded-full text-lg transition-all">
+              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-10 py-5 rounded-full text-lg transition-all duration-300">
                 Voir les cas clients
               </Button>
             </Link>

@@ -1,8 +1,17 @@
+import type { Metadata } from 'next';
 import AnimatedSection from '@/components/AnimatedSection';
 import Image from 'next/image';
 import { CheckCircle, Zap, Users, Heart } from 'lucide-react';
 
-export default function AProposPage() {
+export const metadata: Metadata = {
+  title: 'Notre Vocation | HubEasy',
+  description: 'Découvrez la mission et les valeurs de HubEasy, agence spécialisée dans l\'intégration HubSpot pour les PME/ETI B2B.',
+  alternates: {
+    canonical: '/agence/notre-vocation',
+  },
+};
+
+export default function NotreVocationPage() {
   return (
     <main className="min-h-screen bg-white text-gray-800">
       {/* Hero Section */}
