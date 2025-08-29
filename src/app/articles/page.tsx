@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 // Articles HubEasy
 const featuredArticle = {
   id: 1,
+  slug: "integration-odoo-hubspot-guide-complet",
   title: "Pourquoi 50% des intégrations Odoo ↔ HubSpot dépassent les délais (et comment l'éviter)",
   excerpt: "Beaucoup de PME sous-estiment la complexité d'un projet HubSpot ↔ Odoo. Découvrez les erreurs fréquentes et les solutions simples pour tenir vos délais et vos budgets.",
   author: "Équipe HubEasy",
@@ -21,7 +22,8 @@ const featuredArticle = {
 const articles = [
   {
     id: 2,
-    title: "Dolibarr ↔ HubSpot : 3 erreurs fréquentes qui bloquent vos commerciaux",
+    slug: "dolibarr-hubspot-erreurs-commerciaux",
+    title: "Intégration Dolibarr HubSpot – 3 erreurs fréquentes (et comment les éviter)",
     excerpt: "L'intégration Dolibarr peut vite tourner au casse-tête. On vous montre les pièges classiques (et comment les éviter) pour que vos commerciaux restent concentrés sur la vente.",
     author: "Équipe HubEasy",
     date: "2024-08-10",
@@ -31,7 +33,19 @@ const articles = [
   },
   {
     id: 3,
-    title: "Shopify et HubSpot : le duo qui augmente le panier moyen",
+    slug: "integration-odoo-hubspot-guide-complet",
+    title: "Intégration Odoo HubSpot – Guide complet pour réussir votre projet",
+    excerpt: "Découvrez comment connecter Odoo et HubSpot pour automatiser votre prospection et améliorer votre gestion commerciale.",
+    author: "Équipe HubEasy",
+    date: "2024-08-20",
+    readTime: "8 min",
+    category: "Intégrations",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60"
+  },
+  {
+    id: 4,
+    slug: "shopify-hubspot-panier-moyen",
+    title: "Intégration Shopify HubSpot – Le duo qui booste vos ventes et votre panier moyen",
     excerpt: "E-commerce et CRM : un mariage explosif. Découvrez comment connecter Shopify à HubSpot permet de mieux cibler vos clients et d'augmenter la valeur moyenne de vos paniers.",
     author: "Équipe HubEasy",
     date: "2024-08-05",
@@ -40,8 +54,9 @@ const articles = [
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60"
   },
   {
-    id: 4,
-    title: "Salesforce + HubSpot : concurrent ou complément ?",
+    id: 5,
+    slug: "salesforce-hubspot-complement",
+    title: "Salesforce et HubSpot – concurrents ou solutions complémentaires ?",
     excerpt: "Beaucoup d'entreprises utilisent Salesforce et HubSpot en parallèle. Faut-il choisir ou les faire cohabiter ? On vous explique pourquoi la synergie est souvent la meilleure option.",
     author: "Équipe HubEasy",
     date: "2024-07-30",
@@ -50,8 +65,9 @@ const articles = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60"
   },
   {
-    id: 5,
-    title: "Zendesk ↔ HubSpot : comment centraliser vos tickets sans alourdir vos équipes",
+    id: 6,
+    slug: "zendesk-hubspot-tickets",
+    title: "Intégration Zendesk HubSpot – comment centraliser vos données clients",
     excerpt: "Le support client est souvent éclaté entre plusieurs outils. Découvrez comment Zendesk et HubSpot peuvent travailler ensemble pour améliorer la réactivité et la satisfaction client.",
     author: "Équipe HubEasy",
     date: "2024-07-25",
@@ -60,8 +76,9 @@ const articles = [
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60"
   },
   {
-    id: 6,
-    title: "CRM pour clubs sportifs : pourquoi vos données fans valent plus que vos billets",
+    id: 7,
+    slug: "crm-clubs-sportifs-donnees-fans",
+    title: "CRM pour clubs sportifs – pourquoi vos données fans sont un trésor caché",
     excerpt: "Les clubs et ligues perdent souvent la valeur cachée de leur base fans. Apprenez comment un CRM comme HubSpot, bien intégré, peut transformer vos fans en véritables sources de revenus.",
     author: "Équipe HubEasy",
     date: "2024-07-20",
@@ -140,12 +157,14 @@ const BlogPage = () => {
                       <User className="w-5 h-5 text-gray-400 mr-2" />
                       <span className="text-gray-600 font-light">{featuredArticle.author}</span>
                     </div>
-                    <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-6">
-                      <span className="flex items-center">
-                        Lire l'article
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </span>
-                    </Button>
+                    <Link href={`/articles/${featuredArticle.slug}`}>
+                      <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-6">
+                        <span className="flex items-center">
+                          Lire l'article
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </span>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -201,9 +220,11 @@ const BlogPage = () => {
                         <User className="w-4 h-4 text-gray-400 mr-2" />
                         <span className="text-gray-600 font-light text-sm">{article.author}</span>
                       </div>
-                      <Button variant="outline" size="sm" className="rounded-full border-red-200 text-red-600 hover:bg-red-50">
-                        Lire
-                      </Button>
+                      <Link href={`/articles/${article.slug}`}>
+                        <Button variant="outline" size="sm" className="rounded-full border-red-200 text-red-600 hover:bg-red-50">
+                          Lire
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </article>

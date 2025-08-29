@@ -1,110 +1,78 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, TrendingUp, Users, Database, Zap, Globe, CheckCircle, Clock, Target } from 'lucide-react';
+import { AlertCircle, Wrench, BarChart3, Building, ShoppingCart, Users, TrendingUp, Zap } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
 
 export default function CasClients() {
   const caseStudies = [
     {
-      id: 'industrie-odoo-hubspot',
-      company: 'PME industrielle',
-      sector: 'Industrie',
-      challenge: 'Intégration Odoo ↔ HubSpot',
-      title: 'Devis & factures synchronisés entre Odoo et HubSpot',
-      description: "Avant: commerciaux et administration sur deux systèmes. Problème: double saisie et erreurs. Solution: connecteur Odoo ↔ HubSpot + automatisation devis/factures.",
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
-      results: [
-        { metric: '-70%', label: 'Double saisie', icon: <Database className="w-5 h-5" /> },
-        { metric: 'Focus vente', label: 'Équipes recentrées', icon: <Target className="w-5 h-5" /> }
-      ],
+      id: 'septeo',
+      company: 'Groupe Septeo',
+      context: '3,6 Mds € de CA - Leader de l\'assurance auto en Europe',
+      challenge: 'Fragmentation des données clients entre plusieurs systèmes',
       solutions: [
-        'Connecteur HubSpot ↔ Odoo',
-        'Automatisation devis et factures',
-        'Alignement des objets & propriétés',
-        'Tests bout-en-bout et formation'
+        'Intégration complète Salesforce ↔ HubSpot',
+        'Synchronisation unidirectionnelle des contacts et opportunités',
+        'Automatisation des workflows de qualification',
+        'Création de dashboards unifiés pour Sales & Marketing'
       ],
-      testimonial: {
-        quote: "Nous avons éliminé la double saisie et gagné en fiabilité.",
-        author: 'Direction commerciale',
-        role: 'Industrie'
-      },
-      gradient: 'from-orange-500 to-red-500'
+      results: [
+        { value: '+45%', label: 'Taux de conversion leads qualifiés', icon: <TrendingUp className="w-5 h-5" /> },
+        { value: '-60%', label: 'Temps de traitement des leads', icon: <Zap className="w-5 h-5" /> },
+        { value: '360°', label: 'Vue client unifiée', icon: <Users className="w-5 h-5" /> }
+      ]
     },
     {
-      id: 'conseil-dolibarr-hubspot',
-      company: 'Cabinet de conseil',
-      sector: 'Conseil',
-      challenge: 'Intégration Dolibarr ↔ HubSpot',
-      title: 'Pipeline aligné avec la facturation Dolibarr',
-      description: "Avant: CRM HubSpot d’un côté, facturation Dolibarr de l’autre. Problème: non-alignement → pertes de temps. Solution: synchronisation HubSpot ↔ Dolibarr + automatisation factures.",
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2400&auto=format&fit=crop',
-      results: [
-        { metric: 'Sans erreur', label: 'Facturation', icon: <CheckCircle className="w-5 h-5" /> },
-        { metric: 'Fluide', label: 'Reporting', icon: <TrendingUp className="w-5 h-5" /> }
-      ],
-      solutions: [
-        'Synchronisation HubSpot ↔ Dolibarr',
-        'Automatisation des factures par étape',
-        'Alignement pipeline ↔ comptabilité',
-        'Reporting unifié'
-      ],
-      testimonial: {
-        quote: "La facturation est devenue fiable et le reporting est fluide.",
-        author: 'Associé',
-        role: 'Cabinet de conseil'
-      },
-      gradient: 'from-indigo-500 to-purple-500'
-    },
-    {
-      id: 'saas-salesforce-hubspot',
-      company: 'Editeur SaaS',
-      sector: 'SaaS',
-      challenge: 'Intégration Salesforce ↔ HubSpot',
-      title: 'Unifier marketing et ventes pour booster l’upsell',
-      description: "Avant: marketing sur HubSpot, sales sur Salesforce. Problème: données éclatées, upsell difficile. Solution: intégration bidirectionnelle + automatisation MRR.",
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2400&auto=format&fit=crop',
-      results: [
-        { metric: '+25%', label: 'Upsell en 9 mois', icon: <TrendingUp className="w-5 h-5" /> },
-        { metric: '360°', label: 'Vue client', icon: <Target className="w-5 h-5" /> }
-      ],
-      solutions: [
-        'Connecteur Salesforce ↔ HubSpot',
-        'Synchronisation contacts/entreprises/deals',
-        'Automatisations MRR et handoffs',
-        'Dashboards croisés Sales/Marketing'
-      ],
-      testimonial: {
-        quote: "L’upsell a enfin décollé grâce à une donnée unifiée.",
-        author: 'VP Sales',
-        role: 'SaaS B2B'
-      },
-      gradient: 'from-blue-500 to-cyan-500'
-    },
-    {
-      id: 'ecommerce-shopify-hubspot',
-      company: 'E-commerce',
-      sector: 'E-commerce',
-      challenge: 'Intégration Shopify ↔ HubSpot',
-      title: 'Relances panier et campagnes ciblées automatisées',
-      description: "Avant: bases non reliées (Shopify vs HubSpot). Problème: pas de relance panier, campagnes génériques. Solution: intégration Shopify ↔ HubSpot + workflows.",
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80',
-      results: [
-        { metric: '+18%', label: 'CA via campagnes ciblées', icon: <TrendingUp className="w-5 h-5" /> },
-        { metric: 'Workflows', label: 'Relance panier', icon: <Zap className="w-5 h-5" /> }
-      ],
+      id: 'startup-ecommerce',
+      company: 'Boutique e-commerce',
+      context: 'Start-up en pleine croissance - Vente en ligne de produits premium',
+      challenge: 'Abandon de panier élevé et manque de personnalisation',
       solutions: [
         'Intégration Shopify ↔ HubSpot',
-        'Workflows d’abandon de panier',
-        'Segmentation et ciblage avancés',
-        'Tableaux de bord performance'
+        'Workflows d\'abandon de panier automatisés',
+        'Segmentation avancée des clients',
+        'Campagnes de remarketing dynamiques'
       ],
-      testimonial: {
-        quote: "Les campagnes ciblées ont augmenté notre CA de manière mesurable.",
-        author: 'Directeur e-commerce',
-        role: 'Retail'
-      },
-      gradient: 'from-green-500 to-emerald-500'
+      results: [
+        { value: '+22%', label: 'Taux de conversion panier', icon: <ShoppingCart className="w-5 h-5" /> },
+        { value: '+35%', label: 'CA via campagnes ciblées', icon: <TrendingUp className="w-5 h-5" /> },
+        { value: '4x', label: 'ROI sur remarketing', icon: <BarChart3 className="w-5 h-5" /> }
+      ]
+    },
+    {
+      id: 'entreprise-education',
+      company: 'Plateforme EdTech',
+      context: 'Entreprise d\'éducation - Formation en ligne pour professionnels',
+      challenge: 'Difficulté à suivre et convertir les prospects chauds',
+      solutions: [
+        'Intégration avec leur LMS (Learning Management System)',
+        'Automatisation des séquences d\'emailing éducatif',
+        'Tracking des parcours d\'apprentissage dans HubSpot',
+        'Scoring des leads basé sur l\'engagement'
+      ],
+      results: [
+        { value: '+180%', label: 'Prospects qualifiés pour démo', icon: <Users className="w-5 h-5" /> },
+        { value: '+55%', label: 'Taux de conversion démo → vente', icon: <TrendingUp className="w-5 h-5" /> },
+        { value: '30%', label: 'Réduction du temps de vente', icon: <Zap className="w-5 h-5" /> }
+      ]
+    },
+    {
+      id: 'pme-industrie',
+      company: 'Fabricant industriel',
+      context: 'PME de 150 employés - Production de composants techniques',
+      challenge: 'Processus de ventes manuels et non synchronisés',
+      solutions: [
+        'Intégration Odoo ↔ HubSpot',
+        'Automatisation des devis et factures',
+        'Synchronisation des contacts et opportunités',
+        'Formation des équipes commerciales'
+      ],
+      results: [
+        { value: '-75%', label: 'Saisie manuelle', icon: <Zap className="w-5 h-5" /> },
+        { value: '+40%', label: 'Productivité commerciale', icon: <TrendingUp className="w-5 h-5" /> },
+        { value: '100%', label: 'Fiabilité des données', icon: <BarChart3 className="w-5 h-5" /> }
+      ]
     }
   ];
 
@@ -125,10 +93,10 @@ export default function CasClients() {
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <AnimatedSection animation="fade-up">
             <h1 className="text-5xl md:text-7xl font-thin tracking-tight">
-             Cas Clients
+             Nos Cas Clients
             </h1>
             <p className="mt-6 text-xl md:text-2xl max-w-3xl mx-auto font-light opacity-90">
-              Découvrez comment nous transformons les défis de nos clients en succès.
+              Découvrez comment nous transformons les défis de nos clients en succès mesurables.
             </p>
           </AnimatedSection>
         </div>
@@ -136,119 +104,94 @@ export default function CasClients() {
 
       {/* Case Studies Grid */}
       <main className="py-20 sm:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="space-y-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-24">
             {caseStudies.map((caseStudy, index) => (
-              <div key={caseStudy.id} className="bg-white rounded-3xl p-8 md:p-12 shadow-lg overflow-hidden">
-                <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  <AnimatedSection 
-                    animation={index % 2 === 0 ? "slide-right" : "slide-left"}
-                    className={index % 2 === 1 ? 'lg:col-start-2' : ''}
-                  >
-                    <div className="space-y-6">
-                      <div className="flex items-center space-x-4">
-                        <div className={`inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r ${caseStudy.gradient} text-white text-sm font-medium`}>
-                          {caseStudy.sector}
-                        </div>
-                        <span className="text-gray-500 font-light">{caseStudy.challenge}</span>
-                      </div>
-                      
-                      <h2 className="text-3xl md:text-4xl font-thin text-gray-900 tracking-tight">
+              <AnimatedSection 
+                key={caseStudy.id} 
+                animation="fade-up" 
+                delay={index * 100}
+              >
+                <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg overflow-hidden">
+                  {/* Client Header */}
+                  <div className="mb-10">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                         {caseStudy.company}
                       </h2>
-                      
-                      <h3 className="text-xl md:text-2xl font-light text-red-500">
-                        {caseStudy.title}
-                      </h3>
-                      
-                      <p className="text-lg font-light text-gray-600 leading-relaxed">
-                        {caseStudy.description}
-                      </p>
-                      
-                      {/* Results Grid */}
-                      <div className="grid grid-cols-2 gap-4 py-6">
-                        {caseStudy.results.map((result, resultIndex) => (
-                          <AnimatedSection 
-                            key={resultIndex} 
-                            animation="fade-up" 
-                            delay={200 + resultIndex * 100}
-                          >
-                            <div className="bg-gray-100/50 rounded-2xl p-4 text-center">
-                              <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-r ${caseStudy.gradient} text-white mb-2`}>
-                                {result.icon}
-                              </div>
-                              <div className="text-2xl font-light text-gray-900">{result.metric}</div>
-                              <div className="text-sm text-gray-600">{result.label}</div>
-                            </div>
-                          </AnimatedSection>
-                        ))}
+                      <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-100 text-red-800 text-sm font-medium">
+                        {caseStudy.context}
                       </div>
-                      
-                      {/* Testimonial */}
-                      <AnimatedSection animation="fade-up" delay={600}>
-                        <div className="bg-gray-100/50 rounded-2xl p-6 border-l-4 border-red-500">
-                          <p className="text-gray-700 font-light italic mb-4">
-                            "{caseStudy.testimonial.quote}"
-                          </p>
-                          <div className="flex items-center">
-                            <div>
-                              <div className="font-medium text-gray-900">{caseStudy.testimonial.author}</div>
-                              <div className="text-sm text-gray-600">{caseStudy.testimonial.role}</div>
+                    </div>
+                  </div>
+
+                  <div className="grid lg:grid-cols-3 gap-12">
+                    {/* Challenge */}
+                    <div className="lg:col-span-1">
+                      <div className="flex items-center mb-6">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-100 text-red-600 mr-4">
+                          <AlertCircle className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900">Problématique</h3>
+                      </div>
+                      <p className="text-gray-600 font-light text-lg leading-relaxed">
+                        {caseStudy.challenge}
+                      </p>
+                    </div>
+
+                    {/* Solution */}
+                    <div className="lg:col-span-1">
+                      <div className="flex items-center mb-6">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-100 text-blue-600 mr-4">
+                          <Wrench className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900">Solution</h3>
+                      </div>
+                      <ul className="space-y-3">
+                        {caseStudy.solutions.map((solution, solutionIndex) => (
+                          <li key={solutionIndex} className="flex items-start">
+                            <div className="flex-shrink-0 mt-1">
+                              <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                            </div>
+                            <span className="ml-3 text-gray-700 font-light">{solution}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Results */}
+                    <div className="lg:col-span-1">
+                      <div className="flex items-center mb-6">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-green-100 text-green-600 mr-4">
+                          <BarChart3 className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900">Résultats</h3>
+                      </div>
+                      <div className="space-y-5">
+                        {caseStudy.results.map((result, resultIndex) => (
+                          <div key={resultIndex} className="flex items-start">
+                            <div className="flex-shrink-0 mt-1">
+                              {result.icon}
+                            </div>
+                            <div className="ml-4">
+                              <div className="text-3xl font-bold text-gray-900">{result.value}</div>
+                              <div className="text-gray-600 font-light">{result.label}</div>
                             </div>
                           </div>
-                        </div>
-                      </AnimatedSection>
-                    </div>
-                  </AnimatedSection>
-                  
-                  <AnimatedSection 
-                    animation={index % 2 === 0 ? "slide-left" : "slide-right"} 
-                    delay={200}
-                    className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}
-                  >
-                    <div className="space-y-6">
-                      <div className="relative group">
-                        <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl">
-                          <Image
-                            src={caseStudy.image}
-                            alt={caseStudy.company}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                          <div className={`absolute inset-0 bg-gradient-to-t ${caseStudy.gradient} opacity-20`}></div>
-                        </div>
-                      </div>
-                      
-                      {/* Solutions */}
-                      <div className="bg-gray-100/50 rounded-2xl p-6">
-                        <h4 className="text-lg font-medium text-gray-900 mb-4">Solutions mises en place</h4>
-                        <div className="space-y-3">
-                          {caseStudy.solutions.map((solution, solutionIndex) => (
-                            <AnimatedSection 
-                              key={solutionIndex} 
-                              animation="fade-up" 
-                              delay={400 + solutionIndex * 100}
-                            >
-                              <div className="flex items-start">
-                                <CheckCircle className="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-700 font-light text-sm">{solution}</span>
-                              </div>
-                            </AnimatedSection>
-                          ))}
-                        </div>
+                        ))}
                       </div>
                     </div>
-                  </AnimatedSection>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </main>
 
       {/* CTA Section */}
-      <section className="py-32 bg-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
+      <section className="py-32 bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
           <Image
             src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
             alt="Réunion d'affaires moderne"
@@ -256,33 +199,20 @@ export default function CasClients() {
             className="object-cover"
           />
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-5xl md:text-6xl font-thin mb-8 tracking-tight">
-              Prêt à discuter de votre projet ?
+            <h2 className="text-4xl md:text-5xl font-thin mb-8 tracking-tight">
+              Votre succès pourrait être le prochain
             </h2>
             <p className="text-xl font-light mb-12 max-w-2xl mx-auto opacity-90">
-              Rejoignez nos clients satisfaits et transformez votre écosystème HubSpot dès aujourd'hui.
+              Découvrez comment nous pouvons transformer vos défis HubSpot en opportunités de croissance.
             </p>
-          </AnimatedSection>
-          
-          <AnimatedSection animation="fade-up" delay={300}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-12 py-6 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
-                  <span className="relative z-10">Discuter de mon projet</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-black font-light px-12 py-6 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm bg-white/10"
-                >
-                  Planifier RDV
-                </Button>
-              </Link>
-            </div>
+            <Link href="/contact">
+              <Button className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light px-8 py-4 rounded-full text-lg transition-all duration-500 hover:scale-105 shadow-lg hover:shadow-orange-500/25 relative overflow-hidden group">
+                <span className="relative z-10">Découvrez comment nous pouvons vous aider</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </Button>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
