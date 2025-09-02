@@ -62,7 +62,7 @@ const articles = [
     date: "2024-07-30",
     readTime: "8 min",
     category: "CRM",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "/images/articles/salesforce-hubspot-v2.jpg"
   },
   {
     id: 6,
@@ -84,7 +84,7 @@ const articles = [
     date: "2024-07-20",
     readTime: "6 min",
     category: "Sport",
-    image: "/images/hero-photo-hubeasy.jpg"
+    image: "/images/articles/crm-sport-v2.jpg"
   }
 ];
 
@@ -177,8 +177,12 @@ const BlogPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">Derniers articles</h2>
-            <p className="text-gray-600 font-light">Restez informé des dernières tendances et bonnes pratiques</p>
+            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">
+              Derniers articles
+            </h2>
+            <p className="text-gray-600 font-light">
+              Restez informé des dernières tendances et bonnes pratiques
+            </p>
           </AnimatedSection>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

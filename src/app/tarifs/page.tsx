@@ -314,7 +314,7 @@ export default function TarifsPage() {
           </div>
           
           <AnimatedSection animation="fade-up" delay={500} className="text-center mt-12">
-            <Link href="/contact">
+            <Link href="/hubeasy-ai">
               <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-4 text-lg">
                 Découvrir nos agents IA
               </Button>

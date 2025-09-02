@@ -126,11 +126,11 @@ const aiAgents = [
   }
 ];
 
-const pricingPlans = [
-  { agents: '1 agent', price: '390€/mois', description: 'Idéal pour commencer avec un agent spécialisé' },
-  { agents: '2 agents', price: '590€/mois', description: 'Combinaison optimale pour croissance', popular: true },
-  { agents: '3 agents', price: '690€/mois', description: 'Solution complète pour automatisation totale' }
-];
+const aiPricing = {
+  Lucie: { installation: '790 euros', abonnement: '129 euros/mois' },
+  Théo: { installation: '590 euros', abonnement: '99 euros/mois' },
+  Anna: { installation: '390 euros', abonnement: '79 euros/mois' }
+};
 
 const benefits = [
   {
@@ -192,8 +192,8 @@ export default function HubEasyAIPage() {
                 <Link href="/contact">
                   <Button 
                     size="lg"
-                    variant="outline"
-                    className="border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg transition-all duration-300"
+                    variant="ghost"
+                    className="bg-transparent border-2 border-white/50 text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg transition-all duration-300"
                   >
                     Demander une démo
                   </Button>
@@ -328,40 +328,55 @@ export default function HubEasyAIPage() {
 
       {/* Pricing Section */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <AnimatedSection animation="fade-up" className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Tarifs transparents
             </h2>
             <p className="text-xl text-gray-600">
-              Choisissez le nombre d'agents selon vos besoins
+              Tarification par agent — installation + abonnement mensuel
             </p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <div className={`relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 ${plan.popular ? 'ring-2 ring-blue-500' : ''}`}>
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                        Le plus populaire
+            {aiAgents.map((agent, index) => (
+              <AnimatedSection key={agent.name} animation="fade-up" delay={index * 120} className="h-full">
+                <div className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow h-full flex flex-col">
+                  <div className="relative w-20 h-20 mx-auto mb-6">
+                    <Image
+                      src={agent.photo}
+                      alt={`${agent.name} - ${agent.role}`}
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{agent.name}</h3>
+                  <p className="text-sm font-medium text-blue-600 mb-4">{agent.role}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">{agent.description}</p>
+
+                  <div className="mt-4 pt-6 border-t border-gray-100">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-gray-500">Installation</span>
+                      <span className="font-semibold text-red-600">
+                        {agent.name === 'Lucie' && aiPricing.Lucie.installation}
+                        {agent.name === 'Théo' && aiPricing.Théo.installation}
+                        {agent.name === 'Anna' && aiPricing.Anna.installation}
                       </span>
                     </div>
-                  )}
-                  <div className="text-center">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{plan.agents}</h3>
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{plan.price}</div>
-                    <p className="text-gray-600 text-sm mb-6">{plan.description}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-500">Abonnement</span>
+                      <span className="font-semibold text-red-600">
+                        {agent.name === 'Lucie' && aiPricing.Lucie.abonnement}
+                        {agent.name === 'Théo' && aiPricing.Théo.abonnement}
+                        {agent.name === 'Anna' && aiPricing.Anna.abonnement}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-4">
                     <Link href="/contact">
-                      <Button 
-                        className={`w-full rounded-full py-3 transition-all duration-300 ${
-                          plan.popular 
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                            : 'bg-gray-900 hover:bg-gray-800 text-white'
-                        }`}
-                      >
-                        Choisir cette offre
+                      <Button className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white">
+                        Parler de cet agent
                       </Button>
                     </Link>
                   </div>
@@ -372,7 +387,7 @@ export default function HubEasyAIPage() {
 
           <AnimatedSection animation="fade-up" delay={400} className="text-center mt-12">
             <p className="text-gray-600 mb-6">
-              Tous nos tarifs incluent la configuration, la formation et le support technique
+              Détails complets des offres et comparatif disponibles sur la page Tarifs
             </p>
             <Link href="/tarifs">
               <Button variant="outline" className="border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white rounded-full px-8 py-3">
@@ -460,8 +475,8 @@ export default function HubEasyAIPage() {
               <Link href="/tarifs">
                 <Button 
                   size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-10 py-4 rounded-full text-lg transition-all duration-300"
+                  variant="ghost"
+                  className="bg-transparent border-2 border-white/70 text-white hover:bg-white hover:text-blue-600 px-10 py-4 rounded-full text-lg transition-all duration-300"
                 >
                   Voir les tarifs
                 </Button>

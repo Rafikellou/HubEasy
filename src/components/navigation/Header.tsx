@@ -2,7 +2,7 @@
 
 import { Fragment, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Users, Cloud } from 'lucide-react';
+import { Menu, X, Users, Cloud, Brain, Trophy } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Popover, Transition } from '@headlessui/react';
@@ -87,6 +87,24 @@ export default function Header() {
                     </div>
                     Notre méthode
                   </Link>
+                  <Link
+                    href="/hubeasy-ai"
+                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
+                  >
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
+                      <Brain className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
+                    </div>
+                    Section IA
+                  </Link>
+                  <Link
+                    href="/hubeasy-sport"
+                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
+                  >
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
+                      <Trophy className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
+                    </div>
+                    Section sport
+                  </Link>
                 </div>
               </Transition>
             </div>
@@ -167,6 +185,8 @@ export default function Header() {
             <div className="pl-4">
               <Link href="/agence/notre-vocation" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Notre vocation</Link>
               <Link href="/agence-hubspot" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Notre méthode</Link>
+              <Link href="/hubeasy-ai" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Section IA</Link>
+              <Link href="/hubeasy-sport" className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Section sport</Link>
             </div>
             
             <div className="px-3 py-2 font-medium text-gray-700">Ressources</div>

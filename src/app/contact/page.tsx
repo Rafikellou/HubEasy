@@ -13,7 +13,7 @@ export default function Contact() {
               Contactez-<span className="text-red-500">nous</span>
             </h1>
             <p className="text-2xl font-light text-gray-600 max-w-3xl mx-auto">
-              Discutons de votre projet. Choisissez la méthode qui vous convient le mieux.
+              Nous sommes là pour discuter de votre projet. Choisissez la méthode qui vous convient le mieux.
             </p>
           </AnimatedSection>
         </div>
@@ -21,10 +21,10 @@ export default function Contact() {
 
       {/* Contact Sections Wrapper */}
       <div className="space-y-12 py-12">
-        {/* Meeting Scheduler Section */}
+        {/* Contact Options Section */}
         <section>
-          <div className="max-w-4xl mx-auto px-4">
-            <AnimatedSection animation="fade-up">
+          <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-center gap-12">
+            <AnimatedSection animation="fade-up" className="basis-1/2">
               <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200/80 text-center">
                 <h2 className="text-3xl font-thin text-gray-900 mb-2">Bookez une visio avec Rafik</h2>
                 <p className="text-gray-600 font-light mb-6 max-w-2xl mx-auto">L'un des co-fondateurs de HubEasy. Vous serez surpris par son niveau d'analyse ;)</p>
@@ -33,13 +33,7 @@ export default function Contact() {
                 </div>
               </div>
             </AnimatedSection>
-          </div>
-        </section>
-
-        {/* Contact Form Section */}
-        <section>
-          <div className="max-w-4xl mx-auto px-4">
-            <AnimatedSection animation="fade-up" delay={200}>
+            <AnimatedSection animation="fade-up" delay={200} className="basis-1/2">
               <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-200/80 text-center">
                 <h2 className="text-3xl font-thin text-gray-900 mb-2">Ou laissez-nous un message</h2>
                 <p className="text-gray-600 font-light mb-6">Laissez-nous votre mail (au moins). Si vous rajoutez votre 06, c'est encore mieux ;)</p>
@@ -52,4 +46,3 @@ export default function Contact() {
     </main>
   );
 }
-

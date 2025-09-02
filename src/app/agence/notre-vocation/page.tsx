@@ -49,35 +49,53 @@ export default function NotreVocationPage() {
 
       {/* Founder Section */}
       <section className="py-24 md:py-32 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-16 items-center">
-          <AnimatedSection animation="fade-up" className="md:col-span-1 flex justify-center">
-            <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-2xl">
-              <Image
-                src="/images/rafik-photo.jpg"
-                alt="Rafik, fondateur de HubEasy"
-                fill
-                className="object-cover"
-              />
-            </div>
+        <div className="max-w-6xl mx-auto px-4">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-thin text-gray-900 mb-4 tracking-tight">Derrière <span className="text-red-500">HubEasy</span></h2>
+            <p className="text-gray-600 font-light">Deux cofondateurs, deux cerveaux complémentaires.</p>
           </AnimatedSection>
-          <AnimatedSection animation="fade-up" delay={200} className="md:col-span-2">
-            <h2 className="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">Derrière <span className="text-red-500">HubEasy</span></h2>
-            <p className="text-xl font-light text-gray-600 mb-8"><strong>Rafik, fondateur.</strong> Plus de 15 ans d’expérience :</p>
-            <ul className="space-y-4 font-light text-gray-700">
-                <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-red-500 mr-4 flex-shrink-0" />
-                    <span className="text-lg">Marketing international (Coca-Cola, PMI)</span>
-                </li>
-                <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-red-500 mr-4 flex-shrink-0" />
-                    <span className="text-lg">E-commerce (Shopify)</span>
-                </li>
-                <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-red-500 mr-4 flex-shrink-0" />
-                    <span className="text-lg">Intégrations complexes HubSpot ↔ ERP ↔ Salesforce</span>
-                </li>
-            </ul>
-          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            {/* Rafik card */}
+            <AnimatedSection animation="fade-up" delay={100}>
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-md">
+                    <Image src="/images/rafik-photo.jpg" alt="Rafik, cofondateur de HubEasy" fill className="object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-light text-gray-900">Rafik</h3>
+                    <p className="text-red-500 font-medium">Cofondateur — Cerveau Sales & MKG</p>
+                  </div>
+                </div>
+                <ul className="space-y-3 font-light text-gray-700">
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>Marketing international (Coca-Cola, PMI)</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>E-commerce (Shopify)</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>Intégrations complexes HubSpot ↔ ERP ↔ Salesforce</span></li>
+                </ul>
+              </div>
+            </AnimatedSection>
+
+            {/* David card */}
+            <AnimatedSection animation="fade-up" delay={200}>
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-md">
+                    <Image src="/images/david-photo.jpg" alt="David, cofondateur de HubEasy" fill className="object-cover" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-light text-gray-900">David</h3>
+                    <p className="text-red-500 font-medium">Cofondateur — Cerveau Data & Tech</p>
+                  </div>
+                </div>
+                <ul className="space-y-3 font-light text-gray-700">
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>Ingénieur Data Engineering</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>18 d'expériences en SSII</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-5 h-5 text-red-500 mr-3 flex-shrink-0" /><span>Spécialiste de gouvernance & intéraction des données</span></li>
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

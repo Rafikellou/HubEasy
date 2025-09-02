@@ -87,3 +87,121 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.7);
 }
+
+/* Article Content Styles */
+.article-content {
+  @apply max-w-none;
+}
+
+.article-section-title {
+  @apply text-2xl font-bold text-gray-900 mb-6 mt-12 first:mt-0;
+}
+
+.article-paragraph {
+  @apply text-gray-700 leading-relaxed mb-6 text-lg;
+}
+
+.article-list {
+  @apply list-disc list-inside space-y-3 mb-6 ml-4;
+}
+
+.article-list-item {
+  @apply text-gray-700 leading-relaxed text-lg;
+}
+
+/* Make feature sections lighter (no card look), keep only a subtle left border */
+.article-feature {
+  @apply p-4 mb-8 border-l-4 border-gray-200;
+  background: transparent;
+  border-radius: 0;
+}
+
+.article-feature-title {
+  @apply text-xl font-semibold text-gray-900 mb-4;
+}
+
+/* Standard callouts no longer look like heavy cards */
+.article-callout {
+  @apply p-4 mb-8 border-l-4 border-blue-200;
+  background: transparent;
+  border-radius: 0;
+}
+
+/* Only important callouts keep the card treatment */
+.article-callout-important {
+  @apply bg-red-50 border border-red-200 rounded-xl p-6 mb-8;
+}
+
+.article-callout-content {
+  @apply text-gray-800 leading-relaxed text-lg mb-0;
+}
+
+.article-best-practice {
+  @apply bg-green-50 border border-green-200 rounded-xl p-4 mb-4;
+}
+
+.article-best-practice-item {
+  @apply text-gray-800 leading-relaxed text-lg mb-0;
+}
+
+.article-container {
+  @apply prose prose-lg max-w-none;
+}
+
+.article-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+
+.article-container h2:first-child {
+  margin-top: 0;
+}
+
+.article-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.article-container p {
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.article-container ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.article-container ul li {
+  color: #374151;
+  line-height: 1.75;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Utility: 3-line clamp without Tailwind plugin */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* Utility: 2-line clamp without Tailwind plugin */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}

@@ -9,7 +9,7 @@ export default function CasClients() {
     {
       id: 'septeo',
       company: 'Groupe Septeo',
-      context: '3,6 Mds € de CA - Leader de l\'assurance auto en Europe',
+      context: '+500 millions de CA, Legaltech en hyper croissance',
       challenge: 'Fragmentation des données clients entre plusieurs systèmes',
       solutions: [
         'Intégration complète Salesforce ↔ HubSpot',

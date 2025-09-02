@@ -4,19 +4,35 @@ import Link from 'next/link';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
 import { Button } from '@/components/ui/button';
-import './article-styles.css';
+import { getRandomUnsplashImage, getUnsplashImageById } from '@/lib/unsplash';
+interface ArticleWithId {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  searchTerm: string;
+  content: string;
+  unsplashImageId?: string;
+}
 
 // Article data - in a real app this would come from a CMS or database
-const articles = [
+const articles: ArticleWithId[] = [
   {
+    id: 1,
     slug: "salesforce-hubspot-complement",
     title: "Salesforce et HubSpot – concurrents ou solutions complémentaires ?",
     excerpt: "Beaucoup d'entreprises utilisent Salesforce et HubSpot en parallèle. Faut-il choisir ou les faire cohabiter ? Découvrez pourquoi la synergie est souvent la meilleure option.",
     author: "Équipe HubEasy",
-    date: "2024-07-30",
+    date: "2025-04-30",
     readTime: "8 min",
     category: "CRM",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+    searchTerm: "salesforce crm dashboard",
     content: `
       <article class="article-content">
         <section>
@@ -115,14 +131,16 @@ const articles = [
     `
   },
   {
+    id: 2,
     slug: "shopify-hubspot-panier-moyen",
     title: "Intégration Shopify HubSpot – Le duo qui booste vos ventes et votre panier moyen",
     excerpt: "Découvrez comment connecter Shopify à HubSpot permet de mieux cibler vos clients et d'augmenter la valeur moyenne de vos paniers.",
     author: "Équipe HubEasy",
-    date: "2024-08-05",
+    date: "2025-05-05",
     readTime: "6 min",
     category: "E-commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "shopify ecommerce storefront",
     content: `
       <article class="article-content">
         <section>
@@ -173,7 +191,7 @@ const articles = [
           <ul class="article-list">
             <li class="article-list-item">Ne pas nettoyer les données clients avant de les synchroniser. Résultat : doublons et mauvaises segmentations.</li>
             <li class="article-list-item">Sous-utiliser les automatisations HubSpot : se limiter à des emails basiques alors que HubSpot permet des scénarios avancés.</li>
-            <li class="article-list-item">Ignorer le suivi post-achat : l'intégration permet de fidéliser vos clients avec des offres personnalisées, et pas seulement de générer une première vente.</li>
+            <li class="article-list-item">Limiter HubSpot au simple lead generation : exploitez aussi ses workflows automatisés pour nourrir vos prospects jusqu'à la conversion.</li>
           </ul>
         </section>
         
@@ -197,14 +215,16 @@ const articles = [
     `
   },
   {
+    id: 3,
     slug: "dolibarr-hubspot-erreurs-commerciaux",
     title: "Intégration Dolibarr HubSpot – 3 erreurs fréquentes (et comment les éviter)",
     excerpt: "Découvrez les erreurs les plus courantes lors de l'intégration Dolibarr HubSpot et comment les éviter pour assurer le succès de votre projet.",
     author: "Équipe HubEasy",
-    date: "2024-08-10",
+    date: "2025-07-10",
     readTime: "5 min",
     category: "Intégrations",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "business software integration",
     content: `
       <article class="article-content">
         <section>
@@ -228,18 +248,18 @@ const articles = [
           
           <div class="article-feature">
             <h3 class="article-feature-title">Automatisation des workflows</h3>
-            <p class="article-paragraph">Plus besoin de double saisie : devis, factures et opportunités circulent sans friction entre les deux systèmes.</p>
+            <p class="article-paragraph">Les leads générés par vos campagnes HubSpot sont directement intégrés dans le pipeline commercial d'Odoo.</p>
           </div>
           
           <div class="article-feature">
             <h3 class="article-feature-title">Meilleure visibilité sur le cycle client</h3>
-            <p class="article-paragraph">De la prospection à la facturation, vous disposez d'une vision 360° sur vos clients et prospects.</p>
+            <p class="article-paragraph">De la prospection à la facturation, chaque étape est centralisée et mesurable.</p>
           </div>
         </section>
         
         <section>
           <h2 class="article-section-title">Les 3 erreurs fréquentes qui bloquent vos projets d'intégration</h2>
-          <p class="article-paragraph">Beaucoup d'entreprises échouent lors d'un projet Dolibarr ↔ HubSpot. Voici les pièges les plus courants :</p>
+          <p class="article-paragraph">Beaucoup d'entreprises échouent lors d'un projet Dolibarr ↔ HubSpot. Les principales erreurs rencontrées sont :</p>
           
           <div class="article-feature">
             <h3 class="article-feature-title">1. Une cartographie des données incomplète</h3>
@@ -286,14 +306,16 @@ const articles = [
     `
   },
   {
+    id: 4,
     slug: "integration-odoo-hubspot-guide-complet",
     title: "Intégration Odoo HubSpot – Guide complet pour réussir votre projet",
     excerpt: "Découvrez comment connecter Odoo et HubSpot pour automatiser votre prospection et améliorer votre gestion commerciale.",
     author: "Équipe HubEasy",
-    date: "2024-08-20",
+    date: "2025-06-20",
     readTime: "8 min",
     category: "Intégrations",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "odoo hubspot integration",
     content: `
       <article class="article-content">
         <section>
@@ -378,14 +400,16 @@ const articles = [
     `
   },
   {
+    id: 5,
     slug: "zendesk-hubspot-tickets",
     title: "Intégration Zendesk HubSpot – comment centraliser vos données clients",
     excerpt: "Le support client est souvent éclaté entre plusieurs outils. Découvrez comment Zendesk et HubSpot peuvent travailler ensemble pour améliorer la réactivité et la satisfaction client.",
     author: "Équipe HubEasy",
-    date: "2024-07-25",
+    date: "2025-03-25",
     readTime: "5 min",
     category: "Support",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "customer support helpdesk",
     content: `
       <article class="article-content">
         <section>
@@ -459,14 +483,16 @@ const articles = [
     `
   },
   {
+    id: 6,
     slug: "crm-clubs-sportifs-donnees-fans",
     title: "CRM pour clubs sportifs – pourquoi vos données fans sont un trésor caché",
     excerpt: "Les clubs et ligues perdent souvent la valeur cachée de leur base fans. Apprenez comment un CRM comme HubSpot, bien intégré, peut transformer vos fans en véritables sources de revenus.",
     author: "Équipe HubEasy",
-    date: "2024-07-20",
+    date: "2025-02-20",
     readTime: "6 min",
     category: "Sport",
-    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "sports stadium crowd fans",
     content: `
       <article class="article-content">
         <section>
@@ -569,7 +595,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage({
+  params,
+  searchParams
+}: {
+  params: { slug: string };
+  searchParams: { imageId?: string; imageUrl?: string };
+}) {
   const article = getArticleBySlug(params.slug);
   
   if (!article) {
@@ -589,6 +621,29 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     );
   }
   
+  const imageId = searchParams.imageId || '';
+  const imageParamUrl = searchParams.imageUrl || '';
+  
+  // Resolve the best image URL in priority order:
+  // 1) Explicit imageUrl param from the listing page
+  // 2) Unsplash image by ID via source.unsplash.com
+  // 3) Article's own image fallback
+  // 4) Unsplash featured by search term (no API key required)
+  let imageUrl: string = '/images/hero-photo-hubeasy.jpg';
+  if (imageParamUrl) {
+    imageUrl = imageParamUrl;
+  } else if (imageId) {
+    imageUrl = `https://source.unsplash.com/${imageId}/1200x600`;
+  } else if (article.image) {
+    imageUrl = article.image;
+  } else if (article.searchTerm) {
+    imageUrl = `https://source.unsplash.com/featured/1200x600?${encodeURIComponent(article.searchTerm)}`;
+  }
+  
+  // We'll handle image consistency on the client side using the script below
+  // The server-side rendering will use the default image, but the client-side
+  // script will update it to match the image from the listing page
+  
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('fr-FR', {
       year: 'numeric',
@@ -599,6 +654,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
   return (
     <main className="min-h-screen bg-white">
+      
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -640,17 +696,33 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           <AnimatedSection animation="fade-up">
             <div className="relative h-96 rounded-3xl overflow-hidden mb-12">
               <Image
-                src={article.image}
+                src={imageUrl}
                 alt={article.title}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
+                priority
               />
             </div>
             
-            <div 
-              className="prose prose-lg max-w-none article-container"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+            <div className="mb-8">
+              <h1 className="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
+                {article.title}
+              </h1>
+              <div className="flex items-center text-gray-600 mb-6">
+                <User className="mr-2 h-5 w-5" />
+                <span className="mr-4">{article.author}</span>
+                <Calendar className="mr-2 h-5 w-5" />
+                <span className="mr-4">{formatDate(article.date)}</span>
+                <Clock className="mr-2 h-5 w-5" />
+                <span>{article.readTime}</span>
+              </div>
+              <div className="inline-block bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full mb-8">
+                {article.category}
+              </div>
+            </div>
+            
+            <div className="article-container" dangerouslySetInnerHTML={{ __html: article.content }} />
           </AnimatedSection>
         </div>
       </section>
