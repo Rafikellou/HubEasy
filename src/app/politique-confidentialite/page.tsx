@@ -51,11 +51,8 @@ export default function PolitiqueConfidentialitePage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">1. Responsable du traitement des données</h2>
                 <div className="bg-gray-50 p-6 rounded-xl">
-                  <p><strong>HubEasy SARL</strong></p>
-                  <p>42 Avenue des Champs-Élysées, 75008 Paris, France</p>
-                  <p>SIRET : 123 456 789 00012</p>
-                  <p>Email : contact@hubeasy.fr</p>
-                  <p>Téléphone : +33 1 42 86 83 42</p>
+                  <p><strong>HubEasy</strong></p>
+                  <p>6 Rue d'Armaillé, 75017 Paris, France</p>
                   <p><strong>Délégué à la protection des données :</strong> dpo@hubeasy.fr</p>
                 </div>
               </div>
@@ -276,7 +273,7 @@ export default function PolitiqueConfidentialitePage() {
                   </p>
                   <ul className="text-red-700 space-y-1">
                     <li>Email : dpo@hubeasy.fr</li>
-                    <li>Courrier : HubEasy SARL - DPO, 42 Avenue des Champs-Élysées, 75008 Paris</li>
+                    <li>Courrier : HubEasy SARL - DPO, 6 Rue d'Armaillé, 75017 Paris</li>
                   </ul>
                   <p className="text-red-800 mt-4">
                     <strong>Droit de réclamation :</strong> Vous pouvez introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" className="underline">www.cnil.fr</a>).

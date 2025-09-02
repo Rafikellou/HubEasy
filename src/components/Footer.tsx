@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Linkedin, ExternalLink } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -20,19 +20,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-400">
                 <MapPin className="w-4 h-4 mr-3 flex-shrink-0" />
-                <span>42 Avenue des Champs-Élysées<br />75008 Paris, France</span>
-              </div>
-              <div className="flex items-center text-sm text-gray-400">
-                <Phone className="w-4 h-4 mr-3 flex-shrink-0" />
-                <a href="tel:+33142868342" className="hover:text-white transition-colors">
-                  +33 1 42 86 83 42
-                </a>
-              </div>
-              <div className="flex items-center text-sm text-gray-400">
-                <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
-                <a href="mailto:contact@hubeasy.fr" className="hover:text-white transition-colors">
-                  contact@hubeasy.fr
-                </a>
+                <span>6 Rue d'Armaillé<br />75017 Paris, France</span>
               </div>
             </div>
           </div>
@@ -79,13 +67,13 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-6">Entreprise</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/a-propos" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  À propos
+                <Link href="/agence/notre-vocation" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  Notre vocation
                 </Link>
               </li>
               <li>
                 <Link href="/agence-hubspot" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Agence HubSpot
+                  Notre méthode
                 </Link>
               </li>
               <li>
@@ -96,11 +84,6 @@ export default function Footer() {
               <li>
                 <Link href="/articles" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Articles
-                </Link>
-              </li>
-              <li>
-                <Link href="/ressources" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Ressources
                 </Link>
               </li>
               <li>
@@ -118,16 +101,6 @@ export default function Footer() {
               <li>
                 <Link href="/salesforce" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Salesforce
-                </Link>
-              </li>
-              <li>
-                <Link href="/hubeasy-sport" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  HubEasy Sport
-                </Link>
-              </li>
-              <li>
-                <Link href="/ressources/focus-salesforce" className="text-gray-400 hover:text-white transition-colors text-sm">
-                  Focus Salesforce
                 </Link>
               </li>
             </ul>
@@ -148,47 +121,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social Links & Bottom Bar */}
+        {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             
-            {/* Social Links */}
-            <div className="flex items-center space-x-6 mb-4 md:mb-0">
-              <a 
-                href="https://linkedin.com/company/hubeasy" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn HubEasy"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="mailto:contact@hubeasy.fr" 
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="Email HubEasy"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://www.hubspot.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-white transition-colors text-sm"
-                aria-label="Partenaire HubSpot"
-              >
-                <span className="mr-1">Partenaire HubSpot</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-
-            {/* Copyright & Legal Info */}
+            {/* Copyright */}
             <div className="text-center md:text-right">
               <p className="text-gray-500 text-xs mb-1">
-                © 2024 HubEasy SARL. Tous droits réservés.
-              </p>
-              <p className="text-gray-600 text-xs">
-                SARL au capital de 10 000 € • SIRET: 123 456 789 00012 • Paris
+                © 2024 HubEasy. Tous droits réservés.
               </p>
             </div>
           </div>

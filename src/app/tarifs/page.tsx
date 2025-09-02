@@ -99,9 +99,8 @@ const aiAgents = [
 ];
 
 const aiPricing = [
-  { agents: '1 agent', price: '390 euros par mois' },
-  { agents: '2 agents', price: '590 euros par mois' },
-  { agents: '3 agents', price: '690 euros par mois' },
+  { agents: 'Installation initiale', price: '490 euros' },
+  { agents: 'Abonnement mensuel', price: '99 euros/mois' },
 ];
 
 export default function TarifsPage() {
@@ -267,13 +266,28 @@ export default function TarifsPage() {
             </p>
             
             {/* AI Pricing */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-6 mb-12">
               {aiPricing.map((pricing, index) => (
-                <div key={index} className="bg-white rounded-full px-6 py-3 shadow-md">
+                <div key={index} className="bg-white rounded-full px-8 py-4 shadow-md">
                   <span className="font-medium text-gray-900">{pricing.agents}</span>
                   <span className="text-red-600 font-semibold ml-2">{pricing.price}</span>
                 </div>
               ))}
+            </div>
+            
+            {/* Discount Information */}
+            <div className="bg-white rounded-2xl p-6 max-w-2xl mx-auto mb-12 shadow-md">
+              <div className="flex flex-wrap justify-center gap-4">
+                <div className="bg-blue-50 rounded-full px-6 py-3">
+                  <span className="font-medium text-blue-900">Remise de 20% sur le deuxième agent</span>
+                </div>
+                <div className="bg-indigo-50 rounded-full px-6 py-3">
+                  <span className="font-medium text-indigo-900">Remise de 50% sur le troisième agent</span>
+                </div>
+                <div className="bg-green-50 rounded-full px-6 py-3">
+                  <span className="font-medium text-green-900">Sans engagement</span>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
           

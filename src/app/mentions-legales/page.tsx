@@ -41,10 +41,9 @@ export default function MentionsLegalesPage() {
                   <p><strong>RCS :</strong> Paris B 123 456 789</p>
                   <p><strong>TVA intracommunautaire :</strong> FR 12 123456789</p>
                   <p><strong>Adresse du siège social :</strong><br />
-                  42 Avenue des Champs-Élysées<br />
-                  75008 Paris, France</p>
-                  <p><strong>Téléphone :</strong> +33 1 42 86 83 42</p>
-                  <p><strong>Email :</strong> contact@hubeasy.fr</p>
+                  6 Rue d'Armaillé<br />
+                  75017 Paris, France</p>
+
                   <p><strong>Directeur de la publication :</strong> [Nom du dirigeant]</p>
                 </div>
               </div>
@@ -121,12 +120,10 @@ export default function MentionsLegalesPage() {
                   Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :
                 </p>
                 <div className="bg-red-50 p-6 rounded-xl">
-                  <p><strong>Par email :</strong> contact@hubeasy.fr</p>
-                  <p><strong>Par téléphone :</strong> +33 1 42 86 83 42</p>
                   <p><strong>Par courrier :</strong><br />
                   HubEasy SARL<br />
-                  42 Avenue des Champs-Élysées<br />
-                  75008 Paris, France</p>
+                  6 Rue d'Armaillé<br />
+                  75017 Paris, France</p>
                 </div>
               </div>
 
