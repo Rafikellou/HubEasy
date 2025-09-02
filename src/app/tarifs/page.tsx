@@ -98,10 +98,11 @@ const aiAgents = [
   },
 ];
 
-const aiPricing = [
-  { agents: 'Installation initiale', price: '490 euros' },
-  { agents: 'Abonnement mensuel', price: '99 euros/mois' },
-];
+const aiPricing = {
+  lucie: { installation: '790 euros', abonnement: '129 euros/mois' },
+  theo: { installation: '590 euros', abonnement: '99 euros/mois' },
+  anna: { installation: '390 euros', abonnement: '79 euros/mois' }
+};
 
 export default function TarifsPage() {
   return (
@@ -265,25 +266,11 @@ export default function TarifsPage() {
               Nous proposons actuellement 3 agents IA qui fonctionnent vraiment et qui boostent votre business
             </p>
             
-            {/* AI Pricing */}
-            <div className="flex flex-wrap justify-center gap-6 mb-12">
-              {aiPricing.map((pricing, index) => (
-                <div key={index} className="bg-white rounded-full px-8 py-4 shadow-md">
-                  <span className="font-medium text-gray-900">{pricing.agents}</span>
-                  <span className="text-red-600 font-semibold ml-2">{pricing.price}</span>
-                </div>
-              ))}
-            </div>
+            {/* AI Pricing section has been removed as individual pricing is now displayed with each agent */}
             
-            {/* Discount Information */}
+            {/* Engagement Information */}
             <div className="bg-white rounded-2xl p-6 max-w-2xl mx-auto mb-12 shadow-md">
               <div className="flex flex-wrap justify-center gap-4">
-                <div className="bg-blue-50 rounded-full px-6 py-3">
-                  <span className="font-medium text-blue-900">Remise de 20% sur le deuxième agent</span>
-                </div>
-                <div className="bg-indigo-50 rounded-full px-6 py-3">
-                  <span className="font-medium text-indigo-900">Remise de 50% sur le troisième agent</span>
-                </div>
                 <div className="bg-green-50 rounded-full px-6 py-3">
                   <span className="font-medium text-green-900">Sans engagement</span>
                 </div>
@@ -306,6 +293,28 @@ export default function TarifsPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{agent.name}</h3>
                   <p className="text-sm font-medium text-blue-600 mb-4">{agent.role}</p>
                   <p className="text-gray-600 text-sm leading-relaxed">{agent.description}</p>
+                  
+                  {/* Individual pricing information */}
+                  <div className="mt-6 pt-6 border-t border-gray-100">
+                    <div className="flex flex-col space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">Installation</span>
+                        <span className="font-semibold text-red-600">
+                          {agent.name === 'Lucie' && aiPricing.lucie.installation}
+                          {agent.name === 'Théo' && aiPricing.theo.installation}
+                          {agent.name === 'Anna' && aiPricing.anna.installation}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">Abonnement</span>
+                        <span className="font-semibold text-red-600">
+                          {agent.name === 'Lucie' && aiPricing.lucie.abonnement}
+                          {agent.name === 'Théo' && aiPricing.theo.abonnement}
+                          {agent.name === 'Anna' && aiPricing.anna.abonnement}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
