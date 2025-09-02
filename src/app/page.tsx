@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket, Calendar } from 'lucide-react';
+import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket, Calendar, Building, ShoppingCart, Users } from 'lucide-react';
 import { ArrowPathIcon, CurrencyDollarIcon, ServerStackIcon, UserIcon, BanknotesIcon, PresentationChartLineIcon, LockOpenIcon } from '@heroicons/react/24/outline';
 import HubspotContactForm from '@/components/contact/HubspotContactForm';
 import AnimatedSection from '@/components/animated-section';
@@ -242,17 +242,17 @@ export default function Home() {
           </AnimatedSection>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[ 
-              { title: 'Industrie', description: 'Intégration Odoo : 70% de saisie manuelle en moins.', icon: <TrendingUp size={32}/> },
-              { title: 'Conseil', description: 'Intégration Microsoft Dynamics : Facturation automatisée et sans erreur.', icon: <Database size={32}/> },
-              { title: 'SaaS', description: 'Intégration Dynamics : 25% d\'upsell additionnel en 9 mois.', icon: <Rocket size={32}/> },
+              { title: 'Groupe Septeo', description: 'Legaltech — données unifiées Salesforce ↔ HubSpot. +45% MQL.', icon: <Building size={32}/> },
+              { title: 'Boutique e-commerce', description: 'Shopify ↔ HubSpot. +22% conversion panier.', icon: <ShoppingCart size={32}/> },
+              { title: 'Plateforme EdTech', description: 'LMS connecté, scoring & nurture. +55% conv. démo → vente.', icon: <Users size={32}/> },
             ].map((clientCase, index) => (
               <AnimatedSection key={clientCase.title} animation="fade-up" delay={index * 100}>
                 <div className="bg-white p-8 rounded-3xl shadow-xl h-full text-center group hover:bg-red-500 transition-all duration-300 transform hover:-translate-y-2">
                   <div className="text-red-500 group-hover:text-white transition-colors duration-300 mb-4">
                     {clientCase.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">{clientCase.title}</h3>
-                  <p className="mt-4 text-gray-600 group-hover:text-red-100 transition-colors duration-300">{clientCase.description}</p>
+                  <h3 className="text-lg font-semibold tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300">{clientCase.title}</h3>
+                  <p className="mt-2 text-sm text-gray-600 group-hover:text-red-100 transition-colors duration-300 line-clamp-2">{clientCase.description}</p>
                 </div>
               </AnimatedSection>
             ))}
