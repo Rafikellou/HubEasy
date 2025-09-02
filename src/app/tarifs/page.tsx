@@ -268,14 +268,7 @@ export default function TarifsPage() {
             
             {/* AI Pricing section has been removed as individual pricing is now displayed with each agent */}
             
-            {/* Engagement Information */}
-            <div className="bg-white rounded-2xl p-6 max-w-2xl mx-auto mb-12 shadow-md">
-              <div className="flex flex-wrap justify-center gap-4">
-                <div className="bg-green-50 rounded-full px-6 py-3">
-                  <span className="font-medium text-green-900">Sans engagement</span>
-                </div>
-              </div>
-            </div>
+            {/* No engagement information displayed */}
           </AnimatedSection>
           
           <div className="grid md:grid-cols-3 gap-8">

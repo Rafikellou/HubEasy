@@ -39,7 +39,7 @@ export default function Header() {
                 priority
               />
             </Link>
-            <span className="text-xs font-light text-gray-600 ml-2 hidden sm:block">Start smiling.</span>
+            {/* Tagline removed */}
           </div>
 
           {/* Desktop Navigation */}
