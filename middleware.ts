@@ -1,5 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
-import {locales, defaultLocale} from './src/i18n/config';
+// Inline to avoid potential Edge import resolution issues on Vercel
+const locales = ['fr', 'en'] as const;
+const defaultLocale = 'fr' as const;
 
 export default createMiddleware({
   locales: Array.from(locales),
