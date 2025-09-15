@@ -1,14 +1,15 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Play, CheckCircle, Zap, Shield, TrendingUp, Database, Settings, Rocket, Calendar, Building, ShoppingCart, Users } from 'lucide-react';
-import { ArrowPathIcon, CurrencyDollarIcon, ServerStackIcon, UserIcon, BanknotesIcon, PresentationChartLineIcon, LockOpenIcon } from '@heroicons/react/24/outline';
+import { Calendar, Building, ShoppingCart, Users as UsersIconLucide, CheckCircle } from 'lucide-react';
 import HubspotContactForm from '@/components/contact/HubspotContactForm';
 import AnimatedSection from '@/components/animated-section';
-import { redirect } from 'next/navigation';
+import {getTranslations, getLocale} from 'next-intl/server';
 
-export default function Home() {
-  redirect('/fr');
+export default async function Home() {
+  const t = await getTranslations('Home');
+  const locale = await getLocale();
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section - Apple Style */}
@@ -27,30 +28,30 @@ export default function Home() {
         
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin tracking-tight mb-8 leading-none">
-            HubSpot.
+            {t('hero_title_1')}
             <br />
-            <span className="text-red-500 font-extralight">Simplifié.</span>
+            <span className="text-red-500 font-extralight">{t('hero_title_2')}</span>
           </h1>
           <p className="text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-            Nous intégrons HubSpot pour vous facilter la vie.
+            {t('hero_subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link href="/contact">
+            <Link href={`/${locale}/contact`}>
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full border-0 shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-105 relative overflow-hidden group"
               >
-                <span className="relative z-10">Contacter</span>
+                <span className="relative z-10">{t('cta_contact')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-red-700 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href={`/${locale}/contact`}>
               <Button 
                 size="lg" 
                 className="bg-white/20 backdrop-blur-md text-white border border-white/50 hover:bg-white hover:text-black font-light text-lg px-6 sm:px-8 md:px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                Planifier RDV
+                {t('cta_schedule')}
               </Button>
             </Link>
           </div>
@@ -68,9 +69,9 @@ export default function Home() {
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-base font-semibold leading-7 text-red-600">Unifiez vos données</h2>
-            <p className="mt-2 text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-gray-900">Une seule plateforme.</p>
-            <p className="mt-6 text-base sm:text-lg leading-8 text-gray-600">Ventes, marketing, support : tout en un. Tout fluide.</p>
+            <h2 className="text-base font-semibold leading-7 text-red-600">{t('unify_badge')}</h2>
+            <p className="mt-2 text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-gray-900">{t('unify_title')}</p>
+            <p className="mt-6 text-base sm:text-lg leading-8 text-gray-600">{t('unify_subtitle')}</p>
           </AnimatedSection>
         </div>
       </section>
@@ -79,8 +80,8 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection animation="fade-up" className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Ce que nous intégrons</h2>
-            <p className="mt-4 text-lg text-gray-600">Des intégrations fluides avec tous vos outils préférés</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('integrations_title')}</h2>
+            <p className="mt-4 text-lg text-gray-600">{t('integrations_subtitle')}</p>
           </AnimatedSection>
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[ 
@@ -185,13 +186,13 @@ export default function Home() {
           </div>
           <AnimatedSection animation="fade-up" delay={600} className="text-center mt-16">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-              <p className="text-2xl font-light text-gray-800 mb-8">👉 Vos outils parlent enfin entre eux.</p>
-              <Link href="/integrations">
+              <p className="text-2xl font-light text-gray-800 mb-8">{t('integrations_highlight')}</p>
+              <Link href={`/${locale}/integrations`}>
                 <Button 
                   variant="outline" 
                   className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg"
                 >
-                  Voir toutes nos intégrations
+                  {t('integrations_view_all')}
                 </Button>
               </Link>
             </div>
@@ -204,9 +205,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection animation="slide-right">
-              <h2 className="text-base font-semibold leading-7 text-red-600">Migration sans stress</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Pas besoin d’être expert technique.</p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">Nous gérons la complexité pour vous. Vous démarrez HubSpot sans douleur.</p>
+              <h2 className="text-base font-semibold leading-7 text-red-600">{t('migration_badge')}</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('migration_title')}</p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">{t('migration_subtitle')}</p>
             </AnimatedSection>
             <AnimatedSection animation="slide-left" delay={200}>
               <div className="relative group">
@@ -221,7 +222,7 @@ export default function Home() {
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-700">Migration en cours</span>
+                        <span className="text-sm font-medium text-gray-700">Migration</span>
                         <span className="text-sm font-bold text-red-500">87%</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
@@ -240,13 +241,13 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection animation="fade-up" className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Cas clients</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('client_cases_title')}</h2>
           </AnimatedSection>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[ 
               { title: 'Groupe Septeo', description: 'Legaltech — données unifiées Salesforce ↔ HubSpot. +45% MQL.', icon: <Building size={32}/> },
               { title: 'Boutique e-commerce', description: 'Shopify ↔ HubSpot. +22% conversion panier.', icon: <ShoppingCart size={32}/> },
-              { title: 'Plateforme EdTech', description: 'LMS connecté, scoring & nurture. +55% conv. démo → vente.', icon: <Users size={32}/> },
+              { title: 'Plateforme EdTech', description: 'LMS connecté, scoring & nurture. +55% conv. démo → vente.', icon: <UsersIconLucide size={32}/> },
             ].map((clientCase, index) => (
               <AnimatedSection key={clientCase.title} animation="fade-up" delay={index * 100}>
                 <div className="bg-white p-8 rounded-3xl shadow-xl h-full text-center group hover:bg-red-500 transition-all duration-300 transform hover:-translate-y-2">
@@ -260,12 +261,12 @@ export default function Home() {
             ))}
           </div>
           <AnimatedSection animation="fade-up" delay={300} className="text-center mt-16">
-            <Link href="/cas-clients">
+            <Link href={`/${locale}/cas-clients`}>
               <Button 
                 variant="outline" 
                 className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
               >
-                Voir plus de cas clients
+                {t('client_cases_more')}
               </Button>
             </Link>
           </AnimatedSection>
@@ -276,13 +277,13 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection animation="fade-up" className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Nos points forts</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">{t('strengths_title')}</h2>
           </AnimatedSection>
           <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
             {[
-              { title: "Aller jusqu'au bout du bout", description: "Pour que les users HubSpot trouvent l'outil simple et vraiment utile." },
-              { title: "Notre compréhension business", description: "En Marketing & Sales, couplée à notre savoir-faire technique." },
-              { title: "Notre agilité", description: "Pour livrer des projets ultra fluides." },
+              { title: t('strength_1_title'), description: t('strength_1_desc') },
+              { title: t('strength_2_title'), description: t('strength_2_desc') },
+              { title: t('strength_3_title'), description: t('strength_3_desc') },
             ].map((strength, index) => (
               <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
                 <div className="bg-gray-800 p-8 rounded-2xl shadow-lg h-full">
@@ -299,12 +300,12 @@ export default function Home() {
           </div>
 
           <AnimatedSection animation="fade-up" delay={400} className="mt-16 text-center">
-            <Link href="/services">
+            <Link href={`/${locale}/services`}>
               <Button 
                 variant="outline" 
                 className="border-2 border-red-500 text-red-500 bg-white hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
               >
-                En savoir plus sur nos services
+                {t('services_more')}
               </Button>
             </Link>
           </AnimatedSection>
@@ -315,14 +316,14 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Nos tarifs</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">Des packs simples, sans surprise. Pas d’heures facturées, pas de coûts cachés. Toujours basés sur le résultat.</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('pricing_title')}</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">{t('pricing_subtitle')}</p>
             <div className="mt-10">
-              <Link href="/tarifs">
+              <Link href={`/${locale}/tarifs`}>
                 <Button 
                   className="bg-red-600 text-white hover:bg-red-700 font-light px-8 py-3 rounded-full text-lg transition-all duration-300 hover:scale-105"
                 >
-                  Voir nos offres
+                  {t('pricing_cta')}
                 </Button>
               </Link>
             </div>
@@ -343,15 +344,15 @@ export default function Home() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Prêt à simplifier HubSpot ?</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">Vous venez d’acheter HubSpot ? Assurez-vous qu’il fonctionne simplement.</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">{t('final_title')}</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">{t('final_subtitle')}</p>
             <div className="mt-10">
-              <Link href="/contact">
+              <Link href={`/${locale}/contact`}>
                 <Button 
                   size="lg" 
                   className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-light text-lg px-12 py-4 h-auto rounded-full transition-all duration-500 hover:scale-105"
                 >
-                  Planifier un appel
+                  {t('final_cta')}
                 </Button>
               </Link>
             </div>
@@ -363,8 +364,8 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Contact</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">Parlez-nous de votre projet. Nous revenons vers vous sous 24h.</p>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('contact_title')}</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600">{t('contact_subtitle')}</p>
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="mt-10">
