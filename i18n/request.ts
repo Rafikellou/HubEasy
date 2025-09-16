@@ -2,8 +2,8 @@ import {getRequestConfig} from 'next-intl/server';
 import {headers} from 'next/headers';
 import {locales, defaultLocale, type Locale} from '../src/i18n/config';
 
-export default getRequestConfig(async ({requestLocale, locale}) => {
-  let candidate = (requestLocale ?? locale) as string | undefined;
+export default getRequestConfig(async ({locale}) => {
+  let candidate = locale as string | undefined;
   if (!candidate) {
     try {
       const h = headers();
