@@ -1,20 +1,19 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Building, ShoppingCart, Users as UsersIconLucide, CheckCircle } from 'lucide-react';
+import { CheckCircle, Calendar, Building, ShoppingCart, Users } from 'lucide-react';
 import HubspotContactForm from '@/components/contact/HubspotContactForm';
 import AnimatedSection from '@/components/animated-section';
-import {getTranslations, getLocale} from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
-export default async function Home() {
-  const t = await getTranslations('Home');
-  const locale = await getLocale();
+export default async function Home({ params }: { params: { locale: string }}) {
+  const { locale } = params;
+  const t = await getTranslations({ locale, namespace: 'Home' });
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Apple Style */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image - Modern Office */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
@@ -25,7 +24,7 @@ export default async function Home() {
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
-        
+
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin tracking-tight mb-8 leading-none">
             {t('hero_title_1')}
@@ -56,8 +55,7 @@ export default async function Home() {
             </Link>
           </div>
         </div>
-        
-        {/* Scroll indicator */}
+
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
@@ -200,7 +198,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Stress-free Migration Section */}
+      {/* Migration Section */}
       <section className="py-24 sm:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -244,15 +242,15 @@ export default async function Home() {
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">{t('client_cases_title')}</h2>
           </AnimatedSection>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[ 
-              { title: 'Groupe Septeo', description: 'Legaltech — données unifiées Salesforce ↔ HubSpot. +45% MQL.', icon: <Building size={32}/> },
-              { title: 'Boutique e-commerce', description: 'Shopify ↔ HubSpot. +22% conversion panier.', icon: <ShoppingCart size={32}/> },
-              { title: 'Plateforme EdTech', description: 'LMS connecté, scoring & nurture. +55% conv. démo → vente.', icon: <UsersIconLucide size={32}/> },
+            {[
+              { title: t('client_case_1_title'), description: t('client_case_1_desc') },
+              { title: t('client_case_2_title'), description: t('client_case_2_desc') },
+              { title: t('client_case_3_title'), description: t('client_case_3_desc') },
             ].map((clientCase, index) => (
               <AnimatedSection key={clientCase.title} animation="fade-up" delay={index * 100}>
                 <div className="bg-white p-8 rounded-3xl shadow-xl h-full text-center group hover:bg-red-500 transition-all duration-300 transform hover:-translate-y-2">
                   <div className="text-red-500 group-hover:text-white transition-colors duration-300 mb-4">
-                    {clientCase.icon}
+                    {(() => { const Icon = [Building, ShoppingCart, Users][index % 3]; return <Icon size={32} />; })()}
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300">{clientCase.title}</h3>
                   <p className="mt-2 text-sm text-gray-600 group-hover:text-red-100 transition-colors duration-300 line-clamp-2">{clientCase.description}</p>
@@ -376,4 +374,8 @@ export default async function Home() {
       </section>
     </main>
   );
+}
+
+export function generateStaticParams() {
+  return [{ locale: 'fr' }, { locale: 'en' }];
 }

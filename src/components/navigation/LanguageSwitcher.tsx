@@ -1,21 +1,19 @@
 "use client";
 
-import {useEffect, useMemo, useState} from 'react';
+import {useMemo} from 'react';
 import {useLocale} from 'next-intl';
 import Link from 'next/link';
 import {locales} from '@/i18n/config';
+import {usePathname} from 'next/navigation';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
-  const [basePath, setBasePath] = useState<string>('');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const current = window.location.pathname;
-      const stripped = current.replace(/^\/(fr|en)(?=\/|$)/, '');
-      setBasePath(stripped || '/');
-    }
-  }, []);
+  const pathname = usePathname();
+  const basePath = useMemo(() => {
+    const current = pathname || '/';
+    const stripped = current.replace(/^\/(fr|en)(?=\/|$)/, '');
+    return stripped || '/';
+  }, [pathname]);
 
   const otherLocales = useMemo(() => locales.filter(l => l !== locale), [locale]);
 
