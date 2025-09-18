@@ -39,43 +39,43 @@ const articles: ArticleWithId[] = [
     content: `
       <article class="article-content">
         <section>
-          <h2 class="article-section-title">Pourquoi les intégrations Odoo HubSpot échouent</h2>
-          <p class="article-paragraph">Les intégrations entre Odoo et HubSpot sont souvent complexes et peuvent dépasser les délais prévus. Voici les principales causes d'échec :</p>
+          <h2 class="article-section-title">Pourquoi les intégrations Odoo HubSpot echouent</h2>
+          <p class="article-paragraph">Les integrations entre Odoo et HubSpot sont souvent complexes et peuvent depasser les delais prevus. Voici les principales causes d'echec :</p>
           
           <ul class="article-list">
-            <li class="article-list-item">Sous-estimation de la complexité technique</li>
-            <li class="article-list-item">Mapping des données incomplet</li>
+            <li class="article-list-item">Sous-estimation de la complexite technique</li>
+            <li class="article-list-item">Mapping des donnees incomplet</li>
             <li class="article-list-item">Tests insuffisants</li>
-            <li class="article-list-item">Formation des équipes négligée</li>
+            <li class="article-list-item">Formation des equipes negligee</li>
           </ul>
           
           <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>👉 50% des projets d'intégration Odoo HubSpot dépassent les délais de 2 à 4 semaines.</strong></p>
+            <p class="article-callout-content"><strong>50% des projets d'integration Odoo HubSpot depassent les delais de 2 a 4 semaines.</strong></p>
           </div>
         </section>
         
         <section>
-          <h2 class="article-section-title">Comment éviter les dépassements de délais</h2>
+          <h2 class="article-section-title">Comment eviter les depassements de delais</h2>
           
           <div class="article-feature">
-            <h3 class="article-feature-title">1. Planification détaillée</h3>
-            <p class="article-paragraph">Définissez un planning réaliste avec des jalons clairs et des tests à chaque étape.</p>
+            <h3 class="article-feature-title">1. Planification detaillee</h3>
+            <p class="article-paragraph">Definissez un planning realiste avec des jalons clairs et des tests a chaque etape.</p>
           </div>
           
           <div class="article-feature">
-            <h3 class="article-feature-title">2. Mapping des données</h3>
-            <p class="article-paragraph">Identifiez tous les champs à synchroniser et les transformations nécessaires.</p>
+            <h3 class="article-feature-title">2. Mapping des donnees</h3>
+            <p class="article-paragraph">Identifiez tous les champs a synchroniser et les transformations necessaires.</p>
           </div>
           
           <div class="article-feature">
             <h3 class="article-feature-title">3. Tests en continu</h3>
-            <p class="article-paragraph">Testez chaque intégration au fur et à mesure pour détecter les problèmes rapidement.</p>
+            <p class="article-paragraph">Testez chaque integration au fur et a mesure pour detecter les problemes rapidement.</p>
           </div>
         </section>
         
         <section>
           <h2 class="article-section-title">Conclusion</h2>
-          <p class="article-paragraph">Une intégration Odoo HubSpot réussie nécessite une planification minutieuse et des tests rigoureux.</p>
+          <p class="article-paragraph">Une integration Odoo HubSpot reussie necessite une planification minutieuse et des tests rigoureux.</p>
         </section>
       </article>
     `
@@ -83,7 +83,7 @@ const articles: ArticleWithId[] = [
   {
     id: 2,
     slug: "agence-hubspot-france-guide-2025",
-    title: "Agence HubSpot France : Guide Complet 2025 pour Choisir la Meilleure",
+    title: "Agence HubSpot France - Guide Complet 2025 pour Choisir la Meilleure",
     excerpt: "Découvrez comment choisir la meilleure agence HubSpot en France. Critères de sélection, tarifs, certifications et bonnes pratiques pour votre projet HubSpot en 2025.",
     author: "Équipe HubEasy",
     date: "2025-01-15",
@@ -95,127 +95,52 @@ const articles: ArticleWithId[] = [
       <article class="article-content">
         <section>
           <h2 class="article-section-title">Pourquoi choisir une agence HubSpot en France ?</h2>
-          <p class="article-paragraph">Avec plus de 100 000 entreprises utilisant HubSpot dans le monde, choisir la bonne agence HubSpot en France devient crucial pour réussir votre transformation digitale.</p>
+          <p class="article-paragraph">Avec plus de 100 000 entreprises utilisant HubSpot dans le monde, choisir la bonne agence HubSpot en France devient crucial pour reussir votre transformation digitale.</p>
           
-          <p class="article-paragraph">Une agence HubSpot certifiée vous accompagne dans :</p>
+          <p class="article-paragraph">Une agence HubSpot certifiee vous accompagne dans :</p>
           
           <ul class="article-list">
-            <li class="article-list-item">L'implémentation et la configuration de HubSpot</li>
+            <li class="article-list-item">L'implementation et la configuration de HubSpot</li>
             <li class="article-list-item">La migration depuis votre ancien CRM</li>
-            <li class="article-list-item">La formation de vos équipes</li>
+            <li class="article-list-item">La formation de vos equipes</li>
             <li class="article-list-item">L'optimisation continue de vos processus</li>
           </ul>
           
           <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>👉 En 2025, 73% des entreprises qui réussissent avec HubSpot travaillent avec une agence certifiée.</strong></p>
+            <p class="article-callout-content"><strong>En 2025, 73% des entreprises qui reussissent avec HubSpot travaillent avec une agence certifiee.</strong></p>
           </div>
         </section>
         
         <section>
-          <h2 class="article-section-title">Les critères essentiels pour choisir votre agence HubSpot</h2>
+          <h2 class="article-section-title">Les criteres essentiels pour choisir votre agence HubSpot</h2>
           
           <div class="article-feature">
             <h3 class="article-feature-title">1. Certifications HubSpot officielles</h3>
-            <p class="article-paragraph">Vérifiez que l'agence possède les certifications HubSpot officielles :</p>
+            <p class="article-paragraph">Verifiez que l'agence possede les certifications HubSpot officielles :</p>
             <ul class="article-list">
               <li class="article-list-item">HubSpot Partner Certification</li>
               <li class="article-list-item">HubSpot Solutions Partner</li>
-              <li class="article-list-item">Certifications spécialisées (Marketing, Sales, Service)</li>
+              <li class="article-list-item">Certifications specialisees (Marketing, Sales, Service)</li>
             </ul>
           </div>
           
           <div class="article-feature">
-            <h3 class="article-feature-title">2. Expérience sectorielle</h3>
-            <p class="article-paragraph">Privilégiez une agence qui connaît votre secteur d'activité :</p>
+            <h3 class="article-feature-title">2. Experience sectorielle</h3>
+            <p class="article-paragraph">Privilegiez une agence qui connait votre secteur d'activite :</p>
             <ul class="article-list">
               <li class="article-list-item">B2B, B2C, E-commerce</li>
               <li class="article-list-item">PME, ETI, Grandes entreprises</li>
-              <li class="article-list-item">Secteurs spécifiques (tech, finance, retail, etc.)</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">3. Références et cas clients</h3>
-            <p class="article-paragraph">Demandez des références clients dans votre secteur avec des résultats concrets :</p>
-            <ul class="article-list">
-              <li class="article-list-item">ROI mesurable</li>
-              <li class="article-list-item">Amélioration des performances</li>
-              <li class="article-list-item">Témoignages clients</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Tarifs des agences HubSpot en France</h2>
-          <p class="article-paragraph">Les tarifs varient selon la complexité de votre projet et l'expérience de l'agence :</p>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Projets d'implémentation</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Configuration basique : 5 000€ - 15 000€</li>
-              <li class="article-list-item">Configuration avancée : 15 000€ - 35 000€</li>
-              <li class="article-list-item">Configuration enterprise : 35 000€ - 75 000€</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Services récurrents</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Support mensuel : 1 500€ - 5 000€/mois</li>
-              <li class="article-list-item">Formation équipes : 2 000€ - 8 000€</li>
-              <li class="article-list-item">Optimisation continue : 3 000€ - 10 000€/mois</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Les erreurs à éviter lors du choix</h2>
-          
-          <ul class="article-list">
-            <li class="article-list-item">Choisir uniquement sur le prix : une agence moins chère peut coûter plus cher à long terme</li>
-            <li class="article-list-item">Négliger la formation : vos équipes doivent être autonomes</li>
-            <li class="article-list-item">Oublier le support post-implémentation : HubSpot nécessite un accompagnement continu</li>
-            <li class="article-list-item">Ne pas vérifier les certifications : assurez-vous de l'expertise réelle</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Questions à poser à votre agence HubSpot</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Questions techniques</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Quelles intégrations avez-vous déjà réalisées ?</li>
-              <li class="article-list-item">Comment gérez-vous la migration des données ?</li>
-              <li class="article-list-item">Quelle est votre méthodologie d'implémentation ?</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Questions commerciales</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Pouvez-vous me fournir des références dans mon secteur ?</li>
-              <li class="article-list-item">Quel est votre processus de formation ?</li>
-              <li class="article-list-item">Quel support proposez-vous après l'implémentation ?</li>
+              <li class="article-list-item">Secteurs specifiques (tech, finance, retail, etc.)</li>
             </ul>
           </div>
         </section>
         
         <section>
           <h2 class="article-section-title">Conclusion</h2>
-          <p class="article-paragraph">Choisir la bonne agence HubSpot en France est un investissement stratégique qui déterminera le succès de votre projet.</p>
-          
-          <p class="article-paragraph">Les critères clés à retenir :</p>
-          
-          <ul class="article-list">
-            <li class="article-list-item">Certifications HubSpot officielles</li>
-            <li class="article-list-item">Expérience dans votre secteur</li>
-            <li class="article-list-item">Références clients solides</li>
-            <li class="article-list-item">Support et formation inclus</li>
-          </ul>
+          <p class="article-paragraph">Choisir la bonne agence HubSpot en France est un investissement strategique qui determinera le succes de votre projet.</p>
           
           <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>👉 Une agence HubSpot certifiée vous fait gagner en moyenne 6 mois sur votre projet et améliore vos chances de succès de 40%.</strong></p>
+            <p class="article-callout-content"><strong>Une agence HubSpot certifiee vous fait gagner en moyenne 6 mois sur votre projet et ameliore vos chances de succes de 40%.</strong></p>
           </div>
         </section>
       </article>
@@ -224,7 +149,7 @@ const articles: ArticleWithId[] = [
   {
     id: 3,
     slug: "integrateur-hubspot-choisir-partenaire",
-    title: "Intégrateur HubSpot : Comment Choisir le Bon Partenaire en 2025",
+    title: "Integrateur HubSpot - Comment Choisir le Bon Partenaire en 2025",
     excerpt: "Guide complet pour choisir le meilleur intégrateur HubSpot. Certifications, expérience, tarifs et critères de sélection pour réussir votre projet HubSpot.",
     author: "Équipe HubEasy",
     date: "2025-01-10",
@@ -235,128 +160,54 @@ const articles: ArticleWithId[] = [
     content: `
       <article class="article-content">
         <section>
-          <h2 class="article-section-title">Qu'est-ce qu'un intégrateur HubSpot ?</h2>
-          <p class="article-paragraph">Un intégrateur HubSpot est un partenaire technique certifié qui vous accompagne dans l'implémentation, la configuration et l'optimisation de votre plateforme HubSpot.</p>
+          <h2 class="article-section-title">Qu'est-ce qu'un integrateur HubSpot ?</h2>
+          <p class="article-paragraph">Un integrateur HubSpot est un partenaire technique certifie qui vous accompagne dans l'implementation, la configuration et l'optimisation de votre plateforme HubSpot.</p>
           
           <p class="article-paragraph">Ses missions principales :</p>
           
           <ul class="article-list">
             <li class="article-list-item">Configuration technique de HubSpot</li>
-            <li class="article-list-item">Intégration avec vos outils existants</li>
-            <li class="article-list-item">Migration des données depuis votre ancien CRM</li>
+            <li class="article-list-item">Integration avec vos outils existants</li>
+            <li class="article-list-item">Migration des donnees depuis votre ancien CRM</li>
             <li class="article-list-item">Formation et support technique</li>
           </ul>
           
           <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>👉 Un bon intégrateur HubSpot peut réduire votre temps d'implémentation de 60% et améliorer votre ROI de 35%.</strong></p>
+            <p class="article-callout-content"><strong>Un bon integrateur HubSpot peut reduire votre temps d'implementation de 60% et ameliorer votre ROI de 35%.</strong></p>
           </div>
         </section>
         
         <section>
-          <h2 class="article-section-title">Critères de sélection d'un intégrateur HubSpot</h2>
+          <h2 class="article-section-title">Criteres de selection d'un integrateur HubSpot</h2>
           
           <div class="article-feature">
             <h3 class="article-feature-title">1. Certifications HubSpot officielles</h3>
-            <p class="article-paragraph">Vérifiez les certifications officielles :</p>
+            <p class="article-paragraph">Verifiez les certifications officielles :</p>
             <ul class="article-list">
               <li class="article-list-item">HubSpot Partner Certification</li>
               <li class="article-list-item">HubSpot Solutions Partner</li>
-              <li class="article-list-item">Certifications techniques spécialisées</li>
+              <li class="article-list-item">Certifications techniques specialisees</li>
             </ul>
           </div>
           
           <div class="article-feature">
-            <h3 class="article-feature-title">2. Expérience technique</h3>
+            <h3 class="article-feature-title">2. Experience technique</h3>
             <p class="article-paragraph">Recherchez une expertise dans :</p>
             <ul class="article-list">
-              <li class="article-list-item">Intégrations API complexes</li>
-              <li class="article-list-item">Migration de données volumineuses</li>
-              <li class="article-list-item">Automatisation avancée</li>
+              <li class="article-list-item">Integrations API complexes</li>
+              <li class="article-list-item">Migration de donnees volumineuses</li>
+              <li class="article-list-item">Automatisation avancee</li>
               <li class="article-list-item">Personnalisation HubSpot</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">3. Références clients</h3>
-            <p class="article-paragraph">Demandez des cas clients similaires avec :</p>
-            <ul class="article-list">
-              <li class="article-list-item">Taille d'entreprise comparable</li>
-              <li class="article-list-item">Secteur d'activité similaire</li>
-              <li class="article-list-item">Défis techniques identiques</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Types d'intégrateurs HubSpot</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Intégrateur généraliste</h3>
-            <p class="article-paragraph">Propose des services complets : implémentation, formation, support. Idéal pour les PME qui veulent un accompagnement global.</p>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Intégrateur spécialisé</h3>
-            <p class="article-paragraph">Expert dans un domaine spécifique (e-commerce, B2B, marketing automation). Parfait pour des besoins techniques complexes.</p>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Intégrateur sectoriel</h3>
-            <p class="article-paragraph">Connaît parfaitement votre secteur d'activité. Recommandé pour des industries avec des processus métier spécifiques.</p>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Tarifs des intégrateurs HubSpot</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Projets d'intégration</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Intégration simple : 3 000€ - 8 000€</li>
-              <li class="article-list-item">Intégration complexe : 8 000€ - 25 000€</li>
-              <li class="article-list-item">Intégration enterprise : 25 000€ - 50 000€</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Services récurrents</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Support technique : 1 000€ - 3 000€/mois</li>
-              <li class="article-list-item">Maintenance : 500€ - 1 500€/mois</li>
-              <li class="article-list-item">Évolutions : 2 000€ - 8 000€/projet</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Questions essentielles à poser</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Questions techniques</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Quelles intégrations avez-vous déjà réalisées ?</li>
-              <li class="article-list-item">Comment gérez-vous la sécurité des données ?</li>
-              <li class="article-list-item">Quelle est votre méthodologie de test ?</li>
-              <li class="article-list-item">Proposez-vous une garantie sur vos intégrations ?</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">Questions commerciales</h3>
-            <ul class="article-list">
-              <li class="article-list-item">Quel est votre délai de réponse moyen ?</li>
-              <li class="article-list-item">Proposez-vous un support post-intégration ?</li>
-              <li class="article-list-item">Comment gérez-vous les évolutions futures ?</li>
             </ul>
           </div>
         </section>
         
         <section>
           <h2 class="article-section-title">Conclusion</h2>
-          <p class="article-paragraph">Choisir le bon intégrateur HubSpot est crucial pour la réussite de votre projet. Privilégiez l'expertise technique, les certifications officielles et les références clients solides.</p>
+          <p class="article-paragraph">Choisir le bon integrateur HubSpot est crucial pour la reussite de votre projet. Privilegiez l'expertise technique, les certifications officielles et les references clients solides.</p>
           
           <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>👉 Un intégrateur HubSpot expérimenté vous fait économiser en moyenne 40% sur votre projet et réduit les risques techniques de 70%.</strong></p>
+            <p class="article-callout-content"><strong>Un integrateur HubSpot experimente vous fait economiser en moyenne 40% sur votre projet et reduit les risques techniques de 70%.</strong></p>
           </div>
         </section>
       </article>
@@ -665,7 +516,7 @@ const articles: ArticleWithId[] = [
     date: "2025-07-10",
     readTime: "5 min",
     category: "Intégrations",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
     searchTerm: "business software integration",
     content: `
       <article class="article-content">
@@ -719,7 +570,7 @@ const articles: ArticleWithId[] = [
     date: "2025-05-05",
     readTime: "6 min",
     category: "E-commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
     searchTerm: "shopify ecommerce storefront",
     content: `
       <article class="article-content">
@@ -774,7 +625,7 @@ const articles: ArticleWithId[] = [
     date: "2025-03-25",
     readTime: "5 min",
     category: "Support",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
     searchTerm: "customer support helpdesk",
     content: `
       <article class="article-content">
@@ -829,7 +680,7 @@ const articles: ArticleWithId[] = [
     date: "2025-02-20",
     readTime: "6 min",
     category: "Sport",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
     searchTerm: "sports stadium crowd fans",
     content: `
       <article class="article-content">
@@ -884,7 +735,7 @@ const articles: ArticleWithId[] = [
     date: "2025-04-30",
     readTime: "8 min",
     category: "CRM",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+    image: "/images/hero-photo-hubeasy.jpg",
     searchTerm: "salesforce crm dashboard",
     content: `
       <article class="article-content">
