@@ -194,7 +194,7 @@ export default async function AgenceHubSpotParisPage({ params }: { params: { loc
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
-            alt="Agence HubSpot certifiée à Paris"
+            alt="Agence HubSpot Paris - Équipe d'experts HubSpot dans un bureau parisien moderne pour intégration CRM et marketing automation"
             fill
             className="object-cover"
             priority

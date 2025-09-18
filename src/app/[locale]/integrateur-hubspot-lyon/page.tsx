@@ -130,7 +130,7 @@ export default async function IntegrateurHubSpotLyonPage({ params }: { params: {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
-            alt="Intégrateur HubSpot certifié à Lyon"
+            alt="Intégrateur HubSpot Lyon - Expert technique HubSpot dans un environnement professionnel lyonnais pour intégrations CRM complexes"
             fill
             className="object-cover"
             priority

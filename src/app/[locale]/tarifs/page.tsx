@@ -26,7 +26,7 @@ export default async function TarifsPage({ params }: { params: { locale: string 
     <main className="min-h-screen bg-white text-gray-800">
       <section className="relative py-24 md:py-32 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/tarif-photo.jpg" alt={t('hero_alt')} fill className="object-cover" priority />
+          <Image src="/tarif-photo.jpg" alt="Tarifs HubSpot HubEasy - Transparence tarifaire pour agence HubSpot certifiée en France" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4">

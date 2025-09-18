@@ -17,7 +17,7 @@ export default async function Home({ params }: { params: { locale: string }}) {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
-            alt="Équipe professionnelle en réunion dans un bureau moderne avec espaces vitrés"
+            alt="Agence HubSpot HubEasy - Équipe d'experts en intégration CRM et marketing automation dans un bureau moderne"
             fill
             className="object-cover"
             priority
@@ -212,7 +212,7 @@ export default async function Home({ params }: { params: { locale: string }}) {
                 <div className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80"
-                    alt="Femme souriante dans un bureau moderne"
+                    alt="Migration HubSpot - Professionnelle analysant les données CRM avec indicateurs de progression à 87%"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />

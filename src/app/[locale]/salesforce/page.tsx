@@ -12,7 +12,7 @@ export default async function Salesforce({ params }: { params: { locale: string 
     <main className="min-h-screen bg-white">
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/salesforce-photo.jpg" alt={t('hero_alt')} fill className="object-cover" priority />
+          <Image src="/salesforce-photo.jpg" alt="Salesforce vs HubSpot - Comparatif CRM et intégration pour entreprises B2B françaises" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-indigo-900/75 to-orange-900/80"></div>
         </div>
         <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
@@ -48,7 +48,7 @@ export default async function Salesforce({ params }: { params: { locale: string 
             </AnimatedSection>
             <AnimatedSection animation="slide-left" delay={200}>
               <div className="relative h-80 rounded-3xl overflow-hidden shadow-xl">
-                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt={t('expertise_img_alt')} fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Expertise Salesforce HubEasy - Consultant CRM analysant les données et processus d'intégration" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
               </div>
             </AnimatedSection>
@@ -98,7 +98,7 @@ export default async function Salesforce({ params }: { params: { locale: string 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="slide-right">
               <div className="relative h-80 rounded-3xl overflow-hidden shadow-xl">
-                <Image src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt={t('partner_img_alt')} fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80" alt="Partenaire Salesforce HubEasy - Équipe technique spécialisée dans l'intégration CRM et migration de données" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
               </div>
             </AnimatedSection>

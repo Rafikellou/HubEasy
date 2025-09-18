@@ -214,7 +214,7 @@ export default async function BlogPage({ params }: { params: { locale: string }}
             <div className="bg-gradient-to-r from-gray-50 to-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="relative h-64 lg:h-full">
-                  <Image src={articleImagesMap.get(featuredArticle.id) || featuredArticle.image} alt={featuredArticle.title} fill className="object-cover" />
+                  <Image src={articleImagesMap.get(featuredArticle.id) || featuredArticle.image} alt={`Article HubSpot : ${featuredArticle.title} - Guide complet intégration CRM`} fill className="object-cover" />
                   <div className="absolute top-4 left-4">
                     <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">{t('featured_badge')}</span>
                   </div>
@@ -260,7 +260,7 @@ export default async function BlogPage({ params }: { params: { locale: string }}
                 ].filter(Boolean).join('&')}` : ''}`} className="block h-full">
                   <article className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col">
                     <div className="relative h-48">
-                      <Image src={articleImagesMap.get(article.id) || article.image} alt={article.title} fill className="object-cover" />
+                      <Image src={articleImagesMap.get(article.id) || article.image} alt={`Article HubSpot : ${article.title} - Guide expert intégration CRM et marketing automation`} fill className="object-cover" />
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex justify-between items-center mb-4">

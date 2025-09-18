@@ -116,7 +116,7 @@ export default async function Services({ params }: { params: { locale: string }}
                 <AnimatedSection animation={index % 2 === 0 ? 'slide-left' : 'slide-right'} delay={200} className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <div className="relative group">
                     <div className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                      <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={service.image} alt={`Service HubSpot : ${service.title} - Expertise HubEasy en intégration CRM et marketing automation`} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-20`}></div>
                     </div>
                   </div>

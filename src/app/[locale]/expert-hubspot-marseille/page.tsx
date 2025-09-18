@@ -130,7 +130,7 @@ export default async function ExpertHubSpotMarseillePage({ params }: { params: {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
-            alt="Expert HubSpot certifié à Marseille"
+            alt="Expert HubSpot Marseille - Consultant HubSpot spécialisé dans un bureau marseillais moderne pour optimisation CRM et marketing automation"
             fill
             className="object-cover"
             priority

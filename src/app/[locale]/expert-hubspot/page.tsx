@@ -151,7 +151,7 @@ export default async function ExpertHubSpotPage({ params }: { params: { locale: 
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-photo-hubeasy.jpg"
-            alt="Expert HubSpot certifié et consultant spécialisé"
+            alt="Expert HubSpot France - Consultant HubSpot certifié et spécialisé dans l'intégration CRM et marketing automation pour entreprises B2B"
             fill
             className="object-cover"
             priority

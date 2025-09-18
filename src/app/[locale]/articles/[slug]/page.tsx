@@ -926,7 +926,7 @@ export default async function ArticlePage({
             <div className="relative h-96 rounded-3xl overflow-hidden mb-12">
               <Image
                 src={imageUrl}
-                alt={article.title}
+                alt={`Article HubSpot : ${article.title} - Guide complet intégration CRM et marketing automation`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
