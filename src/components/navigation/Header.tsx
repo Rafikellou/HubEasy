@@ -93,24 +93,6 @@ export default function Header() {
                     {t('agency_method')}
                   </Link>
                   <Link
-                    href={`/${locale}/integrateur-hubspot`}
-                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
-                  >
-                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
-                      <Cloud className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
-                    </div>
-                    Intégrateur HubSpot
-                  </Link>
-                  <Link
-                    href={`/${locale}/partenaire-hubspot`}
-                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
-                  >
-                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
-                      <Cloud className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
-                    </div>
-                    Partenaire HubSpot
-                  </Link>
-                  <Link
                     href={`/${locale}/hubeasy-ai`}
                     className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
                   >

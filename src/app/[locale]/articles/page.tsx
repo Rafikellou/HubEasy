@@ -69,7 +69,7 @@ const featuredArticle: Article = {
   date: '2025-08-15',
   readTime: '7 min',
   category: 'Intégrations',
-  image: '/integration-photo.jpg',
+  image: '/odoo.png',
   featured: true,
   searchTerm: 'business integration software',
   unsplashImageId: undefined
@@ -111,7 +111,7 @@ const articles: Article[] = [
     date: '2025-07-10',
     readTime: '5 min',
     category: 'Intégrations',
-    image: '/agence-hubspot.webp',
+    image: '/dolibarr.jpg',
     searchTerm: 'business software integration',
     unsplashImageId: undefined
   },
@@ -176,7 +176,7 @@ const articles: Article[] = [
     date: '2025-03-25',
     readTime: '5 min',
     category: 'Support',
-    image: '/agence-hubspot.webp',
+    image: '/zendesk.png',
     searchTerm: 'customer support helpdesk',
     unsplashImageId: undefined
   },
@@ -189,7 +189,7 @@ const articles: Article[] = [
     date: '2025-02-20',
     readTime: '6 min',
     category: 'Sport',
-    image: '/agence-hubspot.webp',
+    image: '/crm-sport.jpg',
     searchTerm: 'sports stadium crowd fans',
     unsplashImageId: undefined
   }

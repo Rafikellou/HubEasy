@@ -54,7 +54,7 @@ const articles: ArticleWithId[] = [
     date: "2025-08-15",
     readTime: "7 min",
     category: "Intégrations",
-    image: "/integration-photo.jpg",
+    image: "/odoo.png",
     searchTerm: "business integration software",
     content: `
       <article class="article-content">
@@ -615,7 +615,7 @@ const articles: ArticleWithId[] = [
     date: "2025-03-25",
     readTime: "5 min",
     category: "Support",
-    image: "/seindesk.png",
+    image: "/zendesk.png",
     searchTerm: "customer support helpdesk",
     content: `
       <article class="article-content">
@@ -670,7 +670,7 @@ const articles: ArticleWithId[] = [
     date: "2025-02-20",
     readTime: "6 min",
     category: "Sport",
-    image: "/carm-sport.jpg",
+    image: "/crm-sport.jpg",
     searchTerm: "sports stadium crowd fans",
     content: `
       <article class="article-content">
