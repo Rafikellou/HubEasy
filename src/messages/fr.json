@@ -110,6 +110,10 @@
     "support_subtitle": "Comme nous voulons vous rendre la vie facile, nous allons au bout du bout des paramétrages et évolutions",
     "support_card_title": "Support & Optimisation Continue",
     "support_card_price": "À partir de 490 euros par mois",
+    "support_f1": "Optimisations de vue, de séquences, de wfs",
+    "support_f2": "Correction de potentiels bugs",
+    "support_f3": "Améliorations de rapports",
+    "support_flexibility": "Flexibilité totale : Vous êtes libre de prendre uniquement 1 mois ou plusieurs selon vos besoins.",
     "final_title": "Vous venez d'investir dans HubSpot. Assurez-vous qu'il devienne le cockpit simple et fluide de vos ventes.",
     "final_cta": "Planifier un appel de 30 min"
   }
@@ -168,7 +172,7 @@
   "Services": {
     "hero_title_part1": "Nos",
     "hero_title_part2": "Services",
-    "hero_subtitle": "Des solutions complètes pour transformer votre écosystème HubSpot",
+    "hero_subtitle": "Services d'intégrateur HubSpot et partenaire certifié. Des solutions complètes pour transformer votre écosystème HubSpot",
     "s1_title": "Intégrations ERP & Facturation",
     "s1_desc": "Connectez HubSpot à vos outils essentiels pour une synchronisation parfaite des données.",
     "s1_f1": "Intégration avec les ERP populaires (SAP, Oracle, Microsoft Dynamics)",
@@ -303,10 +307,10 @@
   }
   ,
   "AgencyHubSpot": {
-    "hero_alt": "Agence HubSpot pour PME/ETI B2B",
+    "hero_alt": "Agence HubSpot certifiée et partenaire officiel pour PME/ETI B2B",
     "hero_title": "Agence",
     "hero_title_highlight": "HubSpot",
-    "hero_subtitle": "Implémentations, migrations et intégrations HubSpot. Simple, propre, mesurable.",
+    "hero_subtitle": "Agence HubSpot certifiée et partenaire officiel. Implémentations, migrations et intégrations HubSpot. Simple, propre, mesurable.",
     "hero_cta1": "Discuter de mon projet",
     "hero_cta2": "Voir les offres",
     "why_title": "Pourquoi HubEasy ?",
@@ -358,7 +362,7 @@
     "faq_title": "FAQ – Agence HubSpot",
     "faq_subtitle": "Réponses aux questions fréquentes sur l'accompagnement HubSpot.",
     "faq1_q": "Qu'est-ce qu'une agence HubSpot ?",
-    "faq1_a": "Une agence HubSpot accompagne la mise en place du CRM et des hubs (Marketing, Sales, Service), l'intégration avec vos outils et l'acculturation des équipes pour générer des résultats mesurables.",
+    "faq1_a": "Une agence HubSpot certifiée accompagne la mise en place du CRM et des hubs (Marketing, Sales, Service), l'intégration avec vos outils et l'acculturation des équipes pour générer des résultats mesurables. En tant que partenaire HubSpot officiel, nous bénéficions d'un accès privilégié aux ressources et formations HubSpot.",
     "faq2_q": "Combien de temps dure une implémentation HubSpot ?",
     "faq2_a": "Selon le périmètre, entre 3 et 8 semaines pour une implémentation standard (paramétrage, pipelines, automatisations, reporting, formation).",
     "faq3_q": "Pouvez‑vous intégrer HubSpot avec mon ERP/e‑commerce ?",

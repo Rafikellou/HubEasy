@@ -93,6 +93,24 @@ export default function Header() {
                     {t('agency_method')}
                   </Link>
                   <Link
+                    href={`/${locale}/integrateur-hubspot`}
+                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
+                  >
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
+                      <Cloud className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
+                    </div>
+                    Intégrateur HubSpot
+                  </Link>
+                  <Link
+                    href={`/${locale}/partenaire-hubspot`}
+                    className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
+                  >
+                    <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-red-50 transition-all duration-200">
+                      <Cloud className="h-6 w-6 text-gray-600 group-hover:text-red-500 transition-all duration-200" aria-hidden="true" />
+                    </div>
+                    Partenaire HubSpot
+                  </Link>
+                  <Link
                     href={`/${locale}/hubeasy-ai`}
                     className="group flex items-center gap-x-4 rounded-lg p-3 text-sm font-light leading-6 text-gray-700 hover:bg-gray-50 hover:text-red-500 transition-all duration-200"
                   >
@@ -192,6 +210,8 @@ export default function Header() {
             <div className="pl-4">
               <Link href={`/${locale}/agence/notre-vocation`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_our_mission')}</Link>
               <Link href={`/${locale}/agence-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_method')}</Link>
+              <Link href={`/${locale}/integrateur-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Intégrateur HubSpot</Link>
+              <Link href={`/${locale}/partenaire-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Partenaire HubSpot</Link>
               <Link href={`/${locale}/hubeasy-ai`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_ai')}</Link>
               <Link href={`/${locale}/hubeasy-sport`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_sport')}</Link>
             </div>

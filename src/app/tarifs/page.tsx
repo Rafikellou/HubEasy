@@ -69,9 +69,9 @@ const integrationTiers = [
 ];
 
 const supportFeatures = [
-  'Créer de nouveaux WF, vues, listes, séquences',
-  'Correction d\'\u00e9ventuels bugs',
-  'Optimiser l\'affichage',
+  'Optimisations de vue, de séquences, de wfs',
+  'Correction de potentiels bugs',
+  'Améliorations de rapports',
 ];
 
 const aiAgents = [
@@ -242,6 +242,12 @@ export default function TarifsPage() {
                   </li>
                 ))}
               </ul>
+              
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800 text-center">
+                  <strong>Flexibilité totale :</strong> Vous êtes libre de prendre uniquement 1 mois ou plusieurs selon vos besoins.
+                </p>
+              </div>
               
               <div className="mt-8 text-center">
                 <Link href="/contact">

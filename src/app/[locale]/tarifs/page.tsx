@@ -139,6 +139,12 @@ export default async function TarifsPage({ params }: { params: { locale: string 
                   </li>
                 ))}
               </ul>
+              
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800 text-center">
+                  <strong>{t('support_flexibility')}</strong>
+                </p>
+              </div>
             </div>
           </AnimatedSection>
         </div>

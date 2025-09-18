@@ -8,8 +8,20 @@ import { CheckCircle, Rocket, BarChart2, Zap, Users, Shield, Award, HelpCircle }
 import {getTranslations} from 'next-intl/server';
 
 export const metadata: Metadata = {
-  title: 'Notre Méthode | HubEasy',
-  description: 'Découvrez comment HubEasy accompagne les PME/ETI B2B dans leurs projets d\'intégration HubSpot.',
+  title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
+  description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B. Implémentations rapides et mesurables.',
+  keywords: 'agence HubSpot, intégrateur HubSpot, partenaire HubSpot, certification HubSpot, intégration HubSpot, migration HubSpot, implémentation HubSpot, PME, ETI, B2B',
+  openGraph: {
+    title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
+    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
+    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+  },
   alternates: {
     canonical: '/agence-hubspot',
   },
@@ -38,6 +50,64 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
   ];
 
   const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'HubEasy',
+    description: 'Agence HubSpot certifiée et partenaire officiel spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    url: 'https://hubeasy.fr',
+    logo: 'https://hubeasy.fr/images/logo-hubeasy.png',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '6 Rue d\'Armaillé',
+      addressLocality: 'Paris',
+      postalCode: '75017',
+      addressCountry: 'FR'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+33-1-XX-XX-XX-XX',
+      contactType: 'customer service',
+      email: 'contact@hubeasy.fr'
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/hubeasy',
+      'https://twitter.com/hubeasy'
+    ],
+    serviceType: 'HubSpot Integration Services',
+    areaServed: 'France',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services HubSpot',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Intégration HubSpot',
+            description: 'Implémentation complète de HubSpot avec paramétrage des hubs Marketing, Sales et Service'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Migration HubSpot',
+            description: 'Migration sécurisée de vos données vers HubSpot avec préservation de l\'historique'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Intégrations & Connecteurs',
+            description: 'Connexion HubSpot avec ERP, e-commerce, outils de support et autres applications'
+          }
+        }
+      ]
+    }
+  };
+
+  const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((f) => ({
@@ -299,11 +369,18 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
         </div>
       </section>
 
-      {/* JSON-LD for FAQ */}
+      {/* JSON-LD for Organization */}
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      {/* JSON-LD for FAQ */}
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
     </main>
   );

@@ -11,9 +11,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Hub Easy - Intégration HubSpot pour PME/ETI B2B',
-  description: 'Implémentations et migrations HubSpot rapides, propres et mesurables pour votre entreprise.',
-  keywords: 'HubSpot, intégration, migration, CRM, marketing automation, PME, ETI, B2B',
+  title: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
+  description: 'Agence HubSpot certifiée spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B. Partenaire HubSpot officiel avec expertise technique.',
+  keywords: 'agence HubSpot, intégrateur HubSpot, partenaire HubSpot, intégration HubSpot, migration HubSpot, CRM HubSpot, marketing automation HubSpot, PME, ETI, B2B, certification HubSpot',
+  openGraph: {
+    title: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
+    description: 'Agence HubSpot certifiée spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
+    description: 'Agence HubSpot certifiée spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+  },
+  alternates: {
+    canonical: 'https://hubeasy.fr',
+  },
 };
 
 export default async function RootLayout({

@@ -4,6 +4,10 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  trailingSlash: false,
+  generateEtags: true,
+  poweredByHeader: false,
+  compress: true,
   images: {
     remotePatterns: [
       {
