@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
 import { Button } from '@/components/ui/button';
-import { getRandomUnsplashImage, getUnsplashImageById } from '@/lib/unsplash';
-import { getTranslations } from 'next-intl/server';
 import { locales } from '@/i18n/config';
 
 interface ArticleWithId {
@@ -896,7 +894,19 @@ const getArticleBySlug = (slug: string) => {
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  const params = [];
+  
+  // Générer tous les slugs d'articles pour toutes les locales
+  for (const locale of locales) {
+    for (const article of articles) {
+      params.push({
+        locale: locale,
+        slug: article.slug
+      });
+    }
+  }
+  
+  return params;
 }
 
 export async function generateMetadata({ params }: { params: { locale: string; slug: string } }) {
@@ -927,7 +937,6 @@ export default async function ArticlePage({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
   const article = getArticleBySlug(params.slug);
   
   if (!article) {
@@ -971,7 +980,7 @@ export default async function ArticlePage({
           <AnimatedSection animation="fade-up">
             <Link href={`/${params.locale}/articles`} className="inline-flex items-center text-red-600 hover:text-red-700 mb-6">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              {t('back_to_articles')}
+              Retour aux articles
             </Link>
             <div className="flex items-center gap-4 mb-6">
               <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -1043,14 +1052,14 @@ export default async function ArticlePage({
           <AnimatedSection animation="fade-up">
             <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">
-                {t('newsletter_title')}
+                Prêt à transformer votre HubSpot ?
               </h2>
               <p className="text-gray-600 font-light mb-8 max-w-2xl mx-auto">
-                {t('newsletter_description')}
+                Contactez nos experts HubSpot pour discuter de votre projet et obtenir un devis personnalisé.
               </p>
               <Link href={`/${params.locale}/contact`}>
                 <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-3">
-                  {t('newsletter_button')}
+                  Demander un devis
                 </Button>
               </Link>
             </div>
