@@ -295,10 +295,10 @@ export default async function BlogPage({ params }: { params: { locale: string }}
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AnimatedSection animation="fade-up">
             <h1 className="text-5xl md:text-6xl font-thin text-gray-900 mb-6 tracking-tight">
-              <span className="text-red-500">{t('hero_title_highlight')}</span> {t('hero_title_tail')}
+              <span className="text-red-500">{t.hero_title_highlight}</span> {t.hero_title_tail}
             </h1>
             <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto">
-              {t('hero_subtitle')}
+              {t.hero_subtitle}
             </p>
           </AnimatedSection>
         </div>
@@ -312,7 +312,7 @@ export default async function BlogPage({ params }: { params: { locale: string }}
                 <div className="relative h-64 lg:h-full">
                   <Image src={articleImagesMap.get(featuredArticle.id) || featuredArticle.image} alt={`Article HubSpot : ${featuredArticle.title} - Guide complet intégration CRM`} fill className="object-cover" />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">{t('featured_badge')}</span>
+                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">{t.featured_badge}</span>
                   </div>
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
@@ -330,7 +330,7 @@ export default async function BlogPage({ params }: { params: { locale: string }}
                       articleImagesMap.get(featuredArticle.id) ? `imageUrl=${encodeURIComponent(articleImagesMap.get(featuredArticle.id))}` : ''
                     ].filter(Boolean).join('&')}` : ''}`}>
                       <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-6">
-                        <span className="flex items-center">{t('read_article')}<ArrowRight className="w-4 h-4 ml-2" /></span>
+                        <span className="flex items-center">{t.read_article}<ArrowRight className="w-4 h-4 ml-2" /></span>
                       </Button>
                     </Link>
                   </div>
@@ -344,8 +344,8 @@ export default async function BlogPage({ params }: { params: { locale: string }}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">{t('latest_title')}</h2>
-            <p className="text-gray-600 font-light">{t('latest_subtitle')}</p>
+            <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">{t.latest_title}</h2>
+            <p className="text-gray-600 font-light">{t.latest_subtitle}</p>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, index) => (
@@ -382,10 +382,10 @@ export default async function BlogPage({ params }: { params: { locale: string }}
         <div className="max-w-4xl mx-auto px-4 text-center">
           <AnimatedSection animation="fade-up">
             <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">{t('newsletter_title')}</h2>
-              <p className="text-gray-600 font-light mb-8 max-w-2xl mx-auto">{t('newsletter_subtitle')}</p>
+              <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">{t.newsletter_title}</h2>
+              <p className="text-gray-600 font-light mb-8 max-w-2xl mx-auto">{t.newsletter_subtitle}</p>
               <Link href={`/${params.locale}/contact`}>
-                <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-3">{t('newsletter_cta')}</Button>
+                <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-3">{t.newsletter_cta}</Button>
               </Link>
             </div>
           </AnimatedSection>
