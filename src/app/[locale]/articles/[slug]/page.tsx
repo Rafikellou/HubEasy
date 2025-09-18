@@ -1079,39 +1079,3 @@ export default async function ArticlePage({
   );
 }
 
-// This would normally be fetched from a database or CMS
-const getArticleBySlug = (slug: string) => {
-  return articles.find(article => article.slug === slug);
-};
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: { params: { locale: string; slug: string } }) {
-  const article = getArticleBySlug(params.slug);
-  
-  if (!article) {
-    return {
-      title: 'Article non trouve',
-      description: 'L\'article que vous recherchez n\'existe pas.',
-    };
-  }
-
-  return {
-    title: article.title,
-    description: article.excerpt,
-    openGraph: {
-      title: article.title,
-      description: article.excerpt,
-      images: [article.image],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: article.title,
-      description: article.excerpt,
-      images: [article.image],
-    },
-  };
-}
-
