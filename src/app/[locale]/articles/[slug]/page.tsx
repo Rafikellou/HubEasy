@@ -6,6 +6,28 @@ import AnimatedSection from '@/components/animated-section';
 import { Button } from '@/components/ui/button';
 import { locales } from '@/i18n/config';
 
+// Traductions statiques pour éviter l'accès aux headers
+const translations = {
+  fr: {
+    backToArticles: "Retour aux articles",
+    newsletterTitle: "Prêt à transformer votre HubSpot ?",
+    newsletterDescription: "Contactez nos experts HubSpot pour discuter de votre projet et obtenir un devis personnalisé.",
+    newsletterButton: "Demander un devis",
+    articleNotFound: "Article non trouvé",
+    articleNotFoundDescription: "L'article que vous recherchez n'existe pas.",
+    backToArticlesButton: "Retour aux articles"
+  },
+  en: {
+    backToArticles: "Back to articles",
+    newsletterTitle: "Ready to transform your HubSpot?",
+    newsletterDescription: "Contact our HubSpot experts to discuss your project and get a personalized quote.",
+    newsletterButton: "Request a quote",
+    articleNotFound: "Article not found",
+    articleNotFoundDescription: "The article you are looking for does not exist.",
+    backToArticlesButton: "Back to articles"
+  }
+};
+
 interface ArticleWithId {
   id: number;
   slug: string;
@@ -888,9 +910,221 @@ const articles: ArticleWithId[] = [
   }
 ];
 
+// Traductions des articles
+const articleTranslations: Record<string, Record<string, { title: string; excerpt: string; content: string }>> = {
+  "integration-odoo-hubspot-guide-complet": {
+    en: {
+      title: "Why 50% of Odoo ↔ HubSpot integrations exceed deadlines (and how to avoid it)",
+      excerpt: "Many SMEs underestimate the complexity of a HubSpot ↔ Odoo project. Discover common mistakes and simple solutions to meet your deadlines and budgets.",
+      content: `
+        <article class="article-content">
+          <section>
+            <h2>Why Odoo HubSpot integrations fail</h2>
+            <p>Integrations between Odoo and HubSpot are often complex and can exceed planned deadlines.</p>
+            
+            <ul>
+              <li>Underestimation of technical complexity</li>
+              <li>Incomplete data mapping</li>
+              <li>Insufficient testing</li>
+              <li>Team training neglected</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Best practices for successful integration</h2>
+            <p>To ensure a successful Odoo HubSpot integration, follow these proven strategies:</p>
+            
+            <ol>
+              <li>Detailed planning phase</li>
+              <li>Data mapping validation</li>
+              <li>Comprehensive testing</li>
+              <li>User training</li>
+            </ol>
+          </section>
+        </article>
+      `
+    }
+  },
+  "agence-hubspot-france-guide-2025": {
+    en: {
+      title: "HubSpot Agency France 2025: Complete Guide to Choosing Your Partner",
+      excerpt: "Discover the essential criteria for selecting a HubSpot agency in France. Complete guide with tips, certifications, and best practices for 2025.",
+      content: `
+        <article class="article-content">
+          <section>
+            <h2>What is a HubSpot agency?</h2>
+            <p>A HubSpot agency is a certified partner that helps businesses implement and optimize HubSpot solutions.</p>
+            
+            <h3>Key services:</h3>
+            <ul>
+              <li>HubSpot implementation</li>
+              <li>CRM configuration</li>
+              <li>Marketing automation</li>
+              <li>Sales optimization</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>How to choose your HubSpot agency in France</h2>
+            <p>Selection criteria to consider:</p>
+            
+            <ol>
+              <li>HubSpot certifications</li>
+              <li>Industry experience</li>
+              <li>Client references</li>
+              <li>Support quality</li>
+            </ol>
+          </section>
+        </article>
+      `
+    }
+  },
+  "salesforce-hubspot-complement": {
+    en: {
+      title: "Salesforce vs HubSpot: Which CRM to Choose for Your Business?",
+      excerpt: "Complete comparison between Salesforce and HubSpot. Discover the strengths, weaknesses, and use cases of each CRM to make the best choice.",
+      content: `
+        <article class="article-content">
+          <section>
+            <h2>Salesforce vs HubSpot: Key differences</h2>
+            <p>Both platforms offer powerful CRM solutions but with different approaches.</p>
+            
+            <h3>Salesforce strengths:</h3>
+            <ul>
+              <li>Enterprise-grade features</li>
+              <li>Advanced customization</li>
+              <li>Large ecosystem</li>
+              <li>Scalability</li>
+            </ul>
+            
+            <h3>HubSpot strengths:</h3>
+            <ul>
+              <li>User-friendly interface</li>
+              <li>All-in-one platform</li>
+              <li>Marketing automation</li>
+              <li>Content management</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Which CRM to choose?</h2>
+            <p>Your choice depends on several factors:</p>
+            
+            <ul>
+              <li>Company size</li>
+              <li>Budget</li>
+              <li>Technical requirements</li>
+              <li>Team expertise</li>
+            </ul>
+          </section>
+        </article>
+      `
+    }
+  },
+  "migration-hubspot-guide-etapes": {
+    en: {
+      title: "HubSpot Migration: Complete Step-by-Step Guide",
+      excerpt: "Learn how to migrate to HubSpot successfully. Our detailed guide covers all stages from planning to post-migration optimization.",
+      content: `
+        <article class="article-content">
+          <section>
+            <h2>HubSpot migration planning</h2>
+            <p>Successful migration requires careful planning and preparation.</p>
+            
+            <h3>Pre-migration steps:</h3>
+            <ul>
+              <li>Data audit</li>
+              <li>System mapping</li>
+              <li>Team training</li>
+              <li>Timeline definition</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>Migration execution</h2>
+            <p>Follow these steps for a smooth migration:</p>
+            
+            <ol>
+              <li>Data export</li>
+              <li>Data cleaning</li>
+              <li>HubSpot configuration</li>
+              <li>Data import</li>
+              <li>Testing and validation</li>
+            </ol>
+          </section>
+        </article>
+      `
+    }
+  },
+  "hubspot-certifications-guide-2025": {
+    en: {
+      title: "HubSpot Certifications 2025: Complete Guide to Professional Development",
+      excerpt: "Discover all HubSpot certifications available in 2025. Learn how to get certified and boost your career in inbound marketing and sales.",
+      content: `
+        <article class="article-content">
+          <section>
+            <h2>Available HubSpot certifications</h2>
+            <p>HubSpot offers several certification programs for professionals.</p>
+            
+            <h3>Main certifications:</h3>
+            <ul>
+              <li>Inbound Marketing</li>
+              <li>Content Marketing</li>
+              <li>Email Marketing</li>
+              <li>Sales Enablement</li>
+            </ul>
+          </section>
+          
+          <section>
+            <h2>How to get certified</h2>
+            <p>Steps to obtain your HubSpot certification:</p>
+            
+            <ol>
+              <li>Register for the course</li>
+              <li>Complete the training</li>
+              <li>Pass the exam</li>
+              <li>Maintain your certification</li>
+            </ol>
+          </section>
+        </article>
+      `
+    }
+  }
+};
+
 // This would normally be fetched from a database or CMS
 const getArticleBySlug = (slug: string) => {
   return articles.find(article => article.slug === slug);
+};
+
+// Fonction pour obtenir le contenu localisé d'un article
+const getLocalizedArticle = (article: ArticleWithId, locale: string) => {
+  const translation = articleTranslations[article.slug]?.[locale];
+  
+  if (translation) {
+    return {
+      title: translation.title,
+      excerpt: translation.excerpt,
+      content: translation.content,
+      author: article.author,
+      date: article.date,
+      readTime: article.readTime,
+      category: article.category,
+      image: article.image
+    };
+  }
+  
+  // Retourner l'article original si pas de traduction
+  return {
+    title: article.title,
+    excerpt: article.excerpt,
+    content: article.content,
+    author: article.author,
+    date: article.date,
+    readTime: article.readTime,
+    category: article.category,
+    image: article.image
+  };
 };
 
 export function generateStaticParams() {
@@ -940,25 +1174,23 @@ export default async function ArticlePage({
   const article = getArticleBySlug(params.slug);
   
   if (!article) {
+    const t = translations[params.locale as keyof typeof translations] || translations.fr;
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Article non trouvé</h1>
-          <p className="text-gray-600 mb-8">L'article que vous recherchez n'existe pas.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t.articleNotFound}</h1>
+          <p className="text-gray-600 mb-8">{t.articleNotFoundDescription}</p>
           <Link href={`/${params.locale}/articles`}>
-            <Button>Retour aux articles</Button>
+            <Button>{t.backToArticlesButton}</Button>
           </Link>
         </div>
       </div>
     );
   }
   
-  // Version simplifiée sans traductions pour tester
-  const localizedArticle = {
-    title: article.title,
-    excerpt: article.excerpt,
-    content: article.content
-  };
+  // Obtenir le contenu localisé
+  const localizedArticle = getLocalizedArticle(article, params.locale);
+  const t = translations[params.locale as keyof typeof translations] || translations.fr;
   
   // Utilisation d'image locale pour éviter les problèmes dynamiques
   const imageUrl = article.image || '/images/hero-photo-hubeasy.jpg';
@@ -980,7 +1212,7 @@ export default async function ArticlePage({
           <AnimatedSection animation="fade-up">
             <Link href={`/${params.locale}/articles`} className="inline-flex items-center text-red-600 hover:text-red-700 mb-6">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Retour aux articles
+              {t.backToArticles}
             </Link>
             <div className="flex items-center gap-4 mb-6">
               <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -1052,14 +1284,14 @@ export default async function ArticlePage({
           <AnimatedSection animation="fade-up">
             <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-3xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-thin text-gray-900 mb-4">
-                Prêt à transformer votre HubSpot ?
+                {t.newsletterTitle}
               </h2>
               <p className="text-gray-600 font-light mb-8 max-w-2xl mx-auto">
-                Contactez nos experts HubSpot pour discuter de votre projet et obtenir un devis personnalisé.
+                {t.newsletterDescription}
               </p>
               <Link href={`/${params.locale}/contact`}>
                 <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full px-8 py-3">
-                  Demander un devis
+                  {t.newsletterButton}
                 </Button>
               </Link>
             </div>

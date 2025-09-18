@@ -5,7 +5,45 @@ import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
 import { Button } from '@/components/ui/button';
 import { searchUnsplashImages } from '@/lib/unsplash';
-import {getTranslations} from 'next-intl/server';
+// Traductions statiques pour éviter l'accès aux headers
+const translations = {
+  fr: {
+    pageTitle: "Articles HubSpot",
+    pageDescription: "Découvrez nos articles experts sur HubSpot, l'intégration CRM, le marketing automation et les meilleures pratiques pour votre entreprise.",
+    featuredArticle: "Article à la une",
+    allArticles: "Tous les articles",
+    readMore: "Lire la suite",
+    backToHome: "Retour à l'accueil",
+    hero_title_highlight: "Expertise HubSpot",
+    hero_title_tail: "à votre service",
+    hero_subtitle: "Découvrez nos articles experts sur HubSpot, l'intégration CRM, le marketing automation et les meilleures pratiques pour votre entreprise.",
+    featured_badge: "À la une",
+    read_article: "Lire l'article",
+    latest_title: "Derniers articles",
+    latest_subtitle: "Restez informé des dernières tendances et bonnes pratiques HubSpot",
+    newsletter_title: "Prêt à transformer votre HubSpot ?",
+    newsletter_subtitle: "Contactez nos experts HubSpot pour discuter de votre projet et obtenir un devis personnalisé.",
+    newsletter_cta: "Demander un devis"
+  },
+  en: {
+    pageTitle: "HubSpot Articles",
+    pageDescription: "Discover our expert articles on HubSpot, CRM integration, marketing automation and best practices for your business.",
+    featuredArticle: "Featured article",
+    allArticles: "All articles",
+    readMore: "Read more",
+    backToHome: "Back to home",
+    hero_title_highlight: "HubSpot Expertise",
+    hero_title_tail: "at your service",
+    hero_subtitle: "Discover our expert articles on HubSpot, CRM integration, marketing automation and best practices for your business.",
+    featured_badge: "Featured",
+    read_article: "Read article",
+    latest_title: "Latest articles",
+    latest_subtitle: "Stay informed about the latest HubSpot trends and best practices",
+    newsletter_title: "Ready to transform your HubSpot?",
+    newsletter_subtitle: "Contact our HubSpot experts to discuss your project and get a personalized quote.",
+    newsletter_cta: "Request a quote"
+  }
+};
 
 interface Article {
   id: number;
@@ -158,7 +196,7 @@ const articles: Article[] = [
 ];
 
 export default async function BlogPage({ params }: { params: { locale: string }}) {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
+  const t = translations[params.locale as keyof typeof translations] || translations.fr;
   
   // Contenu adapté selon la langue
   const getLocalizedArticle = (article: Article, locale: string) => {
