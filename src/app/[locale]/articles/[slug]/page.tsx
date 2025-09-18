@@ -908,7 +908,7 @@ export async function generateMetadata({ params }: { params: { locale: string; s
       description: 'L\'article que vous recherchez n\'existe pas.',
     };
   }
-  
+
   return {
     title: article.title,
     description: article.excerpt,
@@ -923,11 +923,9 @@ export async function generateMetadata({ params }: { params: { locale: string; s
 }
 
 export default async function ArticlePage({
-  params,
-  searchParams
+  params
 }: {
   params: { locale: string; slug: string };
-  searchParams: { imageId?: string; imageUrl?: string };
 }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
   const article = getArticleBySlug(params.slug);
@@ -953,24 +951,8 @@ export default async function ArticlePage({
     content: article.content
   };
   
-  const imageId = searchParams.imageId || '';
-  const imageParamUrl = searchParams.imageUrl || '';
-  
-  // Resolve the best image URL in priority order:
-  // 1) Explicit imageUrl param from the listing page
-  // 2) Unsplash image by ID via source.unsplash.com
-  // 3) Article's own image fallback
-  // 4) Unsplash featured by search term (no API key required)
-  let imageUrl: string = '/images/hero-photo-hubeasy.jpg';
-  if (imageParamUrl) {
-    imageUrl = imageParamUrl;
-  } else if (imageId) {
-    imageUrl = `https://source.unsplash.com/${imageId}/1200x600`;
-  } else if (article.image) {
-    imageUrl = article.image;
-  } else if (article.searchTerm) {
-    imageUrl = `https://source.unsplash.com/featured/1200x600?${encodeURIComponent(article.searchTerm)}`;
-  }
+  // Utilisation d'image locale pour éviter les problèmes dynamiques
+  const imageUrl = article.image || '/images/hero-photo-hubeasy.jpg';
   
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString(params.locale === 'fr' ? 'fr-FR' : 'en-US', {
