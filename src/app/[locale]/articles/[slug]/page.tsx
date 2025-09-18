@@ -1111,6 +1111,20 @@ export default async function ArticlePage({
   const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
   const article = getArticleBySlug(params.slug);
   
+  if (!article) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Article non trouvé</h1>
+          <p className="text-gray-600 mb-8">L'article que vous recherchez n'existe pas.</p>
+          <Link href={`/${params.locale}/articles`}>
+            <Button>Retour aux articles</Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+  
   // Contenu adapté selon la langue
   const getLocalizedContent = (article: ArticleWithId, locale: string) => {
     if (locale === 'en') {
@@ -1250,23 +1264,6 @@ export default async function ArticlePage({
   };
   
   const localizedArticle = getLocalizedContent(article, params.locale);
-  
-  if (!article) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">{t('article_not_found_title')}</h1>
-          <p className="text-gray-600 mb-8">{t('article_not_found_description')}</p>
-          <Link href={`/${params.locale}/articles`}>
-            <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              {t('back_to_articles')}
-            </Button>
-          </Link>
-        </div>
-      </div>
-    );
-  }
   
   const imageId = searchParams.imageId || '';
   const imageParamUrl = searchParams.imageUrl || '';
