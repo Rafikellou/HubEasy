@@ -95,7 +95,7 @@ export function generatePageMetadata({
     ...defaultMetadata,
     title,
     description,
-    keywords: [...defaultMetadata.keywords!, ...keywords],
+    keywords: [...(Array.isArray(defaultMetadata.keywords) ? defaultMetadata.keywords : [defaultMetadata.keywords!]), ...keywords],
     openGraph: {
       ...defaultMetadata.openGraph,
       title,
