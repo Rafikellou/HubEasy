@@ -159,6 +159,64 @@ const articles: Article[] = [
 
 export default async function BlogPage({ params }: { params: { locale: string }}) {
   const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
+  
+  // Contenu adapté selon la langue
+  const getLocalizedArticle = (article: Article, locale: string) => {
+    if (locale === 'en') {
+      const translations: Record<string, any> = {
+        'integration-odoo-hubspot-guide-complet': {
+          title: "Why 50% of Odoo ↔ HubSpot integrations exceed deadlines (and how to avoid it)",
+          excerpt: "Many SMEs underestimate the complexity of a HubSpot ↔ Odoo project. Discover common mistakes and simple solutions to meet your deadlines and budgets."
+        },
+        'agence-hubspot-france-guide-2025': {
+          title: "HubSpot Agency France: Complete 2025 Guide to Choose the Best",
+          excerpt: "Discover how to choose the best HubSpot agency in France. Selection criteria, pricing, certifications and best practices for your HubSpot project in 2025."
+        },
+        'integrateur-hubspot-choisir-partenaire': {
+          title: "HubSpot Integrator: How to Choose the Right Partner in 2025",
+          excerpt: "Complete guide to choose the best HubSpot integrator. Certifications, experience, pricing and selection criteria to succeed in your HubSpot project."
+        },
+        'dolibarr-hubspot-erreurs-commerciaux': {
+          title: "Dolibarr HubSpot Integration – 3 common mistakes (and how to avoid them)",
+          excerpt: "Dolibarr integration can quickly become a headache. We show you the classic pitfalls (and how to avoid them) so your sales team stays focused on selling."
+        },
+        'migration-hubspot-guide-pratique': {
+          title: "HubSpot Migration: Practical Guide Without Data Loss",
+          excerpt: "How to migrate to HubSpot without losing your data? Step-by-step guide for a successful migration from your old CRM to HubSpot."
+        },
+        'formation-hubspot-par-ou-commencer': {
+          title: "HubSpot Training: Where to Start? 2025 Guide",
+          excerpt: "Discover the best HubSpot training available in France. Official certifications, online courses and tips to master HubSpot quickly."
+        },
+        'shopify-hubspot-panier-moyen': {
+          title: "Shopify HubSpot Integration – The duo that boosts your sales and average basket",
+          excerpt: "Discover how connecting Shopify to HubSpot allows you to better target your customers and increase the average value of your baskets."
+        },
+        'salesforce-hubspot-complement': {
+          title: "Salesforce and HubSpot – competitors or complementary solutions?",
+          excerpt: "Many companies use Salesforce and HubSpot in parallel. Should you choose or make them coexist? Discover why synergy is often the best option."
+        },
+        'zendesk-hubspot-tickets': {
+          title: "Zendesk HubSpot Integration – how to centralize your customer data",
+          excerpt: "Customer support is often fragmented between several tools. Discover how Zendesk and HubSpot can work together to improve responsiveness and customer satisfaction."
+        },
+        'crm-clubs-sportifs-donnees-fans': {
+          title: "CRM for sports clubs – why your fan data is a hidden treasure",
+          excerpt: "Clubs and leagues often lose the hidden value of their fan base. Learn how a CRM like HubSpot, well integrated, can transform your fans into real revenue sources."
+        }
+      };
+      
+      return translations[article.slug] || {
+        title: article.title,
+        excerpt: article.excerpt
+      };
+    }
+    
+    return {
+      title: article.title,
+      excerpt: article.excerpt
+    };
+  };
 
   const fetchUnsplashImages = async () => {
     const articleImagesMap = new Map();
@@ -225,8 +283,8 @@ export default async function BlogPage({ params }: { params: { locale: string }}
                     <div className="flex items-center text-gray-500 text-sm"><Calendar className="w-4 h-4 mr-1" />{formatDate(featuredArticle.date)}</div>
                     <div className="flex items-center text-gray-500 text-sm"><Clock className="w-4 h-4 mr-1" />{featuredArticle.readTime}</div>
                   </div>
-                  <h2 className="text-3xl font-medium text-gray-900 mb-4">{featuredArticle.title}</h2>
-                  <p className="text-gray-600 font-light mb-6 leading-relaxed">{featuredArticle.excerpt}</p>
+                  <h2 className="text-3xl font-medium text-gray-900 mb-4">{getLocalizedArticle(featuredArticle, params.locale).title}</h2>
+                  <p className="text-gray-600 font-light mb-6 leading-relaxed">{getLocalizedArticle(featuredArticle, params.locale).excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center"><User className="w-5 h-5 text-gray-400 mr-2" /><span className="text-gray-600 font-light">{featuredArticle.author}</span></div>
                     <Link href={`/${params.locale}/articles/${featuredArticle.slug}${(featuredArticle.unsplashImageId || articleImagesMap.get(featuredArticle.id)) ? `?${[
@@ -267,8 +325,8 @@ export default async function BlogPage({ params }: { params: { locale: string }}
                         <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">{article.category}</span>
                         <div className="flex items-center text-gray-500 text-sm"><Clock className="mr-1 h-4 w-4" /><span>{article.readTime}</span></div>
                       </div>
-                      <h3 className="font-bold text-lg mb-2 hover:text-red-600 transition-colors line-clamp-2">{article.title}</h3>
-                      <p className="text-gray-600 mb-4 line-clamp-3">{article.excerpt}</p>
+                      <h3 className="font-bold text-lg mb-2 hover:text-red-600 transition-colors line-clamp-2">{getLocalizedArticle(article, params.locale).title}</h3>
+                      <p className="text-gray-600 mb-4 line-clamp-3">{getLocalizedArticle(article, params.locale).excerpt}</p>
                       <div className="flex items-center justify-between mt-auto">
                         <div className="flex items-center"><User className="mr-2 h-4 w-4 text-gray-500" /><span className="text-sm text-gray-700">{article.author}</span></div>
                         <div className="text-gray-500 text-sm"><Calendar className="mr-1 h-4 w-4 inline" /><span>{formatDate(article.date)}</span></div>

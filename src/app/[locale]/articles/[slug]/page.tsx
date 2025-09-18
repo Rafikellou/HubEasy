@@ -26,6 +26,61 @@ interface ArticleWithId {
 // Article data - in a real app this would come from a CMS or database
 const articles: ArticleWithId[] = [
   {
+    id: 1,
+    slug: "integration-odoo-hubspot-guide-complet",
+    title: "Pourquoi 50% des intégrations Odoo ↔ HubSpot dépassent les délais (et comment l'éviter)",
+    excerpt: "Beaucoup de PME sous-estiment la complexité d'un projet HubSpot ↔ Odoo. Découvrez les erreurs fréquentes et les solutions simples pour tenir vos délais et vos budgets.",
+    author: "Équipe HubEasy",
+    date: "2025-08-15",
+    readTime: "7 min",
+    category: "Intégrations",
+    image: "/images/hero-photo-hubeasy.jpg",
+    searchTerm: "business integration software",
+    content: `
+      <article class="article-content">
+        <section>
+          <h2 class="article-section-title">Pourquoi les intégrations Odoo HubSpot échouent</h2>
+          <p class="article-paragraph">Les intégrations entre Odoo et HubSpot sont souvent complexes et peuvent dépasser les délais prévus. Voici les principales causes d'échec :</p>
+          
+          <ul class="article-list">
+            <li class="article-list-item">Sous-estimation de la complexité technique</li>
+            <li class="article-list-item">Mapping des données incomplet</li>
+            <li class="article-list-item">Tests insuffisants</li>
+            <li class="article-list-item">Formation des équipes négligée</li>
+          </ul>
+          
+          <div class="article-callout article-callout-important">
+            <p class="article-callout-content"><strong>👉 50% des projets d'intégration Odoo HubSpot dépassent les délais de 2 à 4 semaines.</strong></p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Comment éviter les dépassements de délais</h2>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">1. Planification détaillée</h3>
+            <p class="article-paragraph">Définissez un planning réaliste avec des jalons clairs et des tests à chaque étape.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">2. Mapping des données</h3>
+            <p class="article-paragraph">Identifiez tous les champs à synchroniser et les transformations nécessaires.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">3. Tests en continu</h3>
+            <p class="article-paragraph">Testez chaque intégration au fur et à mesure pour détecter les problèmes rapidement.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Conclusion</h2>
+          <p class="article-paragraph">Une intégration Odoo HubSpot réussie nécessite une planification minutieuse et des tests rigoureux.</p>
+        </section>
+      </article>
+    `
+  },
+  {
     id: 2,
     slug: "agence-hubspot-france-guide-2025",
     title: "Agence HubSpot France : Guide Complet 2025 pour Choisir la Meilleure",
@@ -602,7 +657,226 @@ const articles: ArticleWithId[] = [
     `
   },
   {
-    id: 1,
+    id: 8,
+    slug: "dolibarr-hubspot-erreurs-commerciaux",
+    title: "Intégration Dolibarr HubSpot – 3 erreurs fréquentes (et comment les éviter)",
+    excerpt: "L'intégration Dolibarr peut vite tourner au casse-tête. On vous montre les pièges classiques (et comment les éviter) pour que vos commerciaux restent concentrés sur la vente.",
+    author: "Équipe HubEasy",
+    date: "2025-07-10",
+    readTime: "5 min",
+    category: "Intégrations",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+    searchTerm: "business software integration",
+    content: `
+      <article class="article-content">
+        <section>
+          <h2 class="article-section-title">Les 3 erreurs fréquentes avec Dolibarr HubSpot</h2>
+          <p class="article-paragraph">L'intégration Dolibarr HubSpot peut être complexe. Voici les erreurs les plus courantes :</p>
+          
+          <ul class="article-list">
+            <li class="article-list-item">Mapping des champs clients incomplet</li>
+            <li class="article-list-item">Synchronisation des commandes mal configurée</li>
+            <li class="article-list-item">Gestion des doublons négligée</li>
+          </ul>
+          
+          <div class="article-callout article-callout-important">
+            <p class="article-callout-content"><strong>👉 Ces erreurs peuvent réduire l'efficacité commerciale de 40%.</strong></p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Comment éviter ces erreurs</h2>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">1. Mapping complet des données</h3>
+            <p class="article-paragraph">Assurez-vous que tous les champs clients sont correctement mappés entre Dolibarr et HubSpot.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">2. Tests rigoureux</h3>
+            <p class="article-paragraph">Testez chaque scénario de synchronisation avant la mise en production.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">3. Formation des équipes</h3>
+            <p class="article-paragraph">Formez vos commerciaux à utiliser les deux outils de manière cohérente.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Conclusion</h2>
+          <p class="article-paragraph">Une intégration Dolibarr HubSpot réussie nécessite une planification minutieuse et des tests approfondis.</p>
+        </section>
+      </article>
+    `
+  },
+  {
+    id: 10,
+    slug: "shopify-hubspot-panier-moyen",
+    title: "Intégration Shopify HubSpot – Le duo qui booste vos ventes et votre panier moyen",
+    excerpt: "Découvrez comment connecter Shopify à HubSpot permet de mieux cibler vos clients et d'augmenter la valeur moyenne de vos paniers.",
+    author: "Équipe HubEasy",
+    date: "2025-05-05",
+    readTime: "6 min",
+    category: "E-commerce",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
+    searchTerm: "shopify ecommerce storefront",
+    content: `
+      <article class="article-content">
+        <section>
+          <h2 class="article-section-title">Pourquoi connecter Shopify et HubSpot ?</h2>
+          <p class="article-paragraph">L'intégration Shopify HubSpot permet d'augmenter significativement vos ventes :</p>
+          
+          <ul class="article-list">
+            <li class="article-list-item">Segmentation avancée des clients</li>
+            <li class="article-list-item">Automatisation des campagnes marketing</li>
+            <li class="article-list-item">Augmentation du panier moyen</li>
+            <li class="article-list-item">Meilleure connaissance client</li>
+          </ul>
+          
+          <div class="article-callout article-callout-important">
+            <p class="article-callout-content"><strong>👉 Les e-commerçants avec cette intégration voient une augmentation de 35% de leur panier moyen.</strong></p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Stratégies pour augmenter le panier moyen</h2>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">1. Recommandations personnalisées</h3>
+            <p class="article-paragraph">Utilisez les données HubSpot pour proposer des produits complémentaires.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">2. Campagnes d'upselling</h3>
+            <p class="article-paragraph">Créez des emails automatisés pour promouvoir des produits premium.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">3. Abandon de panier intelligent</h3>
+            <p class="article-paragraph">Relancez les clients avec des offres personnalisées basées sur leur historique.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Conclusion</h2>
+          <p class="article-paragraph">L'intégration Shopify HubSpot est un investissement rentable pour tout e-commerçant sérieux.</p>
+        </section>
+      </article>
+    `
+  },
+  {
+    id: 6,
+    slug: "zendesk-hubspot-tickets",
+    title: "Intégration Zendesk HubSpot – comment centraliser vos données clients",
+    excerpt: "Le support client est souvent éclaté entre plusieurs outils. Découvrez comment Zendesk et HubSpot peuvent travailler ensemble pour améliorer la réactivité et la satisfaction client.",
+    author: "Équipe HubEasy",
+    date: "2025-03-25",
+    readTime: "5 min",
+    category: "Support",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=60",
+    searchTerm: "customer support helpdesk",
+    content: `
+      <article class="article-content">
+        <section>
+          <h2 class="article-section-title">Centraliser le support client</h2>
+          <p class="article-paragraph">L'intégration Zendesk HubSpot permet de centraliser toutes les données clients :</p>
+          
+          <ul class="article-list">
+            <li class="article-list-item">Historique complet des interactions</li>
+            <li class="article-list-item">Contexte commercial enrichi</li>
+            <li class="article-list-item">Réactivité améliorée</li>
+            <li class="article-list-item">Satisfaction client accrue</li>
+          </ul>
+          
+          <div class="article-callout article-callout-important">
+            <p class="article-callout-content"><strong>👉 Cette intégration améliore la satisfaction client de 45%.</strong></p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Avantages de l'intégration</h2>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">1. Vision 360° du client</h3>
+            <p class="article-paragraph">Accédez à toutes les informations client depuis un seul endroit.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">2. Automatisation intelligente</h3>
+            <p class="article-paragraph">Routez automatiquement les tickets selon le profil client.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">3. Reporting unifié</h3>
+            <p class="article-paragraph">Analysez les performances support et commerciales ensemble.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Conclusion</h2>
+          <p class="article-paragraph">L'intégration Zendesk HubSpot transforme votre support client en avantage concurrentiel.</p>
+        </section>
+      </article>
+    `
+  },
+  {
+    id: 7,
+    slug: "crm-clubs-sportifs-donnees-fans",
+    title: "CRM pour clubs sportifs – pourquoi vos données fans sont un trésor caché",
+    excerpt: "Les clubs et ligues perdent souvent la valeur cachée de leur base fans. Apprenez comment un CRM comme HubSpot, bien intégré, peut transformer vos fans en véritables sources de revenus.",
+    author: "Équipe HubEasy",
+    date: "2025-02-20",
+    readTime: "6 min",
+    category: "Sport",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=60",
+    searchTerm: "sports stadium crowd fans",
+    content: `
+      <article class="article-content">
+        <section>
+          <h2 class="article-section-title">Le potentiel caché des données fans</h2>
+          <p class="article-paragraph">Les clubs sportifs sous-exploitent souvent leurs données fans :</p>
+          
+          <ul class="article-list">
+            <li class="article-list-item">Segmentation des supporters</li>
+            <li class="article-list-item">Personnalisation des offres</li>
+            <li class="article-list-item">Fidélisation améliorée</li>
+            <li class="article-list-item">Revenus supplémentaires</li>
+          </ul>
+          
+          <div class="article-callout article-callout-important">
+            <p class="article-callout-content"><strong>👉 Les clubs avec un CRM optimisé augmentent leurs revenus de 60%.</strong></p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Stratégies CRM pour clubs sportifs</h2>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">1. Segmentation des fans</h3>
+            <p class="article-paragraph">Classez vos supporters selon leur engagement et leurs préférences.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">2. Campagnes personnalisées</h3>
+            <p class="article-paragraph">Créez des offres adaptées à chaque segment de fans.</p>
+          </div>
+          
+          <div class="article-feature">
+            <h3 class="article-feature-title">3. Analyse comportementale</h3>
+            <p class="article-paragraph">Comprenez les habitudes d'achat et d'engagement de vos fans.</p>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="article-section-title">Conclusion</h2>
+          <p class="article-paragraph">Un CRM bien configuré transforme vos fans en véritable actif commercial.</p>
+        </section>
+      </article>
+    `
+  },
+  {
+    id: 5,
     slug: "salesforce-hubspot-complement",
     title: "Salesforce et HubSpot – concurrents ou solutions complémentaires ?",
     excerpt: "Beaucoup d'entreprises utilisent Salesforce et HubSpot en parallèle. Faut-il choisir ou les faire cohabiter ? Découvrez pourquoi la synergie est souvent la meilleure option.",
@@ -837,6 +1111,146 @@ export default async function ArticlePage({
   const t = await getTranslations({ locale: params.locale, namespace: 'Blog' });
   const article = getArticleBySlug(params.slug);
   
+  // Contenu adapté selon la langue
+  const getLocalizedContent = (article: ArticleWithId, locale: string) => {
+    if (locale === 'en') {
+      // Traductions anglaises simplifiées
+      const translations: Record<string, any> = {
+        'agence-hubspot-france-guide-2025': {
+          title: "HubSpot Agency France: Complete 2025 Guide to Choose the Best",
+          excerpt: "Discover how to choose the best HubSpot agency in France. Selection criteria, pricing, certifications and best practices for your HubSpot project in 2025.",
+          content: `
+            <article class="article-content">
+              <section>
+                <h2 class="article-section-title">Why choose a HubSpot agency in France?</h2>
+                <p class="article-paragraph">With over 100,000 companies using HubSpot worldwide, choosing the right HubSpot agency in France becomes crucial for your digital transformation success.</p>
+                
+                <p class="article-paragraph">A certified HubSpot agency supports you in:</p>
+                
+                <ul class="article-list">
+                  <li class="article-list-item">HubSpot implementation and configuration</li>
+                  <li class="article-list-item">Migration from your old CRM</li>
+                  <li class="article-list-item">Team training</li>
+                  <li class="article-list-item">Continuous process optimization</li>
+                </ul>
+                
+                <div class="article-callout article-callout-important">
+                  <p class="article-callout-content"><strong>👉 In 2025, 73% of companies that succeed with HubSpot work with a certified agency.</strong></p>
+                </div>
+              </section>
+              
+              <section>
+                <h2 class="article-section-title">Essential criteria for choosing your HubSpot agency</h2>
+                
+                <div class="article-feature">
+                  <h3 class="article-feature-title">1. Official HubSpot certifications</h3>
+                  <p class="article-paragraph">Verify that the agency has official HubSpot certifications:</p>
+                  <ul class="article-list">
+                    <li class="article-list-item">HubSpot Partner Certification</li>
+                    <li class="article-list-item">HubSpot Solutions Partner</li>
+                    <li class="article-list-item">Specialized certifications (Marketing, Sales, Service)</li>
+                  </ul>
+                </div>
+                
+                <div class="article-feature">
+                  <h3 class="article-feature-title">2. Sector experience</h3>
+                  <p class="article-paragraph">Prefer an agency that knows your business sector:</p>
+                  <ul class="article-list">
+                    <li class="article-list-item">B2B, B2C, E-commerce</li>
+                    <li class="article-list-item">SMEs, ETIs, Large companies</li>
+                    <li class="article-list-item">Specific sectors (tech, finance, retail, etc.)</li>
+                  </ul>
+                </div>
+              </section>
+              
+              <section>
+                <h2 class="article-section-title">Conclusion</h2>
+                <p class="article-paragraph">Choosing the right HubSpot agency in France is a strategic investment that will determine your project's success.</p>
+                
+                <div class="article-callout article-callout-important">
+                  <p class="article-callout-content"><strong>👉 A certified HubSpot agency saves you an average of 6 months on your project and improves your success chances by 40%.</strong></p>
+                </div>
+              </section>
+            </article>
+          `
+        },
+        'integrateur-hubspot-choisir-partenaire': {
+          title: "HubSpot Integrator: How to Choose the Right Partner in 2025",
+          excerpt: "Complete guide to choose the best HubSpot integrator. Certifications, experience, pricing and selection criteria to succeed in your HubSpot project.",
+          content: `
+            <article class="article-content">
+              <section>
+                <h2 class="article-section-title">What is a HubSpot integrator?</h2>
+                <p class="article-paragraph">A HubSpot integrator is a certified technical partner who supports you in implementing, configuring and optimizing your HubSpot platform.</p>
+                
+                <p class="article-paragraph">Main missions:</p>
+                
+                <ul class="article-list">
+                  <li class="article-list-item">Technical HubSpot configuration</li>
+                  <li class="article-list-item">Integration with your existing tools</li>
+                  <li class="article-list-item">Data migration from your old CRM</li>
+                  <li class="article-list-item">Training and technical support</li>
+                </ul>
+                
+                <div class="article-callout article-callout-important">
+                  <p class="article-callout-content"><strong>👉 A good HubSpot integrator can reduce your implementation time by 60% and improve your ROI by 35%.</strong></p>
+                </div>
+              </section>
+              
+              <section>
+                <h2 class="article-section-title">Selection criteria for a HubSpot integrator</h2>
+                
+                <div class="article-feature">
+                  <h3 class="article-feature-title">1. Official HubSpot certifications</h3>
+                  <p class="article-paragraph">Check official certifications:</p>
+                  <ul class="article-list">
+                    <li class="article-list-item">HubSpot Partner Certification</li>
+                    <li class="article-list-item">HubSpot Solutions Partner</li>
+                    <li class="article-list-item">Specialized technical certifications</li>
+                  </ul>
+                </div>
+                
+                <div class="article-feature">
+                  <h3 class="article-feature-title">2. Technical experience</h3>
+                  <p class="article-paragraph">Look for expertise in:</p>
+                  <ul class="article-list">
+                    <li class="article-list-item">Complex API integrations</li>
+                    <li class="article-list-item">Large data migration</li>
+                    <li class="article-list-item">Advanced automation</li>
+                    <li class="article-list-item">HubSpot customization</li>
+                  </ul>
+                </div>
+              </section>
+              
+              <section>
+                <h2 class="article-section-title">Conclusion</h2>
+                <p class="article-paragraph">Choosing the right HubSpot integrator is crucial for your project's success. Prioritize technical expertise, official certifications and solid client references.</p>
+                
+                <div class="article-callout article-callout-important">
+                  <p class="article-callout-content"><strong>👉 An experienced HubSpot integrator saves you an average of 40% on your project and reduces technical risks by 70%.</strong></p>
+                </div>
+              </section>
+            </article>
+          `
+        }
+      };
+      
+      return translations[article.slug] || {
+        title: article.title,
+        excerpt: article.excerpt,
+        content: article.content
+      };
+    }
+    
+    return {
+      title: article.title,
+      excerpt: article.excerpt,
+      content: article.content
+    };
+  };
+  
+  const localizedArticle = getLocalizedContent(article, params.locale);
+  
   if (!article) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
@@ -906,10 +1320,10 @@ export default async function ArticlePage({
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
-              {article.title}
+              {localizedArticle.title}
             </h1>
             <p className="text-xl font-light text-gray-600 max-w-3xl">
-              {article.excerpt}
+              {localizedArticle.excerpt}
             </p>
             <div className="flex items-center mt-6">
               <User className="w-5 h-5 text-gray-400 mr-2" />
@@ -936,7 +1350,7 @@ export default async function ArticlePage({
             
             <div className="mb-8">
               <h1 className="text-4xl md:text-5xl font-thin text-gray-900 mb-6 tracking-tight">
-                {article.title}
+                {localizedArticle.title}
               </h1>
               <div className="flex items-center text-gray-600 mb-6">
                 <User className="mr-2 h-5 w-5" />
@@ -951,7 +1365,7 @@ export default async function ArticlePage({
               </div>
             </div>
             
-            <div className="article-container" dangerouslySetInnerHTML={{ __html: article.content }} />
+            <div className="article-container" dangerouslySetInnerHTML={{ __html: localizedArticle.content }} />
           </AnimatedSection>
         </div>
       </section>
