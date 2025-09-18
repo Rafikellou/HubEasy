@@ -39,43 +39,25 @@ const articles: ArticleWithId[] = [
     content: `
       <article class="article-content">
         <section>
-          <h2 class="article-section-title">Pourquoi les intégrations Odoo HubSpot echouent</h2>
-          <p class="article-paragraph">Les integrations entre Odoo et HubSpot sont souvent complexes et peuvent depasser les delais prevus. Voici les principales causes d'echec :</p>
+          <h2>Pourquoi les integrations Odoo HubSpot echouent</h2>
+          <p>Les integrations entre Odoo et HubSpot sont souvent complexes et peuvent depasser les delais prevus.</p>
           
-          <ul class="article-list">
-            <li class="article-list-item">Sous-estimation de la complexite technique</li>
-            <li class="article-list-item">Mapping des donnees incomplet</li>
-            <li class="article-list-item">Tests insuffisants</li>
-            <li class="article-list-item">Formation des equipes negligee</li>
+          <ul>
+            <li>Sous-estimation de la complexite technique</li>
+            <li>Mapping des donnees incomplet</li>
+            <li>Tests insuffisants</li>
+            <li>Formation des equipes negligee</li>
           </ul>
-          
-          <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>50% des projets d'integration Odoo HubSpot depassent les delais de 2 a 4 semaines.</strong></p>
-          </div>
         </section>
         
         <section>
-          <h2 class="article-section-title">Comment eviter les depassements de delais</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">1. Planification detaillee</h3>
-            <p class="article-paragraph">Definissez un planning realiste avec des jalons clairs et des tests a chaque etape.</p>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">2. Mapping des donnees</h3>
-            <p class="article-paragraph">Identifiez tous les champs a synchroniser et les transformations necessaires.</p>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">3. Tests en continu</h3>
-            <p class="article-paragraph">Testez chaque integration au fur et a mesure pour detecter les problemes rapidement.</p>
-          </div>
+          <h2>Comment eviter les depassements de delais</h2>
+          <p>Definissez un planning realiste avec des jalons clairs et des tests a chaque etape.</p>
         </section>
         
         <section>
-          <h2 class="article-section-title">Conclusion</h2>
-          <p class="article-paragraph">Une integration Odoo HubSpot reussie necessite une planification minutieuse et des tests rigoureux.</p>
+          <h2>Conclusion</h2>
+          <p>Une integration Odoo HubSpot reussie necessite une planification minutieuse et des tests rigoureux.</p>
         </section>
       </article>
     `
@@ -94,54 +76,42 @@ const articles: ArticleWithId[] = [
     content: `
       <article class="article-content">
         <section>
-          <h2 class="article-section-title">Pourquoi choisir une agence HubSpot en France ?</h2>
-          <p class="article-paragraph">Avec plus de 100 000 entreprises utilisant HubSpot dans le monde, choisir la bonne agence HubSpot en France devient crucial pour reussir votre transformation digitale.</p>
+          <h2>Pourquoi choisir une agence HubSpot en France ?</h2>
+          <p>Avec plus de 100 000 entreprises utilisant HubSpot dans le monde, choisir la bonne agence HubSpot en France devient crucial pour reussir votre transformation digitale.</p>
           
-          <p class="article-paragraph">Une agence HubSpot certifiee vous accompagne dans :</p>
+          <p>Une agence HubSpot certifiee vous accompagne dans :</p>
           
-          <ul class="article-list">
-            <li class="article-list-item">L'implementation et la configuration de HubSpot</li>
-            <li class="article-list-item">La migration depuis votre ancien CRM</li>
-            <li class="article-list-item">La formation de vos equipes</li>
-            <li class="article-list-item">L'optimisation continue de vos processus</li>
+          <ul>
+            <li>L'implementation et la configuration de HubSpot</li>
+            <li>La migration depuis votre ancien CRM</li>
+            <li>La formation de vos equipes</li>
+            <li>L'optimisation continue de vos processus</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Les criteres essentiels pour choisir votre agence HubSpot</h2>
+          
+          <h3>1. Certifications HubSpot officielles</h3>
+          <p>Verifiez que l'agence possede les certifications HubSpot officielles :</p>
+          <ul>
+            <li>HubSpot Partner Certification</li>
+            <li>HubSpot Solutions Partner</li>
+            <li>Certifications specialisees (Marketing, Sales, Service)</li>
           </ul>
           
-          <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>En 2025, 73% des entreprises qui reussissent avec HubSpot travaillent avec une agence certifiee.</strong></p>
-          </div>
+          <h3>2. Experience sectorielle</h3>
+          <p>Privilegiez une agence qui connait votre secteur d'activite :</p>
+          <ul>
+            <li>B2B, B2C, E-commerce</li>
+            <li>PME, ETI, Grandes entreprises</li>
+            <li>Secteurs specifiques (tech, finance, retail, etc.)</li>
+          </ul>
         </section>
         
         <section>
-          <h2 class="article-section-title">Les criteres essentiels pour choisir votre agence HubSpot</h2>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">1. Certifications HubSpot officielles</h3>
-            <p class="article-paragraph">Verifiez que l'agence possede les certifications HubSpot officielles :</p>
-            <ul class="article-list">
-              <li class="article-list-item">HubSpot Partner Certification</li>
-              <li class="article-list-item">HubSpot Solutions Partner</li>
-              <li class="article-list-item">Certifications specialisees (Marketing, Sales, Service)</li>
-            </ul>
-          </div>
-          
-          <div class="article-feature">
-            <h3 class="article-feature-title">2. Experience sectorielle</h3>
-            <p class="article-paragraph">Privilegiez une agence qui connait votre secteur d'activite :</p>
-            <ul class="article-list">
-              <li class="article-list-item">B2B, B2C, E-commerce</li>
-              <li class="article-list-item">PME, ETI, Grandes entreprises</li>
-              <li class="article-list-item">Secteurs specifiques (tech, finance, retail, etc.)</li>
-            </ul>
-          </div>
-        </section>
-        
-        <section>
-          <h2 class="article-section-title">Conclusion</h2>
-          <p class="article-paragraph">Choisir la bonne agence HubSpot en France est un investissement strategique qui determinera le succes de votre projet.</p>
-          
-          <div class="article-callout article-callout-important">
-            <p class="article-callout-content"><strong>Une agence HubSpot certifiee vous fait gagner en moyenne 6 mois sur votre projet et ameliore vos chances de succes de 40%.</strong></p>
-          </div>
+          <h2>Conclusion</h2>
+          <p>Choisir la bonne agence HubSpot en France est un investissement strategique qui determinera le succes de votre projet.</p>
         </section>
       </article>
     `
@@ -976,145 +946,12 @@ export default async function ArticlePage({
     );
   }
   
-  // Contenu adapté selon la langue
-  const getLocalizedContent = (article: ArticleWithId, locale: string) => {
-    if (locale === 'en') {
-      // Traductions anglaises simplifiées
-      const translations: Record<string, any> = {
-        'agence-hubspot-france-guide-2025': {
-          title: "HubSpot Agency France: Complete 2025 Guide to Choose the Best",
-          excerpt: "Discover how to choose the best HubSpot agency in France. Selection criteria, pricing, certifications and best practices for your HubSpot project in 2025.",
-          content: `
-            <article class="article-content">
-              <section>
-                <h2 class="article-section-title">Why choose a HubSpot agency in France?</h2>
-                <p class="article-paragraph">With over 100,000 companies using HubSpot worldwide, choosing the right HubSpot agency in France becomes crucial for your digital transformation success.</p>
-                
-                <p class="article-paragraph">A certified HubSpot agency supports you in:</p>
-                
-                <ul class="article-list">
-                  <li class="article-list-item">HubSpot implementation and configuration</li>
-                  <li class="article-list-item">Migration from your old CRM</li>
-                  <li class="article-list-item">Team training</li>
-                  <li class="article-list-item">Continuous process optimization</li>
-                </ul>
-                
-                <div class="article-callout article-callout-important">
-                  <p class="article-callout-content"><strong>👉 In 2025, 73% of companies that succeed with HubSpot work with a certified agency.</strong></p>
-                </div>
-              </section>
-              
-              <section>
-                <h2 class="article-section-title">Essential criteria for choosing your HubSpot agency</h2>
-                
-                <div class="article-feature">
-                  <h3 class="article-feature-title">1. Official HubSpot certifications</h3>
-                  <p class="article-paragraph">Verify that the agency has official HubSpot certifications:</p>
-                  <ul class="article-list">
-                    <li class="article-list-item">HubSpot Partner Certification</li>
-                    <li class="article-list-item">HubSpot Solutions Partner</li>
-                    <li class="article-list-item">Specialized certifications (Marketing, Sales, Service)</li>
-                  </ul>
-                </div>
-                
-                <div class="article-feature">
-                  <h3 class="article-feature-title">2. Sector experience</h3>
-                  <p class="article-paragraph">Prefer an agency that knows your business sector:</p>
-                  <ul class="article-list">
-                    <li class="article-list-item">B2B, B2C, E-commerce</li>
-                    <li class="article-list-item">SMEs, ETIs, Large companies</li>
-                    <li class="article-list-item">Specific sectors (tech, finance, retail, etc.)</li>
-                  </ul>
-                </div>
-              </section>
-              
-              <section>
-                <h2 class="article-section-title">Conclusion</h2>
-                <p class="article-paragraph">Choosing the right HubSpot agency in France is a strategic investment that will determine your project's success.</p>
-                
-                <div class="article-callout article-callout-important">
-                  <p class="article-callout-content"><strong>👉 A certified HubSpot agency saves you an average of 6 months on your project and improves your success chances by 40%.</strong></p>
-                </div>
-              </section>
-            </article>
-          `
-        },
-        'integrateur-hubspot-choisir-partenaire': {
-          title: "HubSpot Integrator: How to Choose the Right Partner in 2025",
-          excerpt: "Complete guide to choose the best HubSpot integrator. Certifications, experience, pricing and selection criteria to succeed in your HubSpot project.",
-          content: `
-            <article class="article-content">
-              <section>
-                <h2 class="article-section-title">What is a HubSpot integrator?</h2>
-                <p class="article-paragraph">A HubSpot integrator is a certified technical partner who supports you in implementing, configuring and optimizing your HubSpot platform.</p>
-                
-                <p class="article-paragraph">Main missions:</p>
-                
-                <ul class="article-list">
-                  <li class="article-list-item">Technical HubSpot configuration</li>
-                  <li class="article-list-item">Integration with your existing tools</li>
-                  <li class="article-list-item">Data migration from your old CRM</li>
-                  <li class="article-list-item">Training and technical support</li>
-                </ul>
-                
-                <div class="article-callout article-callout-important">
-                  <p class="article-callout-content"><strong>👉 A good HubSpot integrator can reduce your implementation time by 60% and improve your ROI by 35%.</strong></p>
-                </div>
-              </section>
-              
-              <section>
-                <h2 class="article-section-title">Selection criteria for a HubSpot integrator</h2>
-                
-                <div class="article-feature">
-                  <h3 class="article-feature-title">1. Official HubSpot certifications</h3>
-                  <p class="article-paragraph">Check official certifications:</p>
-                  <ul class="article-list">
-                    <li class="article-list-item">HubSpot Partner Certification</li>
-                    <li class="article-list-item">HubSpot Solutions Partner</li>
-                    <li class="article-list-item">Specialized technical certifications</li>
-                  </ul>
-                </div>
-                
-                <div class="article-feature">
-                  <h3 class="article-feature-title">2. Technical experience</h3>
-                  <p class="article-paragraph">Look for expertise in:</p>
-                  <ul class="article-list">
-                    <li class="article-list-item">Complex API integrations</li>
-                    <li class="article-list-item">Large data migration</li>
-                    <li class="article-list-item">Advanced automation</li>
-                    <li class="article-list-item">HubSpot customization</li>
-                  </ul>
-                </div>
-              </section>
-              
-              <section>
-                <h2 class="article-section-title">Conclusion</h2>
-                <p class="article-paragraph">Choosing the right HubSpot integrator is crucial for your project's success. Prioritize technical expertise, official certifications and solid client references.</p>
-                
-                <div class="article-callout article-callout-important">
-                  <p class="article-callout-content"><strong>👉 An experienced HubSpot integrator saves you an average of 40% on your project and reduces technical risks by 70%.</strong></p>
-                </div>
-              </section>
-            </article>
-          `
-        }
-      };
-      
-      return translations[article.slug] || {
-        title: article.title,
-        excerpt: article.excerpt,
-        content: article.content
-      };
-    }
-    
-    return {
-      title: article.title,
-      excerpt: article.excerpt,
-      content: article.content
-    };
+  // Version simplifiée sans traductions pour tester
+  const localizedArticle = {
+    title: article.title,
+    excerpt: article.excerpt,
+    content: article.content
   };
-  
-  const localizedArticle = getLocalizedContent(article, params.locale);
   
   const imageId = searchParams.imageId || '';
   const imageParamUrl = searchParams.imageUrl || '';
@@ -1240,5 +1077,41 @@ export default async function ArticlePage({
       </section>
     </main>
   );
+}
+
+// This would normally be fetched from a database or CMS
+const getArticleBySlug = (slug: string) => {
+  return articles.find(article => article.slug === slug);
+};
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: { params: { locale: string; slug: string } }) {
+  const article = getArticleBySlug(params.slug);
+  
+  if (!article) {
+    return {
+      title: 'Article non trouve',
+      description: 'L\'article que vous recherchez n\'existe pas.',
+    };
+  }
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
+    },
+  };
 }
 
