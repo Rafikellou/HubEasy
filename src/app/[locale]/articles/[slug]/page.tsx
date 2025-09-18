@@ -54,7 +54,7 @@ const articles: ArticleWithId[] = [
     date: "2025-08-15",
     readTime: "7 min",
     category: "Intégrations",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/integration-photo.jpg",
     searchTerm: "business integration software",
     content: `
       <article class="article-content">
@@ -91,7 +91,7 @@ const articles: ArticleWithId[] = [
     date: "2025-01-15",
     readTime: "8 min",
     category: "Agence HubSpot",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/agence-hubspot.webp",
     searchTerm: "hubspot agency france",
     content: `
       <article class="article-content">
@@ -145,7 +145,7 @@ const articles: ArticleWithId[] = [
     date: "2025-01-10",
     readTime: "7 min",
     category: "Intégrateur HubSpot",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/agence-hubspot-integrateur.webp",
     searchTerm: "hubspot integrator partner",
     content: `
       <article class="article-content">
@@ -212,7 +212,7 @@ const articles: ArticleWithId[] = [
     date: "2025-01-05",
     readTime: "9 min",
     category: "Migration HubSpot",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/data-migration.jpg",
     searchTerm: "hubspot migration guide",
     content: `
       <article class="article-content">
@@ -358,7 +358,7 @@ const articles: ArticleWithId[] = [
     date: "2025-01-01",
     readTime: "6 min",
     category: "Formation HubSpot",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/hubspot-training.webp",
     searchTerm: "hubspot training certification",
     content: `
       <article class="article-content">
@@ -506,7 +506,7 @@ const articles: ArticleWithId[] = [
     date: "2025-07-10",
     readTime: "5 min",
     category: "Intégrations",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/dolibarr.jpg",
     searchTerm: "business software integration",
     content: `
       <article class="article-content">
@@ -560,7 +560,7 @@ const articles: ArticleWithId[] = [
     date: "2025-05-05",
     readTime: "6 min",
     category: "E-commerce",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/shopify.jpg",
     searchTerm: "shopify ecommerce storefront",
     content: `
       <article class="article-content">
@@ -615,7 +615,7 @@ const articles: ArticleWithId[] = [
     date: "2025-03-25",
     readTime: "5 min",
     category: "Support",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/seindesk.png",
     searchTerm: "customer support helpdesk",
     content: `
       <article class="article-content">
@@ -670,7 +670,7 @@ const articles: ArticleWithId[] = [
     date: "2025-02-20",
     readTime: "6 min",
     category: "Sport",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/carm-sport.jpg",
     searchTerm: "sports stadium crowd fans",
     content: `
       <article class="article-content">
@@ -725,7 +725,7 @@ const articles: ArticleWithId[] = [
     date: "2025-04-30",
     readTime: "8 min",
     category: "CRM",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/salesforce-hubspot.webp",
     searchTerm: "salesforce crm dashboard",
     content: `
       <article class="article-content">
@@ -833,7 +833,7 @@ const articles: ArticleWithId[] = [
     date: "2025-05-05",
     readTime: "6 min",
     category: "E-commerce",
-    image: "/images/hero-photo-hubeasy.jpg",
+    image: "/shopify.jpg",
     searchTerm: "shopify ecommerce storefront",
     content: `
       <article class="article-content">
