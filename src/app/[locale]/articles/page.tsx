@@ -40,6 +40,32 @@ const featuredArticle: Article = {
 const articles: Article[] = [
   {
     id: 2,
+    slug: 'agence-hubspot-france-guide-2025',
+    title: "Agence HubSpot France : Guide Complet 2025 pour Choisir la Meilleure",
+    excerpt: "Découvrez comment choisir la meilleure agence HubSpot en France. Critères de sélection, tarifs, certifications et bonnes pratiques pour votre projet HubSpot en 2025.",
+    author: 'Équipe HubEasy',
+    date: '2025-01-15',
+    readTime: '8 min',
+    category: 'Agence HubSpot',
+    image: '/images/hero-photo-hubeasy.jpg',
+    searchTerm: 'hubspot agency france',
+    unsplashImageId: undefined
+  },
+  {
+    id: 3,
+    slug: 'integrateur-hubspot-choisir-partenaire',
+    title: "Intégrateur HubSpot : Comment Choisir le Bon Partenaire en 2025",
+    excerpt: "Guide complet pour choisir le meilleur intégrateur HubSpot. Certifications, expérience, tarifs et critères de sélection pour réussir votre projet HubSpot.",
+    author: 'Équipe HubEasy',
+    date: '2025-01-10',
+    readTime: '7 min',
+    category: 'Intégrateur HubSpot',
+    image: '/images/hero-photo-hubeasy.jpg',
+    searchTerm: 'hubspot integrator partner',
+    unsplashImageId: undefined
+  },
+  {
+    id: 8,
     slug: 'dolibarr-hubspot-erreurs-commerciaux',
     title: "Intégration Dolibarr HubSpot – 3 erreurs fréquentes (et comment les éviter)",
     excerpt: "L'intégration Dolibarr peut vite tourner au casse-tête. On vous montre les pièges classiques (et comment les éviter) pour que vos commerciaux restent concentrés sur la vente.",
@@ -52,7 +78,33 @@ const articles: Article[] = [
     unsplashImageId: undefined
   },
   {
-    id: 3,
+    id: 4,
+    slug: 'migration-hubspot-guide-pratique',
+    title: "Migration HubSpot : Guide Pratique Sans Perte de Données",
+    excerpt: "Comment migrer vers HubSpot sans perdre vos données ? Guide étape par étape pour une migration réussie depuis votre ancien CRM vers HubSpot.",
+    author: 'Équipe HubEasy',
+    date: '2025-01-05',
+    readTime: '9 min',
+    category: 'Migration HubSpot',
+    image: '/images/hero-photo-hubeasy.jpg',
+    searchTerm: 'hubspot migration guide',
+    unsplashImageId: undefined
+  },
+  {
+    id: 9,
+    slug: 'formation-hubspot-par-ou-commencer',
+    title: "Formation HubSpot : Par où Commencer ? Guide 2025",
+    excerpt: "Découvrez les meilleures formations HubSpot disponibles en France. Certifications officielles, cours en ligne et conseils pour maîtriser HubSpot rapidement.",
+    author: 'Équipe HubEasy',
+    date: '2025-01-01',
+    readTime: '6 min',
+    category: 'Formation HubSpot',
+    image: '/images/hero-photo-hubeasy.jpg',
+    searchTerm: 'hubspot training certification',
+    unsplashImageId: undefined
+  },
+  {
+    id: 10,
     slug: 'shopify-hubspot-panier-moyen',
     title: "Intégration Shopify HubSpot – Le duo qui booste vos ventes et votre panier moyen",
     excerpt: "Découvrez comment connecter Shopify à HubSpot permet de mieux cibler vos clients et d'augmenter la valeur moyenne de vos paniers.",
@@ -65,7 +117,7 @@ const articles: Article[] = [
     unsplashImageId: undefined
   },
   {
-    id: 4,
+    id: 5,
     slug: 'salesforce-hubspot-complement',
     title: "Salesforce et HubSpot – concurrents ou solutions complémentaires ?",
     excerpt: "Beaucoup d'entreprises utilisent Salesforce et HubSpot en parallèle. Faut-il choisir ou les faire cohabiter ? Découvrez pourquoi la synergie est souvent la meilleure option.",
@@ -78,7 +130,7 @@ const articles: Article[] = [
     unsplashImageId: undefined
   },
   {
-    id: 5,
+    id: 6,
     slug: 'zendesk-hubspot-tickets',
     title: "Intégration Zendesk HubSpot – comment centraliser vos données clients",
     excerpt: "Le support client est souvent éclaté entre plusieurs outils. Découvrez comment Zendesk et HubSpot peuvent travailler ensemble pour améliorer la réactivité et la satisfaction client.",
@@ -91,7 +143,7 @@ const articles: Article[] = [
     unsplashImageId: undefined
   },
   {
-    id: 6,
+    id: 7,
     slug: 'crm-clubs-sportifs-donnees-fans',
     title: "CRM pour clubs sportifs – pourquoi vos données fans sont un trésor caché",
     excerpt: "Les clubs et ligues perdent souvent la valeur cachée de leur base fans. Apprenez comment un CRM comme HubSpot, bien intégré, peut transformer vos fans en véritables sources de revenus.",

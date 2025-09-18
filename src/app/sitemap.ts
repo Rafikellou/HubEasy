@@ -214,6 +214,55 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.6,
     },
+    // Nouveaux articles Phase 1
+    {
+      url: `${baseUrl}/fr/articles/agence-hubspot-france-guide-2025`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/articles/agence-hubspot-france-guide-2025`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fr/articles/integrateur-hubspot-choisir-partenaire`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/articles/integrateur-hubspot-choisir-partenaire`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fr/articles/migration-hubspot-guide-pratique`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/articles/migration-hubspot-guide-pratique`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/fr/articles/formation-hubspot-par-ou-commencer`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/articles/formation-hubspot-par-ou-commencer`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/fr/ressources/cas-clients`,
       lastModified: new Date(),
