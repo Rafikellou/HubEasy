@@ -8,19 +8,19 @@ import { CheckCircle, Rocket, BarChart2, Zap, Users, Shield, Award, HelpCircle }
 import {getTranslations} from 'next-intl/server';
 
 export const metadata: Metadata = {
-  title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
-  description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B. Implémentations rapides et mesurables.',
-  keywords: 'agence HubSpot, intégrateur HubSpot, partenaire HubSpot, certification HubSpot, intégration HubSpot, migration HubSpot, implémentation HubSpot, PME, ETI, B2B',
+  title: 'Agence HubSpot France | Intégrateur & Expert HubSpot Certifié | HubEasy',
+  description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise intégration, migration et optimisation HubSpot.',
+  keywords: 'agence HubSpot France, intégrateur HubSpot Paris, expert HubSpot certifié, partenaire HubSpot officiel, consultant HubSpot B2B, agence HubSpot, intégration HubSpot, migration HubSpot, implémentation HubSpot, PME, ETI, B2B, HubSpot France',
   openGraph: {
-    title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
-    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    title: 'Agence HubSpot France | Intégrateur & Expert HubSpot Certifié | HubEasy',
+    description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise reconnue.',
     type: 'website',
     locale: 'fr_FR',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agence HubSpot Certifiée | Intégrateur & Partenaire HubSpot Officiel | HubEasy',
-    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    title: 'Agence HubSpot France | Intégrateur & Expert HubSpot Certifié | HubEasy',
+    description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise reconnue.',
   },
   alternates: {
     canonical: '/agence-hubspot',
@@ -51,10 +51,10 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'HubEasy',
-    description: 'Agence HubSpot certifiée et partenaire officiel spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
-    url: 'https://hubeasy.fr',
+    '@type': 'ProfessionalService',
+    name: 'HubEasy - Agence HubSpot France',
+    description: 'Agence HubSpot certifiée et partenaire officiel spécialisée dans l\'intégration, migration et optimisation HubSpot pour PME/ETI B2B en France.',
+    url: 'https://hubeasy.fr/agence-hubspot',
     logo: 'https://hubeasy.fr/images/logo-hubeasy.png',
     address: {
       '@type': 'PostalAddress',
@@ -67,44 +67,70 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
       '@type': 'ContactPoint',
       telephone: '+33-1-XX-XX-XX-XX',
       contactType: 'customer service',
-      email: 'contact@hubeasy.fr'
+      email: 'contact@hubeasy.fr',
+      availableLanguage: 'French'
     },
     sameAs: [
       'https://www.linkedin.com/company/hubeasy',
       'https://twitter.com/hubeasy'
     ],
     serviceType: 'HubSpot Integration Services',
-    areaServed: 'France',
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Services HubSpot',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Intégration HubSpot',
-            description: 'Implémentation complète de HubSpot avec paramétrage des hubs Marketing, Sales et Service'
-          }
+    areaServed: [
+      {
+        '@type': 'Country',
+        name: 'France'
+      },
+      {
+        '@type': 'City',
+        name: 'Paris'
+      }
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'HubSpot Partner Certification',
+        credentialCategory: 'certification'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'HubSpot Sales Software Certification',
+        credentialCategory: 'certification'
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'HubSpot Marketing Software Certification',
+        credentialCategory: 'certification'
+      }
+    ],
+    offers: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Intégration HubSpot',
+          description: 'Implémentation complète de HubSpot avec paramétrage des hubs Marketing, Sales et Service pour PME/ETI B2B'
         },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Migration HubSpot',
-            description: 'Migration sécurisée de vos données vers HubSpot avec préservation de l\'historique'
-          }
+        areaServed: 'France'
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Migration HubSpot',
+          description: 'Migration sécurisée de vos données vers HubSpot avec préservation de l\'historique et conformité RGPD'
         },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Intégrations & Connecteurs',
-            description: 'Connexion HubSpot avec ERP, e-commerce, outils de support et autres applications'
-          }
-        }
-      ]
-    }
+        areaServed: 'France'
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Intégrations & Connecteurs',
+          description: 'Connexion HubSpot avec ERP, e-commerce, outils de support et autres applications métier'
+        },
+        areaServed: 'France'
+      }
+    ]
   };
 
   const faqJsonLd = {
@@ -243,11 +269,18 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
           </div>
 
           <AnimatedSection animation="fade-up" delay={400} className="text-center mt-14">
-            <Link href={`/${params.locale}/integrations`}>
-              <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
-                {t('services_cta')}
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href={`/${params.locale}/integrations`}>
+                <Button variant="outline" className="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
+                  {t('services_cta')}
+                </Button>
+              </Link>
+              <Link href={`/${params.locale}/integrateur-hubspot`}>
+                <Button variant="outline" className="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
+                  Découvrir nos services d'intégration
+                </Button>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -382,6 +415,113 @@ export default async function NotreMethodePage({ params }: { params: { locale: s
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+
+      {/* Section SEO Enrichie - Pourquoi Choisir une Agence HubSpot en France */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Pourquoi Choisir une Agence HubSpot en France ?</h2>
+            <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto font-light">
+              En tant qu'agence HubSpot certifiée en France, nous comprenons les spécificités du marché français et les besoins des entreprises B2B locales.
+            </p>
+          </AnimatedSection>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <AnimatedSection animation="slide-right">
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Expertise Locale et Connaissance du Marché</h3>
+                <p className="text-gray-600 font-light mb-4">
+                  Notre équipe d'intégrateurs HubSpot basée en France maîtrise les enjeux spécifiques des PME et ETI françaises. 
+                  Nous comprenons vos processus métier, vos contraintes réglementaires (RGPD, CNIL) et vos besoins en termes de 
+                  marketing automation adapté au marché français.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Conformité RGPD et réglementations françaises</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Support en français et horaires français</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Connaissance des outils et intégrations locales</span>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-left" delay={200}>
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Partenaire HubSpot Officiel avec Accès Privilégié</h3>
+                <p className="text-gray-600 font-light mb-4">
+                  En tant que partenaire HubSpot officiel en France, nous bénéficions d'un accès direct aux équipes HubSpot, 
+                  aux nouvelles fonctionnalités en avant-première et à un support technique prioritaire. 
+                  Cela nous permet de vous offrir les meilleures pratiques et les solutions les plus récentes.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Support technique HubSpot prioritaire</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Formations exclusives partenaires</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Accès aux nouvelles fonctionnalités</span>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Section FAQ SEO Spécifique */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Questions Fréquentes sur les Agences HubSpot en France</h2>
+            <p className="mt-6 text-lg text-gray-600 font-light">Réponses aux questions les plus courantes sur le choix d'une agence HubSpot certifiée</p>
+          </AnimatedSection>
+
+          <div className="mt-10 divide-y divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden bg-white">
+            {[
+              {
+                q: "Quelle est la différence entre une agence HubSpot et un intégrateur HubSpot ?",
+                a: "Une agence HubSpot offre une approche globale incluant stratégie, implémentation et accompagnement, tandis qu'un intégrateur HubSpot se concentre sur l'aspect technique. HubEasy combine les deux approches pour vous offrir une solution complète."
+              },
+              {
+                q: "Pourquoi choisir une agence HubSpot française plutôt qu'une agence internationale ?",
+                a: "Une agence HubSpot française comprend mieux vos enjeux locaux, respecte les réglementations françaises (RGPD), offre un support en français et connaît les spécificités du marché B2B français."
+              },
+              {
+                q: "Combien coûte l'intégration HubSpot par une agence certifiée ?",
+                a: "Le coût varie selon la complexité de votre projet. Nos tarifs d'intégration HubSpot sont transparents et adaptés aux PME/ETI. Contactez-nous pour un devis personnalisé basé sur vos besoins spécifiques."
+              },
+              {
+                q: "Quelle est la durée moyenne d'un projet d'intégration HubSpot ?",
+                a: "La durée dépend de la complexité de votre projet. Une intégration HubSpot standard prend 4-8 semaines, tandis qu'une migration complexe peut nécessiter 8-12 semaines. Nous privilégions des déploiements rapides et mesurables."
+              }
+            ].map((f, i) => (
+              <AnimatedSection key={f.q} animation="fade-up" delay={i * 80}>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-start">
+                    <HelpCircle className="w-5 h-5 text-red-500 mr-3 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900">{f.q}</h3>
+                      <p className="mt-2 text-gray-700 font-light">{f.a}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

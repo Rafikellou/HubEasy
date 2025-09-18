@@ -51,20 +51,24 @@ const HubspotContactForm = () => {
       }
     };
 
-    if (!document.getElementById(SCRIPT_ID)) {
-      const script = document.createElement('script');
-      script.id = SCRIPT_ID;
-      script.type = 'text/javascript';
-      script.src = 'https://js-eu1.hsforms.net/forms/embed/v2.js';
-      script.async = true;
-      script.defer = true;
-      script.addEventListener('load', createForm);
-      document.body.appendChild(script);
-    } else {
-      createForm();
-    }
+    // Add a small delay to prevent multiple initializations
+    const timeoutId = setTimeout(() => {
+      if (!document.getElementById(SCRIPT_ID)) {
+        const script = document.createElement('script');
+        script.id = SCRIPT_ID;
+        script.type = 'text/javascript';
+        script.src = 'https://js-eu1.hsforms.net/forms/embed/v2.js';
+        script.async = true;
+        script.defer = true;
+        script.addEventListener('load', createForm);
+        document.body.appendChild(script);
+      } else {
+        createForm();
+      }
+    }, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       // Clean up to avoid duplicates on remount or navigation
       if (container) {
         container.removeAttribute('data-hs-initialized');

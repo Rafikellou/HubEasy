@@ -8,19 +8,19 @@ import { CheckCircle, Rocket, BarChart2, Zap, Users, Shield, Award, HelpCircle, 
 import {getTranslations} from 'next-intl/server';
 
 export const metadata: Metadata = {
-  title: 'Partenaire HubSpot Officiel | Agence Certifiée HubSpot | HubEasy',
-  description: 'Partenaire HubSpot officiel et agence certifiée. Accès privilégié aux ressources HubSpot, support technique direct et expertise reconnue pour vos projets d\'intégration.',
-  keywords: 'partenaire HubSpot, agence HubSpot certifiée, partenaire officiel HubSpot, certification HubSpot, intégrateur HubSpot, PME, ETI, B2B',
+  title: 'Partenaire HubSpot Officiel France | Agence Certifiée HubSpot | HubEasy',
+  description: 'Partenaire HubSpot officiel en France. Agence certifiée avec accès privilégié aux ressources HubSpot, support technique direct et expertise reconnue pour vos projets d\'intégration.',
+  keywords: 'partenaire HubSpot France, partenaire HubSpot officiel, agence HubSpot certifiée, partenaire officiel HubSpot, certification HubSpot, intégrateur HubSpot, PME, ETI, B2B, HubSpot France',
   openGraph: {
-    title: 'Partenaire HubSpot Officiel | Agence Certifiée HubSpot | HubEasy',
-    description: 'Partenaire HubSpot officiel et agence certifiée. Accès privilégié aux ressources HubSpot et expertise reconnue.',
+    title: 'Partenaire HubSpot Officiel France | Agence Certifiée HubSpot | HubEasy',
+    description: 'Partenaire HubSpot officiel en France. Agence certifiée avec accès privilégié aux ressources HubSpot et expertise reconnue.',
     type: 'website',
     locale: 'fr_FR',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Partenaire HubSpot Officiel | Agence Certifiée HubSpot | HubEasy',
-    description: 'Partenaire HubSpot officiel et agence certifiée. Accès privilégié aux ressources HubSpot et expertise reconnue.',
+    title: 'Partenaire HubSpot Officiel France | Agence Certifiée HubSpot | HubEasy',
+    description: 'Partenaire HubSpot officiel en France. Agence certifiée avec accès privilégié aux ressources HubSpot et expertise reconnue.',
   },
   alternates: {
     canonical: '/partenaire-hubspot',
@@ -67,10 +67,10 @@ export default async function PartenaireHubSpotPage({ params }: { params: { loca
   ];
 
   const partnerStats = [
-    { metric: "5+", label: "Années d'expérience HubSpot" },
-    { metric: "50+", label: "Projets HubSpot réalisés" },
     { metric: "100%", label: "Clients satisfaits" },
-    { metric: "24h", label: "Temps de réponse moyen" }
+    { metric: "24h", label: "Temps de réponse moyen" },
+    { metric: "Expert", label: "Certifications HubSpot" },
+    { metric: "Support", label: "Technique prioritaire" }
   ];
 
   const jsonLd = {
@@ -260,6 +260,18 @@ export default async function PartenaireHubSpotPage({ params }: { params: { loca
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="mt-10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <Link href={`/${params.locale}/agence-hubspot`}>
+                  <Button variant="outline" className="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
+                    Découvrir notre agence HubSpot
+                  </Button>
+                </Link>
+                <Link href={`/${params.locale}/integrateur-hubspot`}>
+                  <Button variant="outline" className="border-2 border-gray-300 text-gray-600 hover:bg-gray-100 font-light px-8 py-3 rounded-full text-lg transition-all duration-300">
+                    Nos services d'intégration HubSpot
+                  </Button>
+                </Link>
+              </div>
               <HubspotContactForm />
             </div>
           </AnimatedSection>
@@ -272,6 +284,125 @@ export default async function PartenaireHubSpotPage({ params }: { params: { loca
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* Section SEO Enrichie - Avantages Partenaire HubSpot Officiel */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Avantages d'un Partenaire HubSpot Officiel en France</h2>
+            <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto font-light">
+              En tant que partenaire HubSpot officiel en France, nous bénéficions d'avantages exclusifs que nous transmettons directement à nos clients pour garantir le succès de leurs projets HubSpot.
+            </p>
+          </AnimatedSection>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <AnimatedSection animation="slide-right">
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Accès Privilégié aux Ressources HubSpot</h3>
+                <p className="text-gray-600 font-light mb-4">
+                  Notre statut de partenaire HubSpot officiel nous donne accès à des ressources exclusives : 
+                  documentation technique avancée, formations partenaires, nouvelles fonctionnalités en avant-première 
+                  et support technique prioritaire directement auprès des équipes HubSpot.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Documentation technique avancée et non publique</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Formations exclusives réservées aux partenaires</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Accès aux nouvelles fonctionnalités en bêta</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Support technique HubSpot prioritaire</span>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-left" delay={200}>
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Certifications et Expertise Reconnue</h3>
+                <p className="text-gray-600 font-light mb-4">
+                  En tant que partenaire HubSpot officiel, nous maintenons toutes les certifications nécessaires 
+                  et suivons une formation continue pour rester à la pointe des dernières évolutions de la plateforme. 
+                  Cette expertise certifiée garantit la qualité de nos implémentations.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Certification HubSpot Partner officielle</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Certifications Sales, Marketing et Service Hub</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Formation continue obligatoire pour maintenir le statut</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="font-light text-sm">Accès aux meilleures pratiques HubSpot</span>
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Section FAQ SEO Spécifique Partenaire */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <AnimatedSection animation="fade-up" className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Questions Fréquentes sur les Partenaires HubSpot</h2>
+            <p className="mt-6 text-lg text-gray-600 font-light">Réponses aux questions sur le statut de partenaire HubSpot officiel</p>
+          </AnimatedSection>
+
+          <div className="mt-10 divide-y divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden bg-white">
+            {[
+              {
+                q: "Qu'est-ce qu'un partenaire HubSpot officiel ?",
+                a: "Un partenaire HubSpot officiel est une agence certifiée par HubSpot qui a démontré son expertise technique et commerciale. Ce statut donne accès à des ressources exclusives, un support prioritaire et des avantages commerciaux pour mieux servir les clients."
+              },
+              {
+                q: "Quels sont les avantages de travailler avec un partenaire HubSpot officiel ?",
+                a: "Les avantages incluent l'accès à des ressources exclusives, un support technique prioritaire, des formations partenaires, l'accès aux nouvelles fonctionnalités en avant-première et une expertise certifiée par HubSpot."
+              },
+              {
+                q: "Comment HubEasy a-t-elle obtenu le statut de partenaire HubSpot officiel ?",
+                a: "Nous avons obtenu ce statut en démontrant notre expertise technique, en obtenant toutes les certifications HubSpot nécessaires, en réalisant de nombreux projets réussis et en maintenant des standards de qualité élevés dans nos implémentations."
+              },
+              {
+                q: "Y a-t-il une différence de prix entre un partenaire officiel et un intégrateur non partenaire ?",
+                a: "Les tarifs peuvent varier selon l'expertise et les services offerts. En tant que partenaire officiel, nous offrons une valeur ajoutée significative : accès aux ressources exclusives, support prioritaire et expertise certifiée, ce qui justifie notre positionnement tarifaire."
+              },
+              {
+                q: "Le statut de partenaire HubSpot officiel est-il permanent ?",
+                a: "Non, le statut de partenaire HubSpot officiel doit être maintenu en respectant des critères de performance, en suivant des formations continues et en maintenant des standards de qualité. Nous nous engageons à maintenir ce statut pour continuer à vous offrir les meilleurs services."
+              }
+            ].map((f, i) => (
+              <AnimatedSection key={f.q} animation="fade-up" delay={i * 80}>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-start">
+                    <HelpCircle className="w-5 h-5 text-red-500 mr-3 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900">{f.q}</h3>
+                      <p className="mt-2 text-gray-700 font-light">{f.a}</p>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

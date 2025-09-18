@@ -6,8 +6,13 @@ export const defaultMetadata: Metadata = {
     default: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
     template: '%s | HubEasy - Agence HubSpot Certifiée'
   },
-  description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B. Implémentations rapides et mesurables.',
+  description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise intégration, migration et optimisation HubSpot.',
   keywords: [
+    'agence HubSpot France',
+    'intégrateur HubSpot Paris',
+    'expert HubSpot certifié',
+    'partenaire HubSpot officiel',
+    'consultant HubSpot B2B',
     'agence HubSpot',
     'intégrateur HubSpot', 
     'partenaire HubSpot',
@@ -18,7 +23,9 @@ export const defaultMetadata: Metadata = {
     'PME',
     'ETI',
     'B2B',
-    'certification HubSpot'
+    'certification HubSpot',
+    'HubSpot France',
+    'expert HubSpot'
   ],
   authors: [{ name: 'HubEasy' }],
   creator: 'HubEasy',
@@ -33,8 +40,8 @@ export const defaultMetadata: Metadata = {
     locale: 'fr_FR',
     url: 'https://hubeasy.fr',
     siteName: 'HubEasy',
-    title: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
-    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    title: 'HubEasy - Agence HubSpot France | Intégrateur & Expert HubSpot Certifié',
+    description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise intégration, migration et optimisation HubSpot.',
     images: [
       {
         url: '/images/logo-hubeasy.png',
@@ -46,8 +53,8 @@ export const defaultMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HubEasy - Agence HubSpot | Intégrateur & Partenaire HubSpot Certifié',
-    description: 'Agence HubSpot certifiée et partenaire officiel. Expertise en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
+    title: 'HubEasy - Agence HubSpot France | Intégrateur & Expert HubSpot Certifié',
+    description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise intégration, migration et optimisation HubSpot.',
     images: ['/images/logo-hubeasy.png'],
     creator: '@hubeasy',
   },
