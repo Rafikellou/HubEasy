@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import {getLocale} from 'next-intl/server';
+import GoogleTagManager from '@/components/GoogleTagManager';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -41,6 +42,9 @@ export default async function RootLayout({
   const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <GoogleTagManager gtmId="GTM-MLNZQTVV" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
