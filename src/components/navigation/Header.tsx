@@ -192,8 +192,6 @@ export default function Header() {
             <div className="pl-4">
               <Link href={`/${locale}/agence/notre-vocation`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_our_mission')}</Link>
               <Link href={`/${locale}/agence-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_method')}</Link>
-              <Link href={`/${locale}/integrateur-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Intégrateur HubSpot</Link>
-              <Link href={`/${locale}/partenaire-hubspot`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Partenaire HubSpot</Link>
               <Link href={`/${locale}/hubeasy-ai`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_ai')}</Link>
               <Link href={`/${locale}/hubeasy-sport`} className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-red-500 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>{t('agency_sport')}</Link>
             </div>

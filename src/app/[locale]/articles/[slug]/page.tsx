@@ -1152,7 +1152,18 @@ export async function generateMetadata({ params }: { params: { locale: string; s
       description: 'L\'article que vous recherchez n\'existe pas.',
     };
   }
-
+  
+  // Résoudre l'URL de l'image pour Open Graph
+  let ogImageUrl: string = 'https://hubeasy.fr/images/hero-photo-hubeasy.jpg';
+  
+  if (article.image && article.image.startsWith('http')) {
+    ogImageUrl = article.image;
+  } else if (article.image && article.image.startsWith('/')) {
+    ogImageUrl = `https://hubeasy.fr${article.image}`;
+  } else if (article.searchTerm) {
+    ogImageUrl = `https://source.unsplash.com/featured/1200x630?${encodeURIComponent(article.searchTerm)}`;
+  }
+  
   return {
     title: article.title,
     description: article.excerpt,
@@ -1162,6 +1173,22 @@ export async function generateMetadata({ params }: { params: { locale: string; s
       type: 'article',
       publishedTime: article.date,
       authors: [article.author],
+      url: `https://hubeasy.fr/${params.locale}/articles/${article.slug}`,
+      siteName: 'HubEasy',
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: [ogImageUrl],
     },
   };
 }
