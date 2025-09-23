@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Expert HubSpot certifié à Marseille. Consultant HubSpot pour entreprises marseillaises avec expertise en stratégie, optimisation et accompagnement HubSpot.',
   },
   alternates: {
-    canonical: '/expert-hubspot-marseille',
+    canonical: 'https://hubeasy.fr/fr/expert-hubspot-marseille',
   },
 };
 

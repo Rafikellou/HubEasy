@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Notre Vocation | HubEasy',
   description: 'Découvrez la mission et les valeurs de HubEasy, agence spécialisée dans l\'intégration HubSpot pour les PME/ETI B2B.',
   alternates: {
-    canonical: '/agence/notre-vocation',
+    canonical: 'https://hubeasy.fr/fr/agence/notre-vocation',
   },
 };
 

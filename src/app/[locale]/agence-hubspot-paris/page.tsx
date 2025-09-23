@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Agence HubSpot certifiée à Paris. Intégrateur HubSpot expert pour entreprises parisiennes avec expertise intégration, migration et optimisation HubSpot.',
   },
   alternates: {
-    canonical: '/agence-hubspot-paris',
+    canonical: 'https://hubeasy.fr/fr/agence-hubspot-paris',
   },
 };
 

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Intégrateur HubSpot certifié en France. Expert technique en intégration, migration et optimisation HubSpot pour PME/ETI B2B.',
   },
   alternates: {
-    canonical: '/integrateur-hubspot',
+    canonical: 'https://hubeasy.fr/fr/integrateur-hubspot',
   },
 };
 

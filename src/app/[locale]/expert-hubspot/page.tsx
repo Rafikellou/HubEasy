@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Expert HubSpot certifié en France. Consultant spécialisé en stratégie HubSpot, optimisation et accompagnement pour PME/ETI B2B.',
   },
   alternates: {
-    canonical: '/expert-hubspot',
+    canonical: 'https://hubeasy.fr/fr/expert-hubspot',
   },
 };
 

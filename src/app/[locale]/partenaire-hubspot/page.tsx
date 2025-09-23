@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Partenaire HubSpot officiel en France. Agence certifiée avec accès privilégié aux ressources HubSpot et expertise reconnue.',
   },
   alternates: {
-    canonical: '/partenaire-hubspot',
+    canonical: 'https://hubeasy.fr/fr/partenaire-hubspot',
   },
 };
 

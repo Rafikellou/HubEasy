@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Intégrateur HubSpot certifié à Lyon. Expert HubSpot pour entreprises lyonnaises avec expertise technique en intégration, migration et optimisation HubSpot.',
   },
   alternates: {
-    canonical: '/integrateur-hubspot-lyon',
+    canonical: 'https://hubeasy.fr/fr/integrateur-hubspot-lyon',
   },
 };
 

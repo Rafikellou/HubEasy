@@ -90,6 +90,7 @@ export function generatePageMetadata({
   canonical,
   openGraph,
   twitter,
+  locale = 'fr'
 }: {
   title: string
   description: string
@@ -97,7 +98,13 @@ export function generatePageMetadata({
   canonical?: string
   openGraph?: Partial<Metadata['openGraph']>
   twitter?: Partial<Metadata['twitter']>
+  locale?: string
 }): Metadata {
+  // Construire l'URL canonique complète
+  const fullCanonical = canonical 
+    ? (canonical.startsWith('http') ? canonical : `https://hubeasy.fr/${locale}${canonical.startsWith('/') ? canonical : '/' + canonical}`)
+    : `https://hubeasy.fr/${locale}`;
+
   return {
     ...defaultMetadata,
     title,
@@ -107,6 +114,7 @@ export function generatePageMetadata({
       ...defaultMetadata.openGraph,
       title,
       description,
+      url: fullCanonical,
       ...openGraph,
     },
     twitter: {
@@ -116,7 +124,11 @@ export function generatePageMetadata({
       ...twitter,
     },
     alternates: {
-      canonical: canonical ? `https://hubeasy.fr${canonical}` : defaultMetadata.alternates?.canonical,
+      canonical: fullCanonical,
+      languages: {
+        'fr-FR': fullCanonical.replace(`/${locale}/`, '/fr/'),
+        'en-US': fullCanonical.replace(`/${locale}/`, '/en/'),
+      },
     },
   }
 }

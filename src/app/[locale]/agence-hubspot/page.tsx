@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Agence HubSpot certifiée en France. Intégrateur HubSpot expert pour PME/ETI B2B. Partenaire officiel avec expertise reconnue.',
   },
   alternates: {
-    canonical: '/agence-hubspot',
+    canonical: 'https://hubeasy.fr/fr/agence-hubspot',
   },
 };
 

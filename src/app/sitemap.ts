@@ -4,12 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://hubeasy.fr'
   
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
+    // Pages principales
     {
       url: `${baseUrl}/fr`,
       lastModified: new Date(),
@@ -22,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    
+    // Pages HubSpot principales
     {
       url: `${baseUrl}/fr/agence-hubspot`,
       lastModified: new Date(),
@@ -70,6 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    
+    // Pages locales
     {
       url: `${baseUrl}/fr/agence-hubspot-paris`,
       lastModified: new Date(),
@@ -106,6 +105,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    
+    // Pages de services
     {
       url: `${baseUrl}/fr/services`,
       lastModified: new Date(),
@@ -142,6 +143,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    
+    // Pages de contenu
     {
       url: `${baseUrl}/fr/cas-clients`,
       lastModified: new Date(),
@@ -202,6 +205,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    
+    // Ressources
     {
       url: `${baseUrl}/fr/ressources/articles`,
       lastModified: new Date(),
@@ -214,7 +219,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.6,
     },
-    // Nouveaux articles Phase 1
+    {
+      url: `${baseUrl}/fr/ressources/cas-clients`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/en/ressources/cas-clients`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/fr/ressources/focus-salesforce`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/en/ressources/focus-salesforce`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    
+    // Articles (Phase 1)
     {
       url: `${baseUrl}/fr/articles/agence-hubspot-france-guide-2025`,
       lastModified: new Date(),
@@ -263,7 +293,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    // Articles existants manquants
+    
+    // Articles existants
     {
       url: `${baseUrl}/fr/articles/integration-odoo-hubspot-guide-complet`,
       lastModified: new Date(),
@@ -336,30 +367,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/fr/ressources/cas-clients`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/en/ressources/cas-clients`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/fr/ressources/focus-salesforce`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/en/ressources/focus-salesforce`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
+    
+    // Pages institutionnelles
     {
       url: `${baseUrl}/fr/agence/notre-vocation`,
       lastModified: new Date(),
