@@ -427,11 +427,13 @@ export default function ChatbotAMFPage() {
           {/* Header */}
           <div className="bg-gradient-to-r from-[#2a2171] to-[#2e8bcb] text-white p-4 sm:p-6">
             <div className="flex items-center gap-3 sm:gap-4 mb-4">
-              <img 
-                src="/logo-client/amf-logo" 
-                alt="Logo AMF" 
-                className="h-8 sm:h-12 w-auto"
-              />
+              <div className="bg-white p-2 rounded-lg shadow-sm">
+                <img 
+                  src="/logo-client/amf-logo" 
+                  alt="Logo AMF" 
+                  className="h-8 sm:h-12 w-auto"
+                />
+              </div>
               <div>
                 <h1 className="text-lg sm:text-2xl font-bold">Chatbot AMF</h1>
                 <p className="text-blue-100 text-sm sm:text-base">Questionnaire pour commerciaux AMF</p>
