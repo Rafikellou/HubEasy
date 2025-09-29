@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootRedirect() {
-  redirect('/fr', 'replace');
+  redirect('/fr');
 }
 
 
