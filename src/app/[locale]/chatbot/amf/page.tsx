@@ -8,13 +8,15 @@ interface ChatMessage {
   type: 'bot' | 'user';
   content: string;
   options?: string[];
+  allowMultiple?: boolean;
 }
 
 interface ChatbotState {
   currentBlock: number;
-  answers: Record<string, string>;
+  answers: Record<string, string | string[]>;
   isComplete: boolean;
   showContactForm: boolean;
+  selectedOptions: string[];
 }
 
 const CHATBOT_BLOCKS = [
@@ -25,7 +27,8 @@ const CHATBOT_BLOCKS = [
       'Prospecter de nouveaux clients',
       'Gérer un portefeuille existant',
       'Les deux'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'interlocutors',
@@ -34,7 +37,8 @@ const CHATBOT_BLOCKS = [
       'Comptables publics',
       'Ordonnateurs',
       'Autres (préciser)'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'client_needs',
@@ -44,7 +48,8 @@ const CHATBOT_BLOCKS = [
       'Avoir un interlocuteur réactif et spécialisé',
       'Des démarches simples et rapides',
       'Autre (préciser)'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'hubspot_usage',
@@ -53,7 +58,8 @@ const CHATBOT_BLOCKS = [
       'Oui, régulièrement',
       'Oui, mais pas souvent',
       'Non, pas encore'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'hubspot_tools',
@@ -63,7 +69,8 @@ const CHATBOT_BLOCKS = [
       'Les rapports / tableaux de bord',
       'Le suivi des rendez-vous / meetings',
       'Aucun de ces outils'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'follow_up_preference',
@@ -73,7 +80,8 @@ const CHATBOT_BLOCKS = [
       'Téléphone',
       'Rendez-vous en personne',
       'Autre'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'data_entry',
@@ -82,7 +90,8 @@ const CHATBOT_BLOCKS = [
       'Rapide',
       'Moyennement simple',
       'Trop chronophage'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'difficulties',
@@ -92,7 +101,8 @@ const CHATBOT_BLOCKS = [
       'Les relances à effectuer',
       'Vos indicateurs de performance',
       'Rien de particulier'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'goals_tracking',
@@ -101,7 +111,8 @@ const CHATBOT_BLOCKS = [
       'Clair et facile',
       'Moyennement clair',
       'Pas assez lisible'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'other_tools',
@@ -112,7 +123,8 @@ const CHATBOT_BLOCKS = [
       'Oui, Slack / Teams',
       'Oui, un autre outil (préciser)',
       'Non, uniquement HubSpot'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'expectations',
@@ -122,7 +134,8 @@ const CHATBOT_BLOCKS = [
       'Mieux visualiser vos résultats',
       'Être accompagné dans l\'utilisation des outils',
       'Autre (préciser)'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'improvement',
@@ -131,7 +144,8 @@ const CHATBOT_BLOCKS = [
       'Moins de tâches manuelles',
       'Plus de visibilité sur les opportunités',
       'Plus d\'aide pour relancer au bon moment'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'report_content',
@@ -141,7 +155,8 @@ const CHATBOT_BLOCKS = [
       'Le suivi des relances en cours',
       'Les contrats signés',
       'Autre (préciser)'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'calls_integration',
@@ -150,7 +165,8 @@ const CHATBOT_BLOCKS = [
       'Oui',
       'Non',
       'Peut-être'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'ai_emails',
@@ -159,7 +175,8 @@ const CHATBOT_BLOCKS = [
       'Oui, ce serait un vrai gain de temps',
       'Pas sûr, je préfère rédiger moi-même',
       'Non, ça ne m\'intéresse pas'
-    ]
+    ],
+    allowMultiple: false
   },
   {
     id: 'hubspot_features',
@@ -168,7 +185,8 @@ const CHATBOT_BLOCKS = [
       'Rappelle automatiquement vos tâches et relances',
       'Priorise vos prospects les plus chauds',
       'Génère vos rapports commerciaux en un clic'
-    ]
+    ],
+    allowMultiple: true
   },
   {
     id: 'key_improvement',
@@ -177,7 +195,8 @@ const CHATBOT_BLOCKS = [
       'Plus d\'automatisation',
       'Plus de simplicité',
       'Plus d\'aide pour conclure des contrats'
-    ]
+    ],
+    allowMultiple: false
   }
 ];
 
@@ -186,7 +205,8 @@ export default function ChatbotAMFPage() {
     currentBlock: 0,
     answers: {},
     isComplete: false,
-    showContactForm: false
+    showContactForm: false,
+    selectedOptions: []
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -201,12 +221,29 @@ export default function ChatbotAMFPage() {
     }
   ]);
 
-  const handleAnswer = (answer: string) => {
+  const handleOptionSelect = (option: string) => {
+    const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
+    
+    if (currentBlockData.allowMultiple) {
+      // Sélection multiple
+      setChatbotState(prev => ({
+        ...prev,
+        selectedOptions: prev.selectedOptions.includes(option)
+          ? prev.selectedOptions.filter(opt => opt !== option)
+          : [...prev.selectedOptions, option]
+      }));
+    } else {
+      // Sélection unique - passer directement à la question suivante
+      handleAnswer(option);
+    }
+  };
+
+  const handleAnswer = (answer: string | string[]) => {
     // Ajouter la réponse de l'utilisateur
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
       type: 'user',
-      content: answer
+      content: Array.isArray(answer) ? answer.join(', ') : answer
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -218,7 +255,8 @@ export default function ChatbotAMFPage() {
         id: `bot-${Date.now()}`,
         type: 'bot',
         content: firstQuestion.question,
-        options: firstQuestion.options
+        options: firstQuestion.options,
+        allowMultiple: firstQuestion.allowMultiple
       };
 
       setTimeout(() => {
@@ -236,6 +274,12 @@ export default function ChatbotAMFPage() {
       [currentBlockData.id]: answer
     };
 
+    // Réinitialiser les options sélectionnées
+    setChatbotState(prev => ({
+      ...prev,
+      selectedOptions: []
+    }));
+
     // Passer au bloc suivant ou terminer
     if (chatbotState.currentBlock < CHATBOT_BLOCKS.length - 1) {
       setChatbotState(prev => ({
@@ -250,7 +294,8 @@ export default function ChatbotAMFPage() {
         id: `bot-${Date.now()}`,
         type: 'bot',
         content: nextBlock.question,
-        options: nextBlock.options
+        options: nextBlock.options,
+        allowMultiple: nextBlock.allowMultiple
       };
 
       setTimeout(() => {
@@ -274,6 +319,12 @@ export default function ChatbotAMFPage() {
       setTimeout(() => {
         setMessages(prev => [...prev, thankYouMessage]);
       }, 500);
+    }
+  };
+
+  const handleNext = () => {
+    if (chatbotState.selectedOptions.length > 0) {
+      handleAnswer(chatbotState.selectedOptions);
     }
   };
 
@@ -319,26 +370,26 @@ export default function ChatbotAMFPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 py-4 sm:py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#2a2171] to-[#2e8bcb] text-white p-6">
-            <div className="flex items-center gap-4 mb-4">
+          <div className="bg-gradient-to-r from-[#2a2171] to-[#2e8bcb] text-white p-4 sm:p-6">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4">
               <img 
                 src="/logo-client/amf-logo" 
                 alt="Logo AMF" 
-                className="h-12 w-auto"
+                className="h-8 sm:h-12 w-auto"
               />
               <div>
-                <h1 className="text-2xl font-bold">Chatbot AMF</h1>
-                <p className="text-blue-100">Questionnaire pour commerciaux AMF</p>
+                <h1 className="text-lg sm:text-2xl font-bold">Chatbot AMF</h1>
+                <p className="text-blue-100 text-sm sm:text-base">Questionnaire pour commerciaux AMF</p>
               </div>
             </div>
             
             {/* Barre de progression */}
             <div className="mt-4">
-              <div className="flex justify-between text-sm text-blue-100 mb-2">
+              <div className="flex justify-between text-xs sm:text-sm text-blue-100 mb-2">
                 <span>Progression</span>
                 <span>{chatbotState.currentBlock + 1}/{CHATBOT_BLOCKS.length}</span>
               </div>
@@ -352,29 +403,55 @@ export default function ChatbotAMFPage() {
           </div>
 
           {/* Chat Messages */}
-          <div className="p-6 h-96 overflow-y-auto bg-gray-50">
+          <div className="p-4 sm:p-6 h-80 sm:h-96 overflow-y-auto bg-gray-50">
             <div className="space-y-4">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
+                  <div className={`max-w-xs sm:max-w-md px-3 sm:px-4 py-2 rounded-2xl ${
                     message.type === 'user' 
                       ? 'bg-[#2e8bcb] text-white' 
                       : 'bg-white text-gray-800 shadow-sm'
                   }`}>
-                    <p className="text-sm">{message.content}</p>
+                    <p className="text-xs sm:text-sm">{message.content}</p>
                     
                     {/* Options de réponse */}
                     {message.options && (
                       <div className="mt-3 space-y-2">
-                        {message.options.map((option, index) => (
+                        {message.options.map((option, index) => {
+                          const isSelected = chatbotState.selectedOptions.includes(option);
+                          const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
+                          
+                          return (
+                            <button
+                              key={index}
+                              onClick={() => handleOptionSelect(option)}
+                              className={`block w-full text-left px-3 py-2 text-xs rounded-lg transition-colors ${
+                                message.allowMultiple
+                                  ? isSelected
+                                    ? 'bg-[#51b9a3] text-white border-2 border-[#51b9a3]'
+                                    : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
+                                  : 'bg-gray-100 hover:bg-[#51b9a3] hover:text-white'
+                              }`}
+                            >
+                              {message.allowMultiple && (
+                                <span className="mr-2">
+                                  {isSelected ? '✓' : '○'}
+                                </span>
+                              )}
+                              {option}
+                            </button>
+                          );
+                        })}
+                        
+                        {/* Bouton Suivant pour sélection multiple */}
+                        {message.allowMultiple && chatbotState.selectedOptions.length > 0 && (
                           <button
-                            key={index}
-                            onClick={() => handleAnswer(option)}
-                            className="block w-full text-left px-3 py-2 text-xs bg-gray-100 hover:bg-[#51b9a3] hover:text-white rounded-lg transition-colors"
+                            onClick={handleNext}
+                            className="w-full mt-3 px-4 py-2 bg-[#2e8bcb] text-white rounded-lg hover:bg-[#2a2171] transition-colors text-sm font-medium"
                           >
-                            {option}
+                            Suivant ({chatbotState.selectedOptions.length} sélectionné{chatbotState.selectedOptions.length > 1 ? 's' : ''})
                           </button>
-                        ))}
+                        )}
                       </div>
                     )}
                   </div>
@@ -385,8 +462,8 @@ export default function ChatbotAMFPage() {
 
           {/* Formulaire de contact */}
           {chatbotState.showContactForm && (
-            <div className="p-6 bg-white border-t">
-              <h3 className="text-lg font-semibold mb-4">Souhaitez-vous être recontacté ?</h3>
+            <div className="p-4 sm:p-6 bg-white border-t">
+              <h3 className="text-base sm:text-lg font-semibold mb-4">Souhaitez-vous être recontacté ?</h3>
               
               {submitMessage && (
                 <div className={`mb-4 p-3 rounded-lg text-sm ${
@@ -407,7 +484,7 @@ export default function ChatbotAMFPage() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent text-sm sm:text-base"
                     placeholder="votre@email.com"
                     required
                   />
@@ -420,7 +497,7 @@ export default function ChatbotAMFPage() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent text-sm sm:text-base"
                     placeholder="Votre nom"
                     required
                   />
@@ -433,14 +510,14 @@ export default function ChatbotAMFPage() {
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent text-sm sm:text-base"
                     placeholder="Nom de votre entreprise"
                     required
                   />
                 </div>
                 <Button 
                   type="submit"
-                  className="w-full bg-[#2e8bcb] hover:bg-[#2a2171] text-white"
+                  className="w-full bg-[#2e8bcb] hover:bg-[#2a2171] text-white text-sm sm:text-base py-2 sm:py-3"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Envoi en cours...' : 'Envoyer mes informations'}

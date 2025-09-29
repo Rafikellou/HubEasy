@@ -6,30 +6,66 @@ export async function POST(request: NextRequest) {
     const { answers, contactInfo } = body;
 
     // Formatage des réponses pour le webhook
-    const formatAnswers = (answers: Record<string, string>) => {
-      const questionLabels: Record<string, string> = {
-        role: 'Rôle principal',
-        interlocutors: 'Interlocuteurs principaux',
-        client_needs: 'Besoins clients prioritaires',
-        hubspot_usage: 'Utilisation actuelle d\'HubSpot',
-        hubspot_tools: 'Outils HubSpot utilisés',
-        follow_up_preference: 'Préférence pour les relances',
-        data_entry: 'Saisie d\'informations dans HubSpot',
-        difficulties: 'Difficultés rencontrées',
-        goals_tracking: 'Suivi des objectifs commerciaux',
-        other_tools: 'Outils utilisés en parallèle',
-        expectations: 'Attentes avec HubSpot',
-        improvement: 'Amélioration souhaitée',
-        report_content: 'Contenu des rapports commerciaux',
-        calls_integration: 'Intégration des appels',
-        ai_emails: 'Emails automatiques avec IA',
-        hubspot_features: 'Fonctionnalités HubSpot utiles',
-        key_improvement: 'Amélioration clé souhaitée'
-      };
+    const questionLabels: Record<string, string> = {
+      role: 'Rôle principal',
+      interlocutors: 'Interlocuteurs principaux',
+      client_needs: 'Besoins clients prioritaires',
+      hubspot_usage: 'Utilisation actuelle d\'HubSpot',
+      hubspot_tools: 'Outils HubSpot utilisés',
+      follow_up_preference: 'Préférence pour les relances',
+      data_entry: 'Saisie d\'informations dans HubSpot',
+      difficulties: 'Difficultés rencontrées',
+      goals_tracking: 'Suivi des objectifs commerciaux',
+      other_tools: 'Outils utilisés en parallèle',
+      expectations: 'Attentes avec HubSpot',
+      improvement: 'Amélioration souhaitée',
+      report_content: 'Contenu des rapports commerciaux',
+      calls_integration: 'Intégration des appels',
+      ai_emails: 'Emails automatiques avec IA',
+      hubspot_features: 'Fonctionnalités HubSpot utiles',
+      key_improvement: 'Amélioration clé souhaitée'
+    };
 
+    // Format simple pour Zapier (ligne par ligne)
+    const formatAnswersSimple = (answers: Record<string, string | string[]>) => {
       return Object.entries(answers)
-        .map(([key, value]) => `${questionLabels[key] || key}: ${value}`)
+        .map(([key, value]) => {
+          const formattedValue = Array.isArray(value) ? value.join(', ') : value;
+          return `${questionLabels[key] || key}: ${formattedValue}`;
+        })
         .join('\n');
+    };
+
+    // Format structuré pour Zapier (plus lisible)
+    const formatAnswersStructured = (answers: Record<string, string | string[]>) => {
+      return Object.entries(answers)
+        .map(([key, value], index) => {
+          const question = questionLabels[key] || key;
+          const formattedValue = Array.isArray(value) ? value.join(', ') : value;
+          return `${index + 1}. ${question}\n   → ${formattedValue}`;
+        })
+        .join('\n\n');
+    };
+
+    // Format HTML pour emails Zapier
+    const formatAnswersHTML = (answers: Record<string, string | string[]>) => {
+      return Object.entries(answers)
+        .map(([key, value]) => {
+          const question = questionLabels[key] || key;
+          const formattedValue = Array.isArray(value) ? value.join(', ') : value;
+          return `<p><strong>${question}:</strong><br/>${formattedValue}</p>`;
+        })
+        .join('\n');
+    };
+
+    // Format JSON structuré pour traitement avancé
+    const formatAnswersJSON = (answers: Record<string, string | string[]>) => {
+      return Object.entries(answers)
+        .map(([key, value]) => ({
+          question: questionLabels[key] || key,
+          answer: Array.isArray(value) ? value : [value],
+          key: key
+        }));
     };
 
     // Données à envoyer au webhook Zapier
@@ -39,8 +75,11 @@ export async function POST(request: NextRequest) {
       email: contactInfo.email || 'Non renseigné',
       entreprise: contactInfo.company || 'Non renseigné',
       
-      // Réponses formatées
-      reponses_questionnaire: formatAnswers(answers),
+      // Réponses formatées - MULTIPLES FORMATS POUR ZAPIER
+      reponses_questionnaire_simple: formatAnswersSimple(answers),
+      reponses_questionnaire_structure: formatAnswersStructured(answers),
+      reponses_questionnaire_html: formatAnswersHTML(answers),
+      reponses_questionnaire_json: JSON.stringify(formatAnswersJSON(answers), null, 2),
       
       // Métadonnées
       date_soumission: new Date().toLocaleString('fr-FR', {
@@ -56,7 +95,7 @@ export async function POST(request: NextRequest) {
       ...Object.fromEntries(
         Object.entries(answers).map(([key, value]) => [
           `reponse_${key}`,
-          value
+          Array.isArray(value) ? value.join(', ') : value
         ])
       )
     };
