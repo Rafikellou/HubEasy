@@ -326,7 +326,7 @@ export default function ChatbotAMFPage() {
           <div className="bg-gradient-to-r from-[#2a2171] to-[#2e8bcb] text-white p-6">
             <div className="flex items-center gap-4 mb-4">
               <img 
-                src="/logo-client/amf-logo.svg" 
+                src="/logo-client/amf-logo" 
                 alt="Logo AMF" 
                 className="h-12 w-auto"
               />
