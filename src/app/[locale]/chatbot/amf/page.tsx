@@ -17,6 +17,8 @@ interface ChatbotState {
   isComplete: boolean;
   showContactForm: boolean;
   selectedOptions: string[];
+  showTextInput: boolean;
+  customText: string;
 }
 
 const CHATBOT_BLOCKS = [
@@ -206,7 +208,9 @@ export default function ChatbotAMFPage() {
     answers: {},
     isComplete: false,
     showContactForm: false,
-    selectedOptions: []
+    selectedOptions: [],
+    showTextInput: false,
+    customText: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -223,6 +227,19 @@ export default function ChatbotAMFPage() {
 
   const handleOptionSelect = (option: string) => {
     const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
+    
+    // Vérifier si c'est une option "Autre (préciser)"
+    const isOtherOption = option.includes('Autre') || option.includes('préciser');
+    
+    if (isOtherOption) {
+      // Afficher le champ de saisie libre
+      setChatbotState(prev => ({
+        ...prev,
+        showTextInput: true,
+        customText: ''
+      }));
+      return;
+    }
     
     if (currentBlockData.allowMultiple) {
       // Sélection multiple
@@ -274,10 +291,12 @@ export default function ChatbotAMFPage() {
       [currentBlockData.id]: answer
     };
 
-    // Réinitialiser les options sélectionnées
+    // Réinitialiser les options sélectionnées et le champ de saisie
     setChatbotState(prev => ({
       ...prev,
-      selectedOptions: []
+      selectedOptions: [],
+      showTextInput: false,
+      customText: ''
     }));
 
     // Passer au bloc suivant ou terminer
@@ -326,6 +345,38 @@ export default function ChatbotAMFPage() {
     if (chatbotState.selectedOptions.length > 0) {
       handleAnswer(chatbotState.selectedOptions);
     }
+  };
+
+  const handleCustomTextSubmit = () => {
+    if (chatbotState.customText.trim()) {
+      const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
+      
+      if (currentBlockData.allowMultiple) {
+        // Pour les questions à choix multiples, ajouter le texte personnalisé aux sélections
+        const customAnswer = `Autre: ${chatbotState.customText.trim()}`;
+        const newSelections = [...chatbotState.selectedOptions, customAnswer];
+        handleAnswer(newSelections);
+      } else {
+        // Pour les questions à choix unique, utiliser directement le texte personnalisé
+        const customAnswer = `Autre: ${chatbotState.customText.trim()}`;
+        handleAnswer(customAnswer);
+      }
+      
+      // Réinitialiser l'état du champ de saisie
+      setChatbotState(prev => ({
+        ...prev,
+        showTextInput: false,
+        customText: ''
+      }));
+    }
+  };
+
+  const handleCustomTextCancel = () => {
+    setChatbotState(prev => ({
+      ...prev,
+      showTextInput: false,
+      customText: ''
+    }));
   };
 
   const progressPercentage = ((chatbotState.currentBlock + 1) / CHATBOT_BLOCKS.length) * 100;
@@ -443,8 +494,40 @@ export default function ChatbotAMFPage() {
                           );
                         })}
                         
+                        {/* Champ de saisie libre pour "Autre (préciser)" */}
+                        {chatbotState.showTextInput && (
+                          <div className="mt-3 p-3 bg-gray-50 rounded-lg border">
+                            <label className="block text-xs font-medium text-gray-700 mb-2">
+                              Veuillez préciser :
+                            </label>
+                            <textarea
+                              value={chatbotState.customText}
+                              onChange={(e) => setChatbotState(prev => ({ ...prev, customText: e.target.value }))}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent text-xs resize-none"
+                              rows={3}
+                              placeholder="Tapez votre réponse ici..."
+                              autoFocus
+                            />
+                            <div className="flex gap-2 mt-2">
+                              <button
+                                onClick={handleCustomTextSubmit}
+                                disabled={!chatbotState.customText.trim()}
+                                className="flex-1 px-3 py-1 bg-[#51b9a3] text-white rounded text-xs hover:bg-[#2e8bcb] disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                              >
+                                Valider
+                              </button>
+                              <button
+                                onClick={handleCustomTextCancel}
+                                className="flex-1 px-3 py-1 bg-gray-300 text-gray-700 rounded text-xs hover:bg-gray-400 transition-colors"
+                              >
+                                Annuler
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                        
                         {/* Bouton Suivant pour sélection multiple */}
-                        {message.allowMultiple && chatbotState.selectedOptions.length > 0 && (
+                        {message.allowMultiple && chatbotState.selectedOptions.length > 0 && !chatbotState.showTextInput && (
                           <button
                             onClick={handleNext}
                             className="w-full mt-3 px-4 py-2 bg-[#2e8bcb] text-white rounded-lg hover:bg-[#2a2171] transition-colors text-sm font-medium"
