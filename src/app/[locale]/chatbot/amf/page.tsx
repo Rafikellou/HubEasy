@@ -196,13 +196,12 @@ export default function ChatbotAMFPage() {
     {
       id: '1',
       type: 'bot',
-      content: 'Bonjour 👋, ce chatbot est conçu pour mieux comprendre vos besoins avec HubSpot. Quelques questions rapides ?'
+      content: 'Bonjour 👋, ce chatbot est conçu pour mieux comprendre vos besoins avec HubSpot. Quelques questions rapides ?',
+      options: ['Commencer le questionnaire']
     }
   ]);
 
   const handleAnswer = (answer: string) => {
-    const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
-    
     // Ajouter la réponse de l'utilisateur
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
@@ -210,13 +209,32 @@ export default function ChatbotAMFPage() {
       content: answer
     };
 
+    setMessages(prev => [...prev, userMessage]);
+
+    // Si c'est le bouton de démarrage, commencer avec la première question
+    if (answer === 'Commencer le questionnaire') {
+      const firstQuestion = CHATBOT_BLOCKS[0];
+      const firstMessage: ChatMessage = {
+        id: `bot-${Date.now()}`,
+        type: 'bot',
+        content: firstQuestion.question,
+        options: firstQuestion.options
+      };
+
+      setTimeout(() => {
+        setMessages(prev => [...prev, firstMessage]);
+      }, 500);
+      return;
+    }
+
+    // Traitement normal des réponses
+    const currentBlockData = CHATBOT_BLOCKS[chatbotState.currentBlock];
+    
     // Mettre à jour les réponses
     const newAnswers = {
       ...chatbotState.answers,
       [currentBlockData.id]: answer
     };
-
-    setMessages(prev => [...prev, userMessage]);
 
     // Passer au bloc suivant ou terminer
     if (chatbotState.currentBlock < CHATBOT_BLOCKS.length - 1) {
@@ -301,13 +319,22 @@ export default function ChatbotAMFPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6">
-            <h1 className="text-2xl font-bold mb-2">Chatbot AMF</h1>
-            <p className="text-blue-100">Questionnaire pour commerciaux AMF</p>
+          <div className="bg-gradient-to-r from-[#2a2171] to-[#2e8bcb] text-white p-6">
+            <div className="flex items-center gap-4 mb-4">
+              <img 
+                src="/logo-client/amf-logo.svg" 
+                alt="Logo AMF" 
+                className="h-12 w-auto"
+              />
+              <div>
+                <h1 className="text-2xl font-bold">Chatbot AMF</h1>
+                <p className="text-blue-100">Questionnaire pour commerciaux AMF</p>
+              </div>
+            </div>
             
             {/* Barre de progression */}
             <div className="mt-4">
@@ -315,9 +342,9 @@ export default function ChatbotAMFPage() {
                 <span>Progression</span>
                 <span>{chatbotState.currentBlock + 1}/{CHATBOT_BLOCKS.length}</span>
               </div>
-              <div className="w-full bg-blue-700 rounded-full h-2">
+              <div className="w-full bg-[#2a2171] rounded-full h-2">
                 <div 
-                  className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
+                  className="bg-gradient-to-r from-[#51b9a3] to-[#fbba00] h-2 rounded-full transition-all duration-500 ease-out"
                   style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
@@ -331,7 +358,7 @@ export default function ChatbotAMFPage() {
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-2xl ${
                     message.type === 'user' 
-                      ? 'bg-blue-600 text-white' 
+                      ? 'bg-[#2e8bcb] text-white' 
                       : 'bg-white text-gray-800 shadow-sm'
                   }`}>
                     <p className="text-sm">{message.content}</p>
@@ -343,7 +370,7 @@ export default function ChatbotAMFPage() {
                           <button
                             key={index}
                             onClick={() => handleAnswer(option)}
-                            className="block w-full text-left px-3 py-2 text-xs bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                            className="block w-full text-left px-3 py-2 text-xs bg-gray-100 hover:bg-[#51b9a3] hover:text-white rounded-lg transition-colors"
                           >
                             {option}
                           </button>
@@ -380,7 +407,7 @@ export default function ChatbotAMFPage() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
                     placeholder="votre@email.com"
                     required
                   />
@@ -393,7 +420,7 @@ export default function ChatbotAMFPage() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
                     placeholder="Votre nom"
                     required
                   />
@@ -406,14 +433,14 @@ export default function ChatbotAMFPage() {
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b9a3] focus:border-transparent"
                     placeholder="Nom de votre entreprise"
                     required
                   />
                 </div>
                 <Button 
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  className="w-full bg-[#2e8bcb] hover:bg-[#2a2171] text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Envoi en cours...' : 'Envoyer mes informations'}
