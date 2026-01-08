@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AlertCircle, Wrench, BarChart3, Building, ShoppingCart, Users, TrendingUp, Zap } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
-import {getTranslations} from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
-export default async function CasClients({ params }: { params: { locale: string }}) {
+export default async function CasClients({ params }: { params: { locale: string } }) {
   const t = await getTranslations({ locale: params.locale, namespace: 'ClientCases' });
 
   const caseStudies = [
@@ -27,7 +27,7 @@ export default async function CasClients({ params }: { params: { locale: string 
       ]
     },
     {
-      id: 'startup-ecommerce',
+      id: 'egerie',
       company: t('case2_company'),
       context: t('case2_context'),
       challenge: t('case2_challenge'),
@@ -38,13 +38,13 @@ export default async function CasClients({ params }: { params: { locale: string 
         t('case2_solution4')
       ],
       results: [
-        { value: '+22%', label: t('case2_result1'), icon: <ShoppingCart className="w-5 h-5" /> },
-        { value: '+35%', label: t('case2_result2'), icon: <TrendingUp className="w-5 h-5" /> },
-        { value: '4x', label: t('case2_result3'), icon: <BarChart3 className="w-5 h-5" /> }
+        { value: 'Leads', label: t('case2_result1'), icon: <Users className="w-5 h-5" /> },
+        { value: 'ROAS', label: t('case2_result2'), icon: <TrendingUp className="w-5 h-5" /> },
+        { value: 'Align.', label: t('case2_result3'), icon: <BarChart3 className="w-5 h-5" /> }
       ]
     },
     {
-      id: 'entreprise-education',
+      id: 'amf',
       company: t('case3_company'),
       context: t('case3_context'),
       challenge: t('case3_challenge'),
@@ -55,9 +55,26 @@ export default async function CasClients({ params }: { params: { locale: string 
         t('case3_solution4')
       ],
       results: [
-        { value: '+180%', label: t('case3_result1'), icon: <Users className="w-5 h-5" /> },
-        { value: '+55%', label: t('case3_result2'), icon: <TrendingUp className="w-5 h-5" /> },
-        { value: '30%', label: t('case3_result3'), icon: <Zap className="w-5 h-5" /> }
+        { value: 'Vision', label: t('case3_result1'), icon: <BarChart3 className="w-5 h-5" /> },
+        { value: 'Vitesse', label: t('case3_result2'), icon: <Zap className="w-5 h-5" /> },
+        { value: 'Attrib.', label: t('case3_result3'), icon: <Users className="w-5 h-5" /> }
+      ]
+    },
+    {
+      id: 'edr',
+      company: t('case4_company'),
+      context: t('case4_context'),
+      challenge: t('case4_challenge'),
+      solutions: [
+        t('case4_solution1'),
+        t('case4_solution2'),
+        t('case4_solution3'),
+        t('case4_solution4')
+      ],
+      results: [
+        { value: 'Instant', label: t('case4_result1'), icon: <Zap className="w-5 h-5" /> },
+        { value: 'Temps', label: t('case4_result2'), icon: <TrendingUp className="w-5 h-5" /> },
+        { value: '-100%', label: t('case4_result3'), icon: <BarChart3 className="w-5 h-5" /> }
       ]
     }
   ];

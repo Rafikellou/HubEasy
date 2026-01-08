@@ -54,8 +54,7 @@
     "final_cta": "Schedule a call",
     "contact_title": "Contact",
     "contact_subtitle": "Tell us about your project. We’ll get back to you within 24 hours."
-  }
-  ,
+  },
   "Contact": {
     "title_part1": "Contact ",
     "title_part2": "us",
@@ -64,8 +63,7 @@
     "meeting_subtitle": "Co-founder of HubEasy, Rafik guides you through your strategic thinking with a personalized approach.",
     "form_title": "Or send us a message",
     "form_subtitle": "Describe your project and needs. We'll get back to you quickly to discuss your objectives."
-  }
-  ,
+  },
   "Pricing": {
     "hero_alt": "HubEasy pricing",
     "hero_title_1": "Transparent",
@@ -112,8 +110,7 @@
     "support_card_price": "From €490 per month",
     "final_title": "You’ve invested in HubSpot. Make sure it becomes the simple, smooth cockpit for your sales.",
     "final_cta": "Schedule a 30-min call"
-  }
-  ,
+  },
   "Integrations": {
     "hero_alt": "HubSpot integrations",
     "hero_title": "Integrations",
@@ -163,8 +160,7 @@
     "final_title": "Ready to connect your tools?",
     "final_subtitle": "With HubEasy, your apps and HubSpot finally work together. Let’s talk.",
     "final_cta": "Schedule a call"
-  }
-  ,
+  },
   "Services": {
     "hero_title_part1": "Our",
     "hero_title_part2": "Services",
@@ -215,8 +211,7 @@
     "cta_subtitle": "Let’s discuss your needs and build the perfect HubSpot solution together.",
     "cta_primary": "Schedule a call",
     "cta_secondary": "See our pricing"
-  }
-  ,
+  },
   "ClientCases": {
     "hero_alt": "Happy client, successful HubSpot project",
     "hero_title": "Our Client Cases",
@@ -228,8 +223,8 @@
     "cta_title": "Your success could be next",
     "cta_subtitle": "See how we can turn your HubSpot challenges into growth opportunities.",
     "cta_button": "See how we can help",
-    "case1_company": "Groupe Septeo",
-    "case1_context": "+500M revenue, Legaltech in hyper growth",
+    "case1_company": "Septeo Group",
+    "case1_context": "Legaltech — unified data Salesforce ↔ HubSpot",
     "case1_challenge": "Fragmentation of customer data across multiple systems",
     "case1_solution1": "Complete Salesforce ↔ HubSpot integration",
     "case1_solution2": "Unidirectional synchronization of contacts and opportunities",
@@ -238,28 +233,37 @@
     "case1_result1": "Qualified leads conversion rate",
     "case1_result2": "Lead processing time",
     "case1_result3": "Unified customer view",
-    "case2_company": "E-commerce Store",
-    "case2_context": "Fast-growing startup - Online premium product sales",
-    "case2_challenge": "High cart abandonment and lack of personalization",
-    "case2_solution1": "Shopify ↔ HubSpot integration",
-    "case2_solution2": "Automated cart abandonment workflows",
-    "case2_solution3": "Advanced customer segmentation",
-    "case2_solution4": "Dynamic remarketing campaigns",
-    "case2_result1": "Cart conversion rate",
-    "case2_result2": "Revenue via targeted campaigns",
-    "case2_result3": "Remarketing ROI",
-    "case3_company": "EdTech Platform",
-    "case3_context": "Education company - Online training for professionals",
-    "case3_challenge": "Difficulty tracking and converting hot prospects",
-    "case3_solution1": "Integration with their LMS (Learning Management System)",
-    "case3_solution2": "Automation of educational email sequences",
-    "case3_solution3": "Learning path tracking in HubSpot",
-    "case3_solution4": "Engagement-based lead scoring",
-    "case3_result1": "Qualified prospects for demo",
-    "case3_result2": "Demo → sale conversion rate",
-    "case3_result3": "Sales time reduction"
-  }
-  ,
+    "case2_company": "Egerie",
+    "case2_context": "Software in Cybersecurity",
+    "case2_challenge": "Poorly built connection with Salesforce. Bad optin/optout. Non-existent lead scoring.",
+    "case2_solution1": "Strategic support on segments",
+    "case2_solution2": "Redesign of Marketing / Non-Marketing status system",
+    "case2_solution3": "Link with Google Ads and LinkedIn Ads",
+    "case2_solution4": "Automatic data enrichment solution",
+    "case2_result1": "Lead handling",
+    "case2_result2": "Growth",
+    "case2_result3": "Marketing / Sales Alignment",
+    "case3_company": "AMF (Matmut subsidiary)",
+    "case3_context": "Insurance",
+    "case3_challenge": "Bad initial setup. Data duplicates. Suboptimal pipeline. No automation.",
+    "case3_solution1": "Data cleaning and deduplication",
+    "case3_solution2": "Sales Pipeline Redesign",
+    "case3_solution3": "Automations for website leads",
+    "case3_solution4": "Sales team training",
+    "case3_result1": "Sales activity visibility",
+    "case3_result2": "Closing speed",
+    "case3_result3": "Lead attribution",
+    "case4_company": "EDR",
+    "case4_context": "Home Sales",
+    "case4_challenge": "Manual sales process with errors and delays. Poor time allocation.",
+    "case4_solution1": "Hubspot Commerce + Stripe setup",
+    "case4_solution2": "SMS solution for automated process",
+    "case4_solution3": "Ability to close sales live",
+    "case4_solution4": "100% process automation",
+    "case4_result1": "Instant sales",
+    "case4_result2": "Admin time saved",
+    "case4_result3": "Errors/delays reduction"
+  },
   "Salesforce": {
     "hero_alt": "Salesforce HubSpot integration",
     "hero_title": "HubSpot & Salesforce",
@@ -287,8 +291,7 @@
     "final_title": "HubSpot and Salesforce can work together.",
     "final_subtitle": "We make it simple, smooth and profitable.",
     "final_cta": "Schedule a call"
-  }
-  ,
+  },
   "Blog": {
     "hero_title_highlight": "Blog",
     "hero_title_tail": "HubEasy",
@@ -300,8 +303,7 @@
     "newsletter_title": "Stay informed",
     "newsletter_subtitle": "Get our latest articles and tips straight to your inbox.",
     "newsletter_cta": "Subscribe to the newsletter"
-  }
-  ,
+  },
   "AgencyHubSpot": {
     "hero_alt": "HubSpot agency for B2B SMEs/ETIs",
     "hero_title": "HubSpot",
@@ -367,8 +369,7 @@
     "faq4_a": "Yes. We migrate from Salesforce, Pipedrive, Zoho, Monday, etc., with cleaning, mapping and history recovery.",
     "final_title": "Let's talk about your HubSpot project",
     "final_subtitle": "Tell us about your context. Response within 24h."
-  }
-  ,
+  },
   "AgencyVocation": {
     "hero_img_alt": "Team working together",
     "hero_title": "HubSpot integration",
@@ -400,8 +401,7 @@
     "summary_img_alt": "Business meeting background",
     "summary_title": "In summary",
     "summary_subtitle": "You focus on your sales.\nWe handle the mechanics."
-  }
-  ,
+  },
   "HubEasyAI": {
     "hero_badge": "HubEasy AI",
     "hero_title": "Your dedicated",
@@ -516,8 +516,7 @@
     "final_subtitle": "Join the 100+ companies that trust our AI agents to grow their business",
     "final_cta1": "Request a free demo",
     "final_cta2": "View pricing"
-  }
-  ,
+  },
   "HubEasySport": {
     "hero_img_alt": "Sports team celebrating victory",
     "hero_title_highlight": "Sport",
@@ -628,8 +627,7 @@
     "final_subtitle": "Discover how HubEasy Sport can revolutionize your approach to supporters and maximize your revenue through data intelligence.",
     "final_cta1": "Request a demonstration",
     "final_cta2": "Talk to an expert"
-  }
-  ,
+  },
   "LegalMentions": {
     "back_to_home": "Back to home",
     "title": "Legal notices",
@@ -680,8 +678,7 @@
     "cta_title": "Questions about our services?",
     "cta_subtitle": "Our team is here to support you in your HubSpot project.",
     "cta_button": "Contact us"
-  }
-  ,
+  },
   "PrivacyPolicy": {
     "back_to_home": "Back to home",
     "title": "Privacy Policy",
@@ -787,8 +784,7 @@
     "cta_subtitle": "Our team is at your disposal to answer all your questions about protecting your data.",
     "cta_button1": "Contact our DPO",
     "cta_button2": "General contact"
-  }
-  ,
+  },
   "Blog": {
     "back_to_articles": "Back to articles",
     "article_not_found_title": "Article not found",
@@ -805,8 +801,7 @@
     "latest_subtitle": "Stay informed of the latest trends and best practices",
     "newsletter_subtitle": "Receive our latest articles and tips directly in your inbox.",
     "newsletter_cta": "Subscribe to newsletter"
-  }
-  ,
+  },
   "Resources": {
     "title_highlight": "Resources",
     "title_rest": "& Guides",
@@ -914,8 +909,7 @@
     "tag34": "HubSpot",
     "tag35": "Marketing Hub",
     "tag36": "Architecture"
-  }
-  ,
+  },
   "ResourcesArticles": {
     "title_highlight": "Blog",
     "title_rest": "HubEasy",
@@ -964,8 +958,7 @@
     "newsletter_title": "Stay informed",
     "newsletter_subtitle": "Receive our latest articles and tips directly in your inbox.",
     "newsletter_button": "Subscribe to newsletter"
-  }
-  ,
+  },
   "ResourcesCasClients": {
     "title_highlight": "Case",
     "title_rest": "Studies",
@@ -973,8 +966,7 @@
     "coming_soon_title": "Coming soon",
     "coming_soon_description": "This section will soon be enriched with our client feedback.",
     "coming_soon_content": "We are currently preparing a collection of detailed case studies that will show how our HubSpot integrations have transformed our clients' processes and improved their sales performance."
-  }
-  ,
+  },
   "ResourcesFocusSalesforce": {
     "title_highlight": "Focus",
     "title_rest": "Salesforce",
