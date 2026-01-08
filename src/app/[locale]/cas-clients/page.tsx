@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AlertCircle, Wrench, BarChart3, Building, ShoppingCart, Users, TrendingUp, Zap } from 'lucide-react';
+import { AlertCircle, Wrench, BarChart3, Building, ShoppingCart, Users, TrendingUp, Zap, ExternalLink } from 'lucide-react';
 import AnimatedSection from '@/components/animated-section';
 import { getTranslations } from 'next-intl/server';
 
@@ -12,6 +12,7 @@ export default async function CasClients({ params }: { params: { locale: string 
     {
       id: 'septeo',
       company: t('case1_company'),
+      website: 'https://www.septeo.com/fr',
       context: t('case1_context'),
       challenge: t('case1_challenge'),
       solutions: [
@@ -29,6 +30,7 @@ export default async function CasClients({ params }: { params: { locale: string 
     {
       id: 'egerie',
       company: t('case2_company'),
+      website: 'https://www.egerie.com/',
       context: t('case2_context'),
       challenge: t('case2_challenge'),
       solutions: [
@@ -46,6 +48,7 @@ export default async function CasClients({ params }: { params: { locale: string 
     {
       id: 'amf',
       company: t('case3_company'),
+      website: 'https://www.amf-sam.fr/',
       context: t('case3_context'),
       challenge: t('case3_challenge'),
       solutions: [
@@ -61,8 +64,9 @@ export default async function CasClients({ params }: { params: { locale: string 
       ]
     },
     {
-      id: 'edr',
+      id: 'opure',
       company: t('case4_company'),
+      website: 'https://opure-solutions.fr/',
       context: t('case4_context'),
       challenge: t('case4_challenge'),
       solutions: [
@@ -106,7 +110,18 @@ export default async function CasClients({ params }: { params: { locale: string 
                 <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg overflow-hidden">
                   <div className="mb-10">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{caseStudy.company}</h2>
+                      <div className="flex items-center gap-3">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{caseStudy.company}</h2>
+                        <a
+                          href={caseStudy.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center p-2 rounded-full text-gray-400 hover:text-orange-500 hover:bg-orange-50 transition-colors"
+                          title="Visiter le site"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      </div>
                       <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-100 text-red-800 text-sm font-medium">
                         {caseStudy.context}
                       </div>
