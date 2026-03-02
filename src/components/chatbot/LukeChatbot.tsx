@@ -14,9 +14,6 @@ interface Message {
 }
 
 export const LukeChatbot = () => {
-    // CHATBOT DÉSACTIVÉ - Ne pas afficher en production
-    return null;
-    
     const { isOpen, toggleChatbot, setIsOpen } = useChatbot();
     const [messages, setMessages] = useState<Message[]>([
         {

@@ -59,19 +59,24 @@ export async function POST(req: Request) {
                 'Authorization': `Bearer ${apiKey}`,
             },
             body: JSON.stringify({
-                model: 'gpt-4-turbo-preview', // Or gpt-3.5-turbo if preferred for speed/cost
+                model: 'gpt-4o-mini', // Stable, fast, and cost-effective model
                 messages: [
                     { role: 'system', content: SYSTEM_PROMPT },
                     ...messages
                 ],
                 temperature: 0.7,
+                max_tokens: 500,
             }),
         });
 
         if (!response.ok) {
             const error = await response.json();
             console.error('OpenAI API Error:', error);
-            throw new Error('OpenAI API request failed');
+            console.error('Status:', response.status, response.statusText);
+            return NextResponse.json(
+                { content: `Erreur API OpenAI (${response.status}). Vérifiez votre clé API et vos crédits.` },
+                { status: 500 }
+            );
         }
 
         const data = await response.json();
