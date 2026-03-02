@@ -45,6 +45,9 @@ export async function POST(req: Request) {
         const { messages } = await req.json();
         const apiKey = process.env.OPENAI_API_KEY;
 
+        console.log('API Key présente:', !!apiKey);
+        console.log('Nombre de messages reçus:', messages?.length);
+
         if (!apiKey) {
             return NextResponse.json(
                 { content: "Je suis désolé, je ne suis pas configuré correctement (Clé API manquante)." },
@@ -52,21 +55,25 @@ export async function POST(req: Request) {
             );
         }
 
+        const requestBody = {
+            model: 'gpt-3.5-turbo', // Most compatible and reliable model
+            messages: [
+                { role: 'system', content: SYSTEM_PROMPT },
+                ...messages
+            ],
+            temperature: 0.7,
+            max_tokens: 500,
+        };
+
+        console.log('Envoi requête à OpenAI avec modèle:', requestBody.model);
+
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`,
             },
-            body: JSON.stringify({
-                model: 'gpt-4o-mini', // Stable, fast, and cost-effective model
-                messages: [
-                    { role: 'system', content: SYSTEM_PROMPT },
-                    ...messages
-                ],
-                temperature: 0.7,
-                max_tokens: 500,
-            }),
+            body: JSON.stringify(requestBody),
         });
 
         if (!response.ok) {
