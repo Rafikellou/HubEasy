@@ -6,7 +6,7 @@ import { getLocale } from 'next-intl/server';
 import GoogleTagManager from '@/components/GoogleTagManager';
 import { ChatbotProvider } from '@/context/ChatbotContext';
 import { ChatLayoutWrapper } from '@/components/chatbot/ChatLayoutWrapper';
-// import { LukeChatbot } from '@/components/chatbot/LukeChatbot';
+import { LukeChatbot } from '@/components/chatbot/LukeChatbot';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -60,7 +60,7 @@ export default async function RootLayout({
             <ChatLayoutWrapper>
               {children}
             </ChatLayoutWrapper>
-            {/* <LukeChatbot /> */}
+            <LukeChatbot />
           </ChatbotProvider>
         </ThemeProvider>
       </body>

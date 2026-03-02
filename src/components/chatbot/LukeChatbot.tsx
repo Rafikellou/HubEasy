@@ -14,6 +14,9 @@ interface Message {
 }
 
 export const LukeChatbot = () => {
+    // CHATBOT DÉSACTIVÉ - Ne pas afficher en production
+    return null;
+    
     const { isOpen, toggleChatbot, setIsOpen } = useChatbot();
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -26,14 +29,14 @@ export const LukeChatbot = () => {
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    // Auto-expand after 3.5 seconds
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsOpen(true);
-        }, 3500);
+    // Auto-expand after 3.5 seconds - DISABLED
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setIsOpen(true);
+    //     }, 3500);
 
-        return () => clearTimeout(timer);
-    }, [setIsOpen]);
+    //     return () => clearTimeout(timer);
+    // }, [setIsOpen]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
