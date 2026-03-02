@@ -60,7 +60,7 @@ export default async function RootLayout({
             <ChatLayoutWrapper>
               {children}
             </ChatLayoutWrapper>
-            <LukeChatbot />
+            {/* <LukeChatbot /> */}
           </ChatbotProvider>
         </ThemeProvider>
       </body>
