@@ -187,7 +187,7 @@ export const LukeChatbot = () => {
             <button
                 onClick={toggleChatbot}
                 className={cn(
-                    "fixed bottom-8 right-8 z-[45] p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110",
+                    "fixed bottom-8 right-8 z-[60] p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110",
                     isOpen ? "opacity-0 pointer-events-none scale-0" : "bg-[#ff7a59] hover:bg-[#ff7a59]/90 opacity-100 scale-100"
                 )}
             >
@@ -197,7 +197,7 @@ export const LukeChatbot = () => {
             {/* Chat Interface */}
             <div
                 className={cn(
-                    "fixed top-0 right-0 h-full bg-background border-l shadow-2xl transition-all duration-500 ease-in-out z-[45] flex flex-col",
+                    "fixed top-0 right-0 h-full bg-background border-l shadow-2xl transition-all duration-500 ease-in-out z-[60] flex flex-col",
                     isOpen ? "translate-x-0 w-full md:w-[400px]" : "translate-x-full w-full md:w-[400px]"
                 )}
             >
@@ -206,10 +206,10 @@ export const LukeChatbot = () => {
                     {/* Close Button - Top Left */}
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="absolute top-4 left-4 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition-colors z-10"
+                        className="absolute top-4 left-4 p-2.5 rounded-full bg-white shadow-lg hover:bg-gray-100 transition-colors z-[70] border border-gray-200"
                         aria-label="Fermer"
                     >
-                        <X className="w-5 h-5 text-gray-700" />
+                        <X className="w-6 h-6 text-gray-900 stroke-[2.5]" />
                     </button>
 
                     <div className="flex flex-col items-center justify-center mt-2">
