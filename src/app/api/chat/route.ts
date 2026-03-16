@@ -30,10 +30,25 @@ DATA COLLECTION STRATEGY:
 - Do NOT ask for contact info in the very first message unless the user says "Contact me".
 - After 2-3 interactions or if the user shows clear interest, begin the collection phase.
 - **Sequential Collection**: Ask for these ONE BY ONE. Wait for the answer before asking the next.
-  1. First Name
+  1. First Name (Prénom)
   2. Email Address
-  3. Phone Number
+  3. Phone Number (Téléphone)
 - Once all 3 are collected, thank them and say a human expert will contact them shortly.
+
+IMPORTANT - CONTACT DATA EXTRACTION:
+When you have successfully collected all 3 pieces of information (First Name, Email, Phone), you MUST include a special JSON marker in your response.
+Add this EXACT structure at the END of your message (after your normal text response):
+
+|||CONTACT_COLLECTED|||
+{"firstName": "the_first_name", "email": "the_email", "phone": "the_phone"}
+|||END_CONTACT|||
+
+Example:
+"Parfait Jean ! Merci pour ces informations. Un expert de notre équipe va te contacter très prochainement à l'adresse jean.dupont@example.com ou au +33 6 12 34 56 78. À très vite ! 😊
+
+|||CONTACT_COLLECTED|||
+{"firstName": "Jean", "email": "jean.dupont@example.com", "phone": "+33 6 12 34 56 78"}
+|||END_CONTACT|||"
 
 PRIORITY:
 - ALWAYS answer the user's specific question first.
@@ -41,22 +56,37 @@ PRIORITY:
 `;
 
 export async function POST(req: Request) {
+    const timestamp = new Date().toISOString();
+    const requestId = `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    
+    console.log(`[${timestamp}] [${requestId}] 🚀 Luke Chat API - Requête reçue`);
+    console.log(`[${requestId}] Environment: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`[${requestId}] URL: ${req.url}`);
+    console.log(`[${requestId}] Method: ${req.method}`);
+    
     try {
         const { messages } = await req.json();
         const apiKey = process.env.OPENAI_API_KEY;
 
-        console.log('API Key présente:', !!apiKey);
-        console.log('Nombre de messages reçus:', messages?.length);
+        console.log(`[${requestId}] ✅ Body parsé avec succès`);
+        console.log(`[${requestId}] API Key présente: ${!!apiKey}`);
+        console.log(`[${requestId}] Nombre de messages reçus: ${messages?.length}`);
 
         if (!apiKey) {
+            console.error(`[${requestId}] ❌ ERREUR CRITIQUE: Clé API OpenAI manquante`);
+            console.error(`[${requestId}] Variables d'environnement disponibles:`, Object.keys(process.env).filter(k => !k.includes('KEY')));
             return NextResponse.json(
-                { content: "Je suis désolé, je ne suis pas configuré correctement (Clé API manquante)." },
+                { 
+                    content: "Je suis désolé, je ne suis pas configuré correctement (Clé API manquante).",
+                    error: "MISSING_API_KEY",
+                    requestId 
+                },
                 { status: 500 }
             );
         }
 
         const requestBody = {
-            model: 'gpt-3.5-turbo', // Most compatible and reliable model
+            model: 'gpt-3.5-turbo',
             messages: [
                 { role: 'system', content: SYSTEM_PROMPT },
                 ...messages
@@ -65,7 +95,9 @@ export async function POST(req: Request) {
             max_tokens: 500,
         };
 
-        console.log('Envoi requête à OpenAI avec modèle:', requestBody.model);
+        console.log(`[${requestId}] 📤 Envoi requête à OpenAI`);
+        console.log(`[${requestId}] Modèle: ${requestBody.model}`);
+        console.log(`[${requestId}] Nombre total de messages (avec system): ${requestBody.messages.length}`);
 
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
@@ -78,10 +110,22 @@ export async function POST(req: Request) {
 
         if (!response.ok) {
             const error = await response.json();
-            console.error('OpenAI API Error:', error);
-            console.error('Status:', response.status, response.statusText);
+            console.error(`[${requestId}] ❌ Erreur OpenAI API`);
+            console.error(`[${requestId}] Status: ${response.status} ${response.statusText}`);
+            console.error(`[${requestId}] Erreur détaillée:`, JSON.stringify(error, null, 2));
+            
+            const errorMessage = error.error?.message || JSON.stringify(error);
             return NextResponse.json(
-                { content: `Erreur API OpenAI (${response.status}). Vérifiez votre clé API et vos crédits.` },
+                { 
+                    content: `Erreur API OpenAI (${response.status}): ${errorMessage}`,
+                    error: error,
+                    requestId,
+                    debug: {
+                        status: response.status,
+                        statusText: response.statusText,
+                        timestamp
+                    }
+                },
                 { status: 500 }
             );
         }
@@ -89,12 +133,25 @@ export async function POST(req: Request) {
         const data = await response.json();
         const aiMessage = data.choices[0].message.content;
 
-        return NextResponse.json({ content: aiMessage });
+        console.log(`[${requestId}] ✅ Réponse OpenAI reçue avec succès`);
+        console.log(`[${requestId}] Longueur de la réponse: ${aiMessage?.length || 0} caractères`);
+        console.log(`[${requestId}] Tokens utilisés:`, data.usage);
+
+        return NextResponse.json({ content: aiMessage, requestId });
 
     } catch (error) {
-        console.error('Chat API Error:', error);
+        console.error(`[${requestId}] ❌ ERREUR CRITIQUE dans Chat API`);
+        console.error(`[${requestId}] Type d'erreur:`, error instanceof Error ? error.constructor.name : typeof error);
+        console.error(`[${requestId}] Message:`, error instanceof Error ? error.message : String(error));
+        console.error(`[${requestId}] Stack:`, error instanceof Error ? error.stack : 'N/A');
+        
         return NextResponse.json(
-            { content: "Désolé, j'ai rencontré une erreur momentanée. Veuillez réessayer." },
+            { 
+                content: "Désolé, j'ai rencontré une erreur momentanée. Veuillez réessayer.",
+                error: error instanceof Error ? error.message : String(error),
+                requestId,
+                timestamp
+            },
             { status: 500 }
         );
     }

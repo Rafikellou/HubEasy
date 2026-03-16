@@ -57,7 +57,15 @@ export const LukeChatbot = () => {
         setInput('');
         setIsLoading(true);
 
+        const requestTimestamp = new Date().toISOString();
+        console.log(`[${requestTimestamp}] 🚀 Frontend - Envoi message à Luke`);
+        console.log(`[Frontend] Message utilisateur:`, userMessage.content);
+        console.log(`[Frontend] Nombre total de messages:`, messages.length + 1);
+
         try {
+            console.log(`[Frontend] 📤 Appel API: /api/chat`);
+            const fetchStartTime = Date.now();
+            
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
@@ -66,21 +74,110 @@ export const LukeChatbot = () => {
                 body: JSON.stringify({ messages: [...messages, userMessage] }),
             });
 
-            if (!response.ok) throw new Error('Failed to fetch response');
+            const fetchDuration = Date.now() - fetchStartTime;
+            console.log(`[Frontend] ⏱️ Durée de la requête: ${fetchDuration}ms`);
+            console.log(`[Frontend] Status de la réponse: ${response.status} ${response.statusText}`);
 
             const data = await response.json();
+            console.log(`[Frontend] 📥 Données reçues:`, {
+                hasContent: !!data.content,
+                contentLength: data.content?.length || 0,
+                requestId: data.requestId,
+                hasError: !!data.error
+            });
+            
+            if (!response.ok) {
+                console.error(`[Frontend] ❌ Erreur API Chat`);
+                console.error(`[Frontend] Status: ${response.status} ${response.statusText}`);
+                console.error(`[Frontend] Données complètes:`, data);
+                console.error(`[Frontend] Request ID:`, data.requestId);
+                
+                const errorMessage: Message = {
+                    id: (Date.now() + 1).toString(),
+                    role: 'assistant',
+                    content: data.content || `Désolé, j'ai rencontré une erreur (${response.status}). ${data.error ? `Erreur: ${data.error}` : 'Vérifiez la console pour plus de détails.'}`
+                };
+                setMessages(prev => [...prev, errorMessage]);
+                return;
+            }
+
+            console.log(`[Frontend] ✅ Réponse traitée avec succès`);
+            
+            // Vérifier si Luke a collecté les informations de contact
+            let cleanContent = data.content;
+            const contactMarkerStart = '|||CONTACT_COLLECTED|||';
+            const contactMarkerEnd = '|||END_CONTACT|||';
+            
+            if (data.content.includes(contactMarkerStart) && data.content.includes(contactMarkerEnd)) {
+                console.log(`[Frontend] 🎯 Contact collecté détecté !`);
+                
+                try {
+                    // Extraire le JSON des informations de contact
+                    const startIndex = data.content.indexOf(contactMarkerStart) + contactMarkerStart.length;
+                    const endIndex = data.content.indexOf(contactMarkerEnd);
+                    const contactJson = data.content.substring(startIndex, endIndex).trim();
+                    const contactData = JSON.parse(contactJson);
+                    
+                    console.log(`[Frontend] 📋 Données extraites:`, contactData);
+                    
+                    // Nettoyer le contenu pour l'affichage (retirer les marqueurs)
+                    cleanContent = data.content.substring(0, data.content.indexOf(contactMarkerStart)).trim();
+                    
+                    // Envoyer les données à l'API Slack (en arrière-plan)
+                    fetch('/api/luke-contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            firstName: contactData.firstName,
+                            email: contactData.email,
+                            phone: contactData.phone,
+                            conversationHistory: messages.map(m => ({
+                                role: m.role,
+                                content: m.content
+                            }))
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        if (result.success) {
+                            console.log(`[Frontend] ✅ Notification Slack envoyée:`, result.requestId);
+                        } else {
+                            console.error(`[Frontend] ❌ Erreur notification Slack:`, result);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`[Frontend] ❌ Erreur lors de l'envoi vers Slack:`, error);
+                    });
+                    
+                } catch (error) {
+                    console.error(`[Frontend] ❌ Erreur lors de l'extraction des données de contact:`, error);
+                }
+            }
+            
             const assistantMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 role: 'assistant',
-                content: data.content
+                content: cleanContent
             };
 
             setMessages(prev => [...prev, assistantMessage]);
         } catch (error) {
-            console.error('Error:', error);
-            // Handle error gracefully
+            console.error(`[Frontend] ❌ ERREUR CRITIQUE`);
+            console.error(`[Frontend] Type:`, error instanceof Error ? error.constructor.name : typeof error);
+            console.error(`[Frontend] Message:`, error instanceof Error ? error.message : String(error));
+            console.error(`[Frontend] Stack:`, error instanceof Error ? error.stack : 'N/A');
+            
+            const errorMessage: Message = {
+                id: (Date.now() + 1).toString(),
+                role: 'assistant',
+                content: `Désolé, impossible de me connecter au serveur. ${error instanceof Error ? `Erreur: ${error.message}` : 'Erreur réseau.'}`
+            };
+            setMessages(prev => [...prev, errorMessage]);
         } finally {
             setIsLoading(false);
+            console.log(`[Frontend] 🏁 Traitement terminé`);
         }
     };
 
