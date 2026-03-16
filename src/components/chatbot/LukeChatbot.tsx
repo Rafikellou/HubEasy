@@ -123,7 +123,7 @@ export const LukeChatbot = () => {
                     // Nettoyer le contenu pour l'affichage (retirer les marqueurs)
                     cleanContent = data.content.substring(0, data.content.indexOf(contactMarkerStart)).trim();
                     
-                    // Envoyer les données à l'API Slack (en arrière-plan)
+                    // Envoyer les données à l'API Slack (en arrière-plan, non bloquant)
                     fetch('/api/luke-contact', {
                         method: 'POST',
                         headers: {
@@ -144,11 +144,11 @@ export const LukeChatbot = () => {
                         if (result.success) {
                             console.log(`[Frontend] ✅ Notification Slack envoyée:`, result.requestId);
                         } else {
-                            console.error(`[Frontend] ❌ Erreur notification Slack:`, result);
+                            console.warn(`[Frontend] ⚠️ Notification Slack non envoyée (normal si SLACK_WEBHOOK_URL non configurée):`, result);
                         }
                     })
                     .catch(error => {
-                        console.error(`[Frontend] ❌ Erreur lors de l'envoi vers Slack:`, error);
+                        console.warn(`[Frontend] ⚠️ Impossible d'envoyer vers Slack (normal si non configuré):`, error);
                     });
                     
                 } catch (error) {

@@ -40,14 +40,22 @@ export async function POST(req: Request) {
         const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
 
         if (!slackWebhookUrl) {
-            console.error(`[${requestId}] ❌ SLACK_WEBHOOK_URL non configurée`);
+            console.warn(`[${requestId}] ⚠️ SLACK_WEBHOOK_URL non configurée - notification ignorée`);
+            console.log(`[${requestId}] 📋 Données prospect collectées (non envoyées):`, {
+                firstName,
+                email,
+                phone
+            });
+            
+            // Retourner un succès même si Slack n'est pas configuré
             return NextResponse.json(
                 { 
-                    success: false, 
-                    error: 'MISSING_WEBHOOK',
-                    message: 'Webhook Slack non configuré' 
+                    success: true,
+                    warning: 'SLACK_NOT_CONFIGURED',
+                    message: 'Données collectées mais Slack non configuré',
+                    data: { firstName, email, phone }
                 },
-                { status: 500 }
+                { status: 200 }
             );
         }
 
