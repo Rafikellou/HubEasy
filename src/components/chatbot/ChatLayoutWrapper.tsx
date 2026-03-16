@@ -11,7 +11,7 @@ export const ChatLayoutWrapper = ({ children }: { children: ReactNode }) => {
         <div
             className={cn(
                 "transition-all duration-500 ease-in-out w-full",
-                isOpen ? "mr-[400px] w-[calc(100%-400px)]" : "mr-0"
+                isOpen ? "md:mr-[400px] md:w-[calc(100%-400px)]" : "mr-0"
             )}
         >
             {children}
